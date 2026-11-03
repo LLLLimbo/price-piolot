@@ -1,0 +1,12 @@
+web/node_modules/
+web/src/.umi*/
+web/dist/
+data/
+.cache/
+tests/artifacts/
+.env
+.env.*
+!.env.example
+*.db
+*.db-shm
+*.db-wal
