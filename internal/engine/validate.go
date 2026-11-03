@@ -81,6 +81,9 @@ func routeFeesAvailable(in Input, q Quote, includes []string) error {
 
 func returnsAvailable(p Product) error {
 	r := p.Returns
+	if r.UnclassifiedRate > 0 {
+		return fmt.Errorf("有待分类的发货后售后异常（原始订单口径%g%%）；请区分拒收／未签收与签收后退货并补全费用，再将待分类项归零", r.UnclassifiedRate*100)
+	}
 	if r.Rate == 0 && r.RefusalRate == 0 {
 		return nil
 	}
@@ -158,8 +161,8 @@ func Validate(in Input) error {
 	if err := returnsAvailable(p); err != nil {
 		return err
 	}
-	if !validNumber(r.Rate) || !validNumber(r.CancelRate) || !validNumber(r.RefusalRate) || r.RefusalRate < 0 || r.Rate < 0 || r.CancelRate < 0 || r.Rate+r.CancelRate+r.RefusalRate >= 1 {
-		return fmt.Errorf("退货、拒收与取消率之和须小于100%%")
+	if !validNumber(r.Rate) || !validNumber(r.CancelRate) || !validNumber(r.RefusalRate) || !validNumber(r.UnclassifiedRate) || r.UnclassifiedRate < 0 || r.RefusalRate < 0 || r.Rate < 0 || r.CancelRate < 0 || r.Rate+r.CancelRate+r.RefusalRate+r.UnclassifiedRate >= 1 {
+		return fmt.Errorf("退货、拒收、取消及待分类比例须非负且合计小于100%%")
 	}
 	if r.RefusalRate > 0 {
 		for _, v := range []*float64{r.RefusalReverse, r.RefusalDisposal, r.RefusalRecovery} {
@@ -362,7 +365,7 @@ func ValidateQuote(q Quote) error {
 		return fmt.Errorf("请至少填写一个报价档位")
 	}
 	for _, b := range q.Bands {
-		for _, v := range []float64{b.MinWeight, b.MaxWeight, b.Fixed, b.PerGram, b.VolumeDivisor, b.Step, b.MinimumWeight, b.MaxLength, b.MaxSum} {
+		for _, v := range []float64{b.MinValue, b.MinWeight, b.MaxWeight, b.Fixed, b.PerGram, b.VolumeDivisor, b.Step, b.MinimumWeight, b.MaxLength, b.MaxSum} {
 			if !validNumber(v) || v < 0 {
 				return fmt.Errorf("报价档位含无效数值")
 			}
@@ -370,7 +373,7 @@ func ValidateQuote(q Quote) error {
 		if (q.Status == "active" && b.MaxWeight <= 0) || (b.MaxWeight > 0 && b.MinWeight > b.MaxWeight) || b.Step <= 0 {
 			return fmt.Errorf("请确认档位重量上限和计费进位")
 		}
-		if b.UpTo != nil && (!validNumber(*b.UpTo) || *b.UpTo <= 0) {
+		if b.UpTo != nil && (!validNumber(*b.UpTo) || *b.UpTo <= 0 || b.MinValue > *b.UpTo) {
 			return fmt.Errorf("货值上限无效")
 		}
 	}

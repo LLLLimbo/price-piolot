@@ -72,6 +72,8 @@ import PromotionsPage from "../components/PromotionsPage";
 import SalesPanel from "../components/SalesPanel";
 import PublicQuotes from "../components/PublicQuotes";
 import SettingsPage from "../components/SettingsPage";
+import AlibabaImport from "../components/AlibabaImport";
+import ProfitCheckPanel from "../components/ProfitCheckPanel";
 import "../style.css";
 
 const iconModes = {
@@ -99,6 +101,9 @@ export default function Root() {
 	const [dark, setDark] = useState(
 		() => localStorage.getItem("price-pilot-theme") === "dark",
 	);
+	useEffect(() => {
+		document.documentElement.dataset.theme = dark ? "dark" : "light";
+	}, [dark]);
 	return (
 		<ConfigProvider
 			locale={zhCN}
@@ -239,6 +244,7 @@ function Workbench({
 	const [dirty, setDirty] = useState(false);
 	const [bootError, setBootError] = useState("");
 	const [collapsed, setCollapsed] = useState(false);
+	const [importOpen, setImportOpen] = useState(false);
 	const revision = useRef(0);
 	const sequence = useRef(0);
 	const error = useCallback(
@@ -467,6 +473,20 @@ function Workbench({
 		setResult(undefined);
 		setDirty(true);
 		history.push("/");
+	};
+	const loadImported = (p: Product) => {
+		revision.current++;
+		sequence.current++;
+		setProduct(p);
+		setSnapshot(undefined);
+		setResult(undefined);
+		setContexts([]);
+		setSalesResults([]);
+		setHistoricalRun(undefined);
+		setBusy(false);
+		setDirty(true);
+		history.push("/");
+		message.success("已载入1688商品草稿，请补全成本后保存和测算");
 	};
 	const openRun = async (run: RunSummary) => {
 		try {
@@ -869,6 +889,7 @@ function Workbench({
 															icon: <PlusOutlined />,
 														},
 														{ key: "demo", label: "载入演示商品" },
+														{ key: "1688", label: "载入1688商品" },
 														{ key: "paper", label: "载入Seerfar测试SKU" },
 													],
 													onClick: ({ key }) =>
@@ -876,7 +897,9 @@ function Workbench({
 															? create()
 															: key === "demo"
 																? loadDemo()
-																: mockPaper(),
+																: key === "1688"
+																	? setImportOpen(true)
+																	: mockPaper(),
 												}}
 											>
 												<Button aria-label="商品操作" icon={<PlusOutlined />}>
@@ -938,6 +961,12 @@ function Workbench({
 												saving={saving}
 											/>
 											<div className="analysis-panel">
+												{!historicalRun && (
+													<ProfitCheckPanel
+														key={product.id}
+														product={product}
+													/>
+												)}
 												<section className="strategy-panel">
 													<div className="panel-title">
 														<div>
@@ -1338,6 +1367,15 @@ function Workbench({
 					</main>
 				)}
 			</ProLayout>
+			{data && importOpen && (
+				<AlibabaImport
+					key={`${storeId}:${data.integrations.version}`}
+					open
+					dirty={dirty}
+					onClose={() => setImportOpen(false)}
+					onLoaded={loadImported}
+				/>
+			)}
 		</div>
 	);
 }

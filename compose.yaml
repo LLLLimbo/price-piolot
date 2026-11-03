@@ -20,6 +20,32 @@ services:
     depends_on:
       mock-seerfar:
         condition: service_healthy
+      mock-1688:
+        condition: service_healthy
+      mock-fx:
+        condition: service_healthy
+  mock-1688:
+    image: price-pilot-1688:local
+    build:
+      context: ../mock-servers/1688-crossboarder-erp-api
+      args:
+        HTTP_PROXY: ${HTTP_PROXY:-}
+        HTTPS_PROXY: ${HTTPS_PROXY:-}
+    environment:
+      MOCK_BASE_URL: http://mock-1688:8080
+    healthcheck:
+      test: [CMD, curl, -fsS, http://localhost:8080/health]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  mock-fx:
+    image: price-pilot:local
+    entrypoint: [/app/mockfx]
+    healthcheck:
+      test: [CMD, /app/mockfx, health]
+      interval: 2s
+      timeout: 3s
+      retries: 30
   mock-seerfar:
     image: price-pilot-seerfar:local
     build:

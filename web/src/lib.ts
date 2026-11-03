@@ -1,5 +1,11 @@
 import { createContext, useContext } from "react";
-import type { Competitor, Product, Result, Snapshot } from "./types";
+import type {
+	AlibabaProduct,
+	Competitor,
+	Product,
+	Result,
+	Snapshot,
+} from "./types";
 export async function api<T>(
 	path: string,
 	body?: unknown,
@@ -21,6 +27,25 @@ export function scopedAPI(storeId: string): typeof api {
 export const ApiContext = createContext<typeof api>(api);
 export const useStoreApi = () => useContext(ApiContext);
 export const clone = <T>(v: T): T => JSON.parse(JSON.stringify(v));
+export function alibabaPriceHint(
+	product: AlibabaProduct,
+	skuID: string,
+	quantity: number,
+): number | null {
+	const sku = product.skus.find((s) => s.id === skuID);
+	if (!sku) return null;
+	if (product.quote_type === 1) return sku.price;
+	const tiers = product.quote_type === 3 ? sku.tiers : product.tiers;
+	const tierPrice =
+		tiers?.filter((t) => t.quantity <= quantity).at(-1)?.price ?? null;
+	if (
+		product.quote_type === 0 ||
+		product.quote_type === 2 ||
+		product.quote_type === 3
+	)
+		return tierPrice;
+	return sku.price ?? tierPrice;
+}
 export const id = () =>
 	`p-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 9)}`;
 export const money = (
@@ -82,7 +107,10 @@ export function attributes(text: string): Record<string, string> {
 export function newProduct(template: Product): Product {
 	const p = clone(template);
 	p.id = id();
+	delete p.sourcing;
+	delete p.profit_check;
 	p.name = "";
+	p.notes = "";
 	p.demo = false;
 	p.supplier = "";
 	p.supplier_score = null;
@@ -119,6 +147,9 @@ export function newProduct(template: Product): Product {
 		target_max_price: null,
 	};
 	p.weight = 0;
+	p.supply = "stock";
+	p.batteries = false;
+	p.liquids = false;
 	p.length = 0;
 	p.width = 0;
 	p.height = 0;
@@ -136,6 +167,7 @@ export function newProduct(template: Product): Product {
 		source: "商家录入",
 	}));
 	p.returns = {
+		unclassified_rate: 0,
 		destination: "",
 		source: "",
 		rate: 0,
@@ -165,6 +197,17 @@ export function exportCSV(
 	if (!e) throw new Error("没有可导出的推荐方案");
 	const rows: unknown[][] = [
 		["商品", product.name],
+		["商品备注与数据来源", product.notes],
+		[
+			"待分类售后异常率（原始订单口径）",
+			pct(product.returns?.unclassified_rate),
+		],
+		["1688商品ID", product.sourcing?.offer_id],
+		["1688 SKU", product.sourcing?.sku_id],
+		["采购报价单位", product.sourcing?.unit],
+		["采购来源环境", product.sourcing?.environment],
+		["采购来源版本", product.sourcing?.profile_version],
+		["采购报价获取时间", product.sourcing?.fetched_at],
 		["模式", modes[result.mode]?.name],
 		["数据标识", result.demo ? "演示数据" : "商家测算"],
 		["计算时间", result.calculated_at],
@@ -276,6 +319,15 @@ export function exportBundleCSV(
 			"",
 			heading(["定价情景", c.name, c.state]),
 			heading(["情景状态", c.result.status]),
+			heading(["计算汇率 CNY→RUB", c.input.settings.fx]),
+			heading(["汇率来源", c.input.settings.fx_source]),
+			heading(["汇率数据日期", c.input.settings.fx_date]),
+			heading([
+				"汇率环境",
+				c.input.settings.fx_meta?.environment || "手动录入",
+			]),
+			heading(["汇率配置版本", c.input.settings.fx_meta?.profile_version]),
+			heading(["汇率获取时间", c.input.settings.fx_meta?.fetched_at]),
 		);
 		if (c.result.recommended) {
 			chunks.push(

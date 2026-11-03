@@ -77,7 +77,7 @@ async function main() {
   await page.getByText('浏览器验收协议', { exact: true }).first().waitFor();
   await page.getByRole('tab',{name:'公共物流资料',exact:true}).click();
   const oglCopy=page.getByRole('button',{name:'复制OGL 官方物流到本店',exact:true});
-  if(await oglCopy.count()===0){await page.getByRole('tabpanel',{name:'公共物流资料',exact:true}).locator('.ant-pagination-item-2').click();}
+  for(let p=0;p<10&&await oglCopy.count()===0;p++){await page.getByRole('tabpanel',{name:'公共物流资料',exact:true}).locator('.ant-pagination-next:not(.ant-pagination-disabled)').click();}
   await oglCopy.waitFor();
   const copied=page.waitForResponse(r=>r.url().endsWith('/quotes/copy-public'));
   await page.getByRole('button',{name:'复制OGL 官方物流到本店',exact:true}).click();const copy=await (await copied).json();assert.equal(copy.quote.status,'pending');

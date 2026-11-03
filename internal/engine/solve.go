@@ -85,12 +85,18 @@ func critical(in Input, q Quote, cap, market float64) []int64 {
 		}
 	}
 	for _, b := range q.Bands {
+		if b.MinValue > 0 {
+			valuePoint(b.MinValue, q.ValueCurrency)
+		}
 		if b.UpTo != nil {
 			valuePoint(*b.UpTo, q.ValueCurrency)
 		}
 	}
 	if wh, _ := warehouseQuote(in); wh != nil {
 		for _, b := range wh.Bands {
+			if b.MinValue > 0 {
+				valuePoint(b.MinValue, wh.ValueCurrency)
+			}
 			if b.UpTo != nil {
 				valuePoint(*b.UpTo, wh.ValueCurrency)
 			}
@@ -330,7 +336,7 @@ func better(in Input, a, b Evaluation, market float64) bool {
 	return a.QuoteID < b.QuoteID
 }
 func Solve(in Input) (Result, error) {
-	r := Result{Status: "infeasible", Mode: in.Product.Mode, Alternatives: []Evaluation{}, Unavailable: []Unavailable{}, Messages: []string{}, SnapshotID: in.Snapshot.ID, CalculatedAt: in.AsOf, Demo: in.Product.Demo || in.Snapshot.Demo || in.Settings.Demo}
+	r := Result{Status: "infeasible", Mode: in.Product.Mode, Alternatives: []Evaluation{}, Unavailable: []Unavailable{}, Messages: []string{}, SnapshotID: in.Snapshot.ID, CalculatedAt: in.AsOf, Demo: in.Product.Demo || in.Snapshot.Demo || in.Settings.Demo || (in.Settings.FXMeta != nil && in.Settings.FXMeta.Demo)}
 	if err := Validate(in); err != nil {
 		return r, err
 	}

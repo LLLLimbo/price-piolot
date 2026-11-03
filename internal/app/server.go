@@ -1,6 +1,8 @@
 package app
 
 import (
+	"context"
+	"crypto/rand"
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -8,6 +10,7 @@ import (
 	"os"
 	"path/filepath"
 	"pricepilot/internal/engine"
+	"pricepilot/internal/integrations"
 	"pricepilot/internal/seerfar"
 	"pricepilot/internal/store"
 	"strings"
@@ -16,11 +19,10 @@ import (
 )
 
 type Server struct {
-	store   *store.Store
-	root    *store.Store
-	seerfar *seerfar.Client
-	mock    bool
-	mu      *sync.Mutex
+	store    *store.Store
+	root     *store.Store
+	services *integrations.Manager
+	mu       *sync.Mutex
 }
 type Run struct {
 	ID             string                     `json:"id"`
@@ -35,7 +37,7 @@ type Run struct {
 	Result         engine.Result              `json:"result"`
 }
 
-func New(db *store.Store, client *seerfar.Client, static string, mock bool) http.Handler {
+func New(db *store.Store, client *seerfar.Client, static string, mock bool, managers ...*integrations.Manager) http.Handler {
 	gin.SetMode(gin.ReleaseMode)
 	r := gin.New()
 	r.Use(gin.Recovery())
@@ -44,7 +46,20 @@ func New(db *store.Store, client *seerfar.Client, static string, mock bool) http
 		c.Header("X-Content-Type-Options", "nosniff")
 		c.Next()
 	})
-	s := &Server{store: db, root: db, seerfar: client, mock: mock, mu: &sync.Mutex{}}
+	var services *integrations.Manager
+	if len(managers) > 0 {
+		services = managers[0]
+	} else {
+		key := make([]byte, 32)
+		if _, err := rand.Read(key); err != nil {
+			panic(err)
+		}
+		services = integrations.New(db, key)
+		if err := services.MigrateLegacy(context.Background(), client.BaseURL, client.Key, mock); err != nil {
+			panic(err)
+		}
+	}
+	s := &Server{store: db, root: db, services: services, mu: &sync.Mutex{}}
 	r.GET("/api/health", func(c *gin.Context) {
 		if err := db.Ping(c.Request.Context()); err != nil {
 			c.JSON(503, gin.H{"error": "数据库不可用"})
@@ -75,6 +90,14 @@ func New(db *store.Store, client *seerfar.Client, static string, mock bool) http
 		return func(c *gin.Context) { scoped := *s; scoped.store = db.ForStore(c.Param("store_id")); h(&scoped, c) }
 	}
 	g.GET("/bootstrap", wrap((*Server).bootstrap))
+	g.GET("/integrations", wrap((*Server).getIntegrations))
+	g.PUT("/integrations", wrap((*Server).saveIntegrations))
+	g.POST("/integrations/:provider/:environment/test", wrap((*Server).testIntegration))
+	g.POST("/sourcing/1688/preview", wrap((*Server).previewProduct))
+	g.POST("/sourcing/1688/establish-relation", wrap((*Server).establishRelation))
+	g.POST("/sourcing/1688/load", wrap((*Server).loadProduct))
+	g.POST("/exchange-rates/preview", wrap((*Server).previewFX))
+	g.POST("/exchange-rates/apply", wrap((*Server).applyFX))
 	g.GET("/seerfar/quota", wrap((*Server).quota))
 	g.PUT("/settings", wrap((*Server).settings))
 	g.POST("/products", wrap((*Server).saveProduct))
@@ -95,6 +118,7 @@ func New(db *store.Store, client *seerfar.Client, static string, mock bool) http
 	g.POST("/snapshots", wrap((*Server).newSnapshot))
 	g.PUT("/snapshots/:id", wrap((*Server).updateSnapshot))
 	g.POST("/calculate", wrap((*Server).calculate))
+	g.POST("/profit-checks/evaluate", wrap((*Server).checkProfit))
 	g.POST("/demo", wrap((*Server).loadDemo))
 	g.GET("/runs/:id", wrap((*Server).getRun))
 
@@ -137,7 +161,13 @@ func (s *Server) bootstrap(c *gin.Context) {
 		internal(c)
 		return
 	}
-	out := gin.H{"settings": settings, "seerfar": gin.H{"configured": s.seerfar.Configured(), "mock": s.mock}}
+	config, err := s.services.View(ctx, s.store.Scope())
+	if err != nil {
+		internal(c)
+		return
+	}
+	seer := config.Services["seerfar"]
+	out := gin.H{"settings": settings, "integrations": config, "seerfar": gin.H{"configured": seer.Profiles[seer.Active].Configured, "mock": seer.Active == "mock"}}
 	template, _, _, _ := demo(time.Now().UTC())
 	template.StoreID = s.store.Scope()
 	out["template"] = template
@@ -182,6 +212,18 @@ func (s *Server) settings(c *gin.Context) {
 		return
 	}
 	settings.StoreID = s.store.Scope()
+	var previous engine.Settings
+	if s.store.Get(c.Request.Context(), "settings", "default", &previous) == nil {
+		if settings.Version != previous.Version {
+			c.JSON(409, gin.H{"error": "设置已更新，请刷新后保存"})
+			return
+		}
+		if settings.FX == previous.FX && settings.FXDate == previous.FXDate && settings.FXSource == previous.FXSource {
+			settings.FXMeta = previous.FXMeta
+		} else {
+			settings.FXMeta = nil
+		}
+	}
 	settings.Version = s.nextVersion(c, "settings", "default")
 	for i := range settings.Fees {
 		settings.Fees[i].Version = settings.Version
@@ -253,6 +295,12 @@ func (s *Server) saveProduct(c *gin.Context) {
 	if strings.TrimSpace(p.Name) == "" {
 		bad(c, fmt.Errorf("请输入商品名称"))
 		return
+	}
+	if p.ProfitCheck != nil {
+		if err := engine.ValidateProfitCheck(*p.ProfitCheck); err != nil {
+			bad(c, err)
+			return
+		}
 	}
 	p.Version = s.nextVersion(c, "products", p.ID)
 	for i := range p.Costs {
@@ -344,14 +392,29 @@ func (s *Server) discover(c *gin.Context) {
 	}
 	queryProduct := req.Product
 	queryProduct.OwnSellerIDs = append(append([]string{}, req.Product.OwnSellerIDs...), s.ownedSellerIDs(c)...)
-	rows, err := s.seerfar.Discover(c.Request.Context(), queryProduct)
+	client, binding, err := s.currentSeerfar(c)
+	if err != nil {
+		internal(c)
+		return
+	}
+	rows, err := client.Discover(c.Request.Context(), queryProduct)
 	if err != nil {
 		sourceError(c, err)
 		return
 	}
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	if !s.services.Current(c.Request.Context(), s.store.Scope(), binding.Binding) {
+		integrationError(c, integrations.ErrConflict)
+		return
+	}
 	if req.PreviousID != "" {
 		var prev engine.Snapshot
-		if s.store.Get(c.Request.Context(), "snapshots", req.PreviousID, &prev) == nil && prev.Fingerprint == engine.Fingerprint(req.Product) {
+		compatible := func(previous engine.Snapshot) bool {
+			p := previous.ServiceSource
+			return previous.Source != "seerfar" || p != nil && p.Environment == binding.Environment && p.ProfileVersion == binding.Version
+		}
+		if s.store.Get(c.Request.Context(), "snapshots", req.PreviousID, &prev) == nil && prev.Fingerprint == engine.Fingerprint(req.Product) && compatible(prev) {
 			for i, row := range rows {
 				for _, old := range prev.Competitors {
 					if old.SKU == row.SKU && old.Verified && row.PriceRUB > 0 && !strings.Contains(row.Reason, "不一致") && !contains(queryProduct.OwnSellerIDs, row.SellerID) {
@@ -390,7 +453,8 @@ func (s *Server) discover(c *gin.Context) {
 			rows[i].PriceSource = "Seerfar商品展示价"
 		}
 	}
-	snap := engine.Snapshot{StoreID: s.store.Scope(), ID: store.ID(), ProductID: req.Product.ID, Fingerprint: engine.Fingerprint(req.Product), Source: "seerfar", Demo: s.mock, FetchedAt: time.Now().UTC(), Competitors: rows, Warnings: []string{}}
+	snap := engine.Snapshot{StoreID: s.store.Scope(), ID: store.ID(), ProductID: req.Product.ID, Fingerprint: engine.Fingerprint(req.Product), Source: "seerfar", Demo: binding.Environment == "mock", FetchedAt: time.Now().UTC(), Competitors: rows, Warnings: []string{}}
+	snap.ServiceSource = serviceSource(binding.Binding, snap.FetchedAt)
 	if len(rows) == 0 {
 		snap.Warnings = append(snap.Warnings, "Seerfar未返回匹配商品，可修改关键词、SKU或手动添加竞品")
 	}
@@ -466,6 +530,7 @@ func (s *Server) updateSnapshot(c *gin.Context) {
 	snap.Fingerprint = old.Fingerprint
 	snap.Source = old.Source
 	snap.Demo = old.Demo
+	snap.ServiceSource = old.ServiceSource
 	if err := validateSnapshot(snap); err != nil {
 		bad(c, err)
 		return

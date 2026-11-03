@@ -32,6 +32,22 @@ func TestMinimumPriceExample(t *testing.T) {
 		t.Fatal("margin floor violated")
 	}
 }
+
+func TestMockFXIsIndependentFromDemoFees(t *testing.T) {
+	in := basic()
+	in.Settings.FXMeta = &ServiceSource{Provider: "frankfurter", Environment: "mock", Demo: true}
+	r, err := Solve(in)
+	if err != nil || r.Recommended == nil || !r.Demo || in.Settings.Demo {
+		t.Fatalf("%+v %v", r, err)
+	}
+	near(t, r.Recommended.Price, 109.10)
+	in.Settings.FXMeta = &ServiceSource{Provider: "frankfurter", Environment: "real"}
+	in.Settings.Demo = true
+	r, err = Solve(in)
+	if err == nil || r.Recommended != nil || !r.Demo {
+		t.Fatal("real FX cleared demonstration fee restrictions")
+	}
+}
 func TestDisplayedFormulaGroupsChargesBeforeConversionAndOccurrence(t *testing.T) {
 	in := basic()
 	in.Product.Returns = Returns{CancelRate: .1, CancelCost: Ptr(0)}

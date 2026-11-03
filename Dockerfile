@@ -17,11 +17,13 @@ RUN npm run typecheck && npm test && npm run build
 
 FROM go-base AS go-build
 RUN CGO_ENABLED=1 go build -trimpath -o /pricepilot ./cmd/server
+RUN CGO_ENABLED=0 go build -trimpath -o /mockfx ./cmd/mockfx
 
 FROM debian:bookworm-slim AS app
 COPY --from=go-build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 WORKDIR /app
 COPY --from=go-build /pricepilot ./pricepilot
+COPY --from=go-build /mockfx ./mockfx
 COPY --from=web-build /build/web/dist ./web/dist
 RUN mkdir /app/data && chown -R 65532:65532 /app/data
 USER 65532:65532

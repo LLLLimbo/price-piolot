@@ -23,6 +23,11 @@ it("新商品不继承已确认的费用和优惠", () => {
 		options: {},
 		returns: {},
 		platform_discount: { kind: "fixed", value: 5 },
+		sourcing: { offer_id: "1001" },
+		batteries: true,
+		notes: "上一商品的来源",
+		profit_check: { order_ref: "上一商品的订单" },
+		liquids: true,
 	} as unknown as Product);
 	expect(p.costs[0].amount).toBeNull();
 	expect(p.costs[0].status).toBe("pending");
@@ -30,4 +35,10 @@ it("新商品不继承已确认的费用和优惠", () => {
 	expect(p.returns.refusal_reverse).toBeNull();
 	expect(p.returns.destination).toBe("");
 	expect(p.returns.source).toBe("");
+	expect(p.sourcing).toBeUndefined();
+	expect(p.batteries).toBe(false);
+	expect(p.liquids).toBe(false);
+	expect(p.notes).toBe("");
+	expect(p.profit_check).toBeUndefined();
+	expect(p.returns.unclassified_rate).toBe(0);
 });

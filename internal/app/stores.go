@@ -60,6 +60,12 @@ func (s *Server) saveStore(c *gin.Context) {
 		internal(c)
 		return
 	}
+	if fresh {
+		if _, err = s.services.Get(ctx, p.ID); err != nil {
+			internal(c)
+			return
+		}
+	}
 	c.JSON(200, gin.H{"store": p})
 }
 func seedEmptyStore(ctx context.Context, db *store.Store) error {
@@ -187,7 +193,12 @@ func (s *Server) ownedSellerIDs(c *gin.Context) []string {
 	return out
 }
 func (s *Server) quota(c *gin.Context) {
-	v, err := s.seerfar.Quota(c.Request.Context())
+	client, _, err := s.currentSeerfar(c)
+	if err != nil {
+		internal(c)
+		return
+	}
+	v, err := client.Quota(c.Request.Context())
 	if err != nil {
 		sourceError(c, err)
 		return
@@ -344,6 +355,18 @@ func (s *Server) input(c *gin.Context, req *calculationRequest) (engine.Input, e
 		}
 		if in.Snapshot.ProductID != "" && in.Snapshot.ProductID != in.Product.ID {
 			return in, fmt.Errorf("竞品快照不属于当前商品")
+		}
+		if in.Snapshot.Source == "seerfar" && in.Snapshot.ServiceSource == nil {
+			return in, fmt.Errorf("旧Seerfar快照缺少连接版本，请重新获取竞品；历史记录仍可查看")
+		}
+		if source := in.Snapshot.ServiceSource; source != nil && source.Provider == "seerfar" {
+			active, err := s.services.Resolve(ctx, s.store.Scope(), "seerfar")
+			if err != nil {
+				return in, err
+			}
+			if source.Environment != active.Environment || source.ProfileVersion != active.Version {
+				return in, fmt.Errorf("Seerfar配置已变化，旧快照仅供查看，请重新获取竞品")
+			}
 		}
 	}
 	rows, err := s.store.List(ctx, "quotes")

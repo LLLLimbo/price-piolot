@@ -76,6 +76,9 @@ func TestExcludedPublicQuoteCannotBeActivated(t *testing.T) {
 }
 func TestDiscoveryFailureDoesNotReplaceSnapshot(t *testing.T) {
 	h, s := testServer(t)
+	failing := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) { w.WriteHeader(http.StatusServiceUnavailable) }))
+	defer failing.Close()
+	setService(t, h, "default", "seerfar", failing.URL)
 	before, _ := s.ForStore("default").List(t.Context(), "snapshots")
 	code, _ := call(t, h, "POST", "/api/stores/default/competitors/discover", map[string]any{"product": engine.Product{Name: "x", Keywords: []string{"x"}}})
 	if code != 502 {

@@ -12,4 +12,12 @@ trap cleanup EXIT INT TERM
 docker compose -f tests/compose.yaml up -d --wait app app-postgres
 docker compose -f tests/compose.yaml run --rm go-tests
 docker compose -f tests/compose.yaml run --rm api-tests
+docker compose -f tests/compose.yaml run --rm api-tests python /tests/services.py
+docker compose -f tests/compose.yaml run --rm api-tests python /tests/profit_checks.py
+docker compose -f tests/compose.yaml run --rm api-tests python /tests/persistence.py capture
+docker compose -f tests/compose.yaml up -d --no-deps --force-recreate --wait app app-postgres
+docker compose -f tests/compose.yaml run --rm api-tests python /tests/persistence.py verify
 docker compose -f tests/compose.yaml run --rm browser-tests
+docker compose -f tests/compose.yaml run --rm browser-tests node /tests/services-browser.cjs
+docker compose -f tests/compose.yaml run --rm browser-tests node /tests/notes-browser.cjs
+docker compose -f tests/compose.yaml run --rm browser-tests node /tests/profit-check-browser.cjs

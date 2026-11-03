@@ -472,7 +472,7 @@ export default function Quotes({
 						<h3>货值、重量与计费档位</h3>
 					</div>
 					<p className="muted-text">
-						按顺序匹配；上限包含边界。货值上限留空表示不限，尺寸限制填0表示未设置。
+						按顺序匹配；货值上下限包含边界。货值下限留空表示0，上限留空表示不限，尺寸限制填0表示未设置。
 					</p>
 					<Form.List name="bands">
 						{(fields, { add, remove }) => (
@@ -489,6 +489,9 @@ export default function Quotes({
 											/>
 										</div>
 										<div className="three-fields">
+											<Form.Item name={[f.name, "min_value"]} label="货值下限">
+												<InputNumber min={0} placeholder="0" />
+											</Form.Item>
 											<Form.Item name={[f.name, "up_to"]} label="货值上限">
 												<InputNumber min={0} placeholder="不限" />
 											</Form.Item>

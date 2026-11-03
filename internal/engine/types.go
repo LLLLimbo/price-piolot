@@ -1,6 +1,9 @@
 package engine
 
-import "time"
+import (
+	"encoding/json"
+	"time"
+)
 
 type Days struct {
 	Min float64 `json:"min"`
@@ -37,6 +40,7 @@ type Fee struct {
 	SupplyModes      []string `json:"supply_modes"`
 }
 type Band struct {
+	MinValue      float64  `json:"min_value,omitempty"`
 	UpTo          *float64 `json:"up_to"`
 	MinWeight     float64  `json:"min_weight"`
 	MaxWeight     float64  `json:"max_weight"`
@@ -81,18 +85,19 @@ type Quote struct {
 	Compensation   string            `json:"compensation"`
 }
 type Returns struct {
-	Destination     string   `json:"destination"`
-	Source          string   `json:"source"`
-	RefusalRate     float64  `json:"refusal_rate"`
-	RefusalReverse  *float64 `json:"refusal_reverse"`
-	RefusalDisposal *float64 `json:"refusal_disposal"`
-	RefusalRecovery *float64 `json:"refusal_recovery"`
-	Rate            float64  `json:"rate"`
-	CancelRate      float64  `json:"cancel_rate"`
-	Reverse         *float64 `json:"reverse"`
-	Disposal        *float64 `json:"disposal"`
-	Recovery        *float64 `json:"recovery"`
-	CancelCost      *float64 `json:"cancel_cost"`
+	UnclassifiedRate float64  `json:"unclassified_rate,omitempty"`
+	Destination      string   `json:"destination"`
+	Source           string   `json:"source"`
+	RefusalRate      float64  `json:"refusal_rate"`
+	RefusalReverse   *float64 `json:"refusal_reverse"`
+	RefusalDisposal  *float64 `json:"refusal_disposal"`
+	RefusalRecovery  *float64 `json:"refusal_recovery"`
+	Rate             float64  `json:"rate"`
+	CancelRate       float64  `json:"cancel_rate"`
+	Reverse          *float64 `json:"reverse"`
+	Disposal         *float64 `json:"disposal"`
+	Recovery         *float64 `json:"recovery"`
+	CancelCost       *float64 `json:"cancel_cost"`
 }
 type ModeOptions struct {
 	Margin         float64  `json:"margin"`
@@ -102,46 +107,49 @@ type ModeOptions struct {
 	TargetMaxPrice *float64 `json:"target_max_price"`
 }
 type Product struct {
-	StoreID            string            `json:"store_id"`
-	Version            int               `json:"version"`
-	FixedDiscount      float64           `json:"fixed_discount"`
-	PlatformDiscount   Discount          `json:"platform_discount"`
-	PriceCondition     string            `json:"price_condition"`
-	ID                 string            `json:"id"`
-	Name               string            `json:"name"`
-	Demo               bool              `json:"demo"`
-	Supply             string            `json:"supply"`
-	Supplier           string            `json:"supplier"`
-	SupplierScore      *float64          `json:"supplier_score"`
-	SupplierScale      float64           `json:"supplier_scale"`
-	SupplierSource     string            `json:"supplier_source"`
-	PurchaseQuantity   int               `json:"purchase_quantity"`
-	MOQ                int               `json:"moq"`
-	PurchaseTiers      []PurchaseTier    `json:"purchase_tiers"`
-	Weight             float64           `json:"weight"`
-	Length             float64           `json:"length"`
-	Width              float64           `json:"width"`
-	Height             float64           `json:"height"`
-	Batteries          bool              `json:"batteries"`
-	Liquids            bool              `json:"liquids"`
-	SupplierDays       *Days             `json:"supplier_days"`
-	DomesticDays       *Days             `json:"domestic_days"`
-	TailDays           *Days             `json:"tail_days"`
-	WarehouseQuoteID   string            `json:"warehouse_quote_id"`
-	RouteIDs           []string          `json:"route_ids"`
-	Costs              []Fee             `json:"costs"`
-	Returns            Returns           `json:"returns"`
-	Discount           float64           `json:"discount"`
-	Keywords           []string          `json:"keywords"`
-	CategoryID         string            `json:"category_id"`
-	AlibabaCategory    string            `json:"alibaba_category"`
-	CommissionCategory string            `json:"commission_category"`
-	Attributes         map[string]string `json:"attributes"`
-	OwnSellerIDs       []string          `json:"own_seller_ids"`
-	SeedSKU            string            `json:"seed_sku"`
-	Mode               string            `json:"mode"`
-	Options            ModeOptions       `json:"options"`
-	UpdatedAt          time.Time         `json:"updated_at"`
+	ProfitCheck        *ProfitCheck       `json:"profit_check,omitempty"`
+	Notes              string             `json:"notes,omitempty"`
+	Sourcing           *ProcurementSource `json:"sourcing,omitempty"`
+	StoreID            string             `json:"store_id"`
+	Version            int                `json:"version"`
+	FixedDiscount      float64            `json:"fixed_discount"`
+	PlatformDiscount   Discount           `json:"platform_discount"`
+	PriceCondition     string             `json:"price_condition"`
+	ID                 string             `json:"id"`
+	Name               string             `json:"name"`
+	Demo               bool               `json:"demo"`
+	Supply             string             `json:"supply"`
+	Supplier           string             `json:"supplier"`
+	SupplierScore      *float64           `json:"supplier_score"`
+	SupplierScale      float64            `json:"supplier_scale"`
+	SupplierSource     string             `json:"supplier_source"`
+	PurchaseQuantity   int                `json:"purchase_quantity"`
+	MOQ                int                `json:"moq"`
+	PurchaseTiers      []PurchaseTier     `json:"purchase_tiers"`
+	Weight             float64            `json:"weight"`
+	Length             float64            `json:"length"`
+	Width              float64            `json:"width"`
+	Height             float64            `json:"height"`
+	Batteries          bool               `json:"batteries"`
+	Liquids            bool               `json:"liquids"`
+	SupplierDays       *Days              `json:"supplier_days"`
+	DomesticDays       *Days              `json:"domestic_days"`
+	TailDays           *Days              `json:"tail_days"`
+	WarehouseQuoteID   string             `json:"warehouse_quote_id"`
+	RouteIDs           []string           `json:"route_ids"`
+	Costs              []Fee              `json:"costs"`
+	Returns            Returns            `json:"returns"`
+	Discount           float64            `json:"discount"`
+	Keywords           []string           `json:"keywords"`
+	CategoryID         string             `json:"category_id"`
+	AlibabaCategory    string             `json:"alibaba_category"`
+	CommissionCategory string             `json:"commission_category"`
+	Attributes         map[string]string  `json:"attributes"`
+	OwnSellerIDs       []string           `json:"own_seller_ids"`
+	SeedSKU            string             `json:"seed_sku"`
+	Mode               string             `json:"mode"`
+	Options            ModeOptions        `json:"options"`
+	UpdatedAt          time.Time          `json:"updated_at"`
 }
 type PurchaseTier struct {
 	Quantity int     `json:"quantity"`
@@ -160,6 +168,7 @@ type CategoryMapping struct {
 	Name    string `json:"name"`
 }
 type Settings struct {
+	FXMeta             *ServiceSource      `json:"fx_meta,omitempty"`
 	StoreID            string              `json:"store_id"`
 	Version            int                 `json:"version"`
 	OwnSellerIDs       []string            `json:"own_seller_ids"`
@@ -203,15 +212,37 @@ type Competitor struct {
 	Estimated      bool              `json:"estimated"`
 }
 type Snapshot struct {
-	StoreID     string       `json:"store_id"`
-	ID          string       `json:"id"`
-	ProductID   string       `json:"product_id"`
-	Fingerprint string       `json:"fingerprint"`
-	Source      string       `json:"source"`
-	Demo        bool         `json:"demo"`
-	FetchedAt   time.Time    `json:"fetched_at"`
-	Competitors []Competitor `json:"competitors"`
-	Warnings    []string     `json:"warnings"`
+	ServiceSource *ServiceSource `json:"service_source,omitempty"`
+	StoreID       string         `json:"store_id"`
+	ID            string         `json:"id"`
+	ProductID     string         `json:"product_id"`
+	Fingerprint   string         `json:"fingerprint"`
+	Source        string         `json:"source"`
+	Demo          bool           `json:"demo"`
+	FetchedAt     time.Time      `json:"fetched_at"`
+	Competitors   []Competitor   `json:"competitors"`
+	Warnings      []string       `json:"warnings"`
+}
+
+type ServiceSource struct {
+	Provider       string    `json:"provider"`
+	Environment    string    `json:"environment"`
+	ProfileVersion int       `json:"profile_version"`
+	ConfigVersion  int       `json:"config_version"`
+	FetchedAt      time.Time `json:"fetched_at"`
+	Demo           bool      `json:"demo"`
+}
+type ProcurementSource struct {
+	ServiceSource
+	OfferID     string          `json:"offer_id"`
+	SKUID       string          `json:"sku_id"`
+	SpecID      string          `json:"spec_id"`
+	OriginalURL string          `json:"original_url"`
+	Unit        string          `json:"unit"`
+	Quantity    int             `json:"quantity"`
+	Price       *float64        `json:"price"`
+	Confirmed   bool            `json:"confirmed"`
+	Data        json.RawMessage `json:"data"`
 }
 type Score struct {
 	Weights        Weights  `json:"weights"`

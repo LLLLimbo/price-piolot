@@ -33,6 +33,9 @@ func quoteCost(in Input, q Quote, price, fx float64) (decimal.Decimal, string, e
 	p := in.Product
 	value := currencyValue(sale(in, price), q.ValueCurrency, fx)
 	for _, b := range q.Bands {
+		if value.LessThan(d(b.MinValue)) {
+			continue
+		}
 		if b.UpTo != nil && value.GreaterThan(d(*b.UpTo)) {
 			continue
 		}
@@ -358,6 +361,9 @@ func boundaries(in Input, q Quote) []float64 {
 	}
 	if q.ValueCurrency == "RUB" {
 		for _, b := range q.Bands {
+			if b.MinValue > 0 {
+				out = append(out, b.MinValue)
+			}
 			if b.UpTo != nil {
 				out = append(out, *b.UpTo)
 			}
@@ -365,6 +371,9 @@ func boundaries(in Input, q Quote) []float64 {
 	}
 	if wh, _ := warehouseQuote(in); wh != nil && wh.ValueCurrency == "RUB" {
 		for _, b := range wh.Bands {
+			if b.MinValue > 0 {
+				out = append(out, b.MinValue)
+			}
 			if b.UpTo != nil {
 				out = append(out, *b.UpTo)
 			}
@@ -456,6 +465,9 @@ func Evaluate(in Input, q Quote, price float64) (Evaluation, error) {
 	}
 	if in.Snapshot.Demo || in.Product.Demo || q.Demo {
 		ev.Warnings = append(ev.Warnings, "演示数据，费用与时效均为示例假设")
+	}
+	if in.Settings.FXMeta != nil && in.Settings.FXMeta.Demo {
+		ev.Warnings = append(ev.Warnings, "使用Mock演示汇率，不代表实际合同汇率")
 	}
 	return ev, nil
 }

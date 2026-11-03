@@ -72,6 +72,9 @@ func publicQuotes() []engine.Quote {
 	q.Bands = []engine.Band{band(engine.Ptr(135), 1, 500, 2.9, .0247, 0), band(engine.Ptr(135), 500.000001, 35000, 22.25, .0164, 0), band(engine.Ptr(635), 1, 2000, 15.48, .0242, 0), band(engine.Ptr(635), 2000.000001, 35000, 34.82, .0164, 12), band(engine.Ptr(22525), 1, 5000, 21.28, .0242, 0), band(engine.Ptr(22525), 5000.000001, 35000, 59.97, .0222, 12)}
 	out := []engine.Quote{q}
 	for _, name := range []string{"CEL", "GUOO", "RETS", "Ural", "ZTO", "Xingyuan", "OYX", "ABT", "ATC"} {
+		if name == "GUOO" {
+			continue
+		}
 		partner := q
 		partner.Version, partner.Fees = 2, partnerPlatformFees()
 		partner.ID = "historical-" + name
@@ -90,6 +93,7 @@ func publicQuotes() []engine.Quote {
 		partner.Note = "历史参考；合作渠道停用安排需以店铺后台核实，不自动推荐。"
 		out = append(out, partner)
 	}
+	out = append(out, guooQuotes()...)
 	gbs := q
 	gbs.Version, gbs.Fees = 2, partnerPlatformFees()
 	gbs.ID = "historical-GBS"

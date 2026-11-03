@@ -26,6 +26,7 @@ export type Fee = {
 	source: string;
 };
 export type Band = {
+	min_value?: number;
 	up_to: number | null;
 	min_weight: number;
 	max_weight: number;
@@ -70,6 +71,9 @@ export type Quote = {
 	compensation: string;
 };
 export type Product = {
+	profit_check?: ProfitCheck;
+	notes?: string;
+	sourcing?: ProcurementSource;
 	store_id?: string;
 	version?: number;
 	fixed_discount?: number;
@@ -99,6 +103,7 @@ export type Product = {
 	route_ids: string[] | null;
 	costs: Fee[];
 	returns: {
+		unclassified_rate?: number;
 		destination?: string;
 		source?: string;
 		refusal_rate?: number;
@@ -130,7 +135,32 @@ export type Product = {
 	};
 	updated_at: string;
 };
+export type ProfitCheck = {
+	order_ref: string;
+	date: string;
+	source: string;
+	carrier: string;
+	freight_kind: string;
+	fee_label: string;
+	fee_kind: string;
+	amount: number | null;
+	procurement: number | null;
+	freight: number | null;
+	commission_rate: number | null;
+	fixed_fee: number | null;
+	reported_profit: number | null;
+};
+export type ProfitCheckResult = {
+	status: string;
+	profit: number | null;
+	margin: number | null;
+	difference: number | null;
+	formula: string;
+	lines: Evaluation["lines"];
+	messages: string[];
+};
 export type Settings = {
+	fx_meta?: ServiceSource;
 	store_id?: string;
 	version?: number;
 	own_seller_ids?: string[];
@@ -179,6 +209,7 @@ export type Competitor = {
 	estimated: boolean;
 };
 export type Snapshot = {
+	service_source?: ServiceSource;
 	store_id?: string;
 	id: string;
 	product_id: string;
@@ -274,6 +305,7 @@ export type RunSummary = {
 	demo: boolean;
 };
 export type Bootstrap = {
+	integrations: IntegrationConfig;
 	store: Store;
 	public_quotes: Quote[];
 	promotions: PromotionScenario[];
@@ -285,6 +317,96 @@ export type Bootstrap = {
 	snapshots: Snapshot[];
 	runs: RunSummary[];
 	seerfar: { configured: boolean; mock: boolean };
+};
+
+export type ServiceSource = {
+	provider: string;
+	environment: string;
+	profile_version: number;
+	config_version: number;
+	fetched_at: string;
+	demo: boolean;
+};
+export type ProcurementSource = ServiceSource & {
+	offer_id: string;
+	sku_id: string;
+	spec_id: string;
+	original_url: string;
+	unit: string;
+	quantity: number;
+	price: number | null;
+	confirmed: boolean;
+	data: unknown;
+};
+export type IntegrationProfile = {
+	base_url: string;
+	version: number;
+	test_product_id: string;
+	credentials_set: Record<string, boolean>;
+	configured: boolean;
+};
+export type IntegrationConfig = {
+	version: number;
+	services: Record<
+		string,
+		{ active: string; profiles: Record<string, IntegrationProfile> }
+	>;
+};
+export type ServiceBinding = {
+	provider: string;
+	environment: string;
+	version: number;
+	config_version: number;
+};
+export type AlibabaSKU = {
+	default?: boolean;
+	id: string;
+	spec_id: string;
+	attributes: Record<string, string>;
+	price: number | null;
+	tiers: { quantity: number; price: number }[];
+	stock: number | null;
+};
+export type AlibabaProduct = {
+	id: string;
+	title: string;
+	status: string;
+	supplier: string;
+	category_id: string;
+	category_name: string;
+	images: string[];
+	attributes: Record<string, string>;
+	skus: AlibabaSKU[];
+	moq: number;
+	stock: number | null;
+	unit: string;
+	currency: string;
+	quote_type: number | null;
+	tiers: { quantity: number; price: number }[];
+	weight: number;
+	length: number;
+	width: number;
+	height: number;
+	batch: boolean;
+	warnings: string[];
+};
+export type ImportPreview = {
+	id: string;
+	binding: ServiceBinding;
+	offer_id: string;
+	original_url: string;
+	fetched_at: string;
+	expires_at: string;
+	status: string;
+	product: AlibabaProduct | null;
+};
+export type FXPreview = {
+	id: string;
+	binding: ServiceBinding;
+	settings_version: number;
+	fetched_at: string;
+	expires_at: string;
+	rate: { date: string; base: string; quote: string; rate: number };
 };
 
 export type Store = {

@@ -12,10 +12,13 @@ import {
 	Tag,
 } from "antd";
 import { DeleteOutlined, PlusOutlined, SaveOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useLocation } from "@umijs/max";
 import type { Bootstrap, Settings, Quote } from "../types";
 import { useStoreApi } from "../lib";
 import { FeeEditor, PercentInput } from "./Fields";
+import IntegrationSettings from "./IntegrationSettings";
+import ExchangeRatePreview from "./ExchangeRatePreview";
 
 export default function SettingsPage({
 	data,
@@ -27,16 +30,28 @@ export default function SettingsPage({
 	onError: (s: string) => void;
 }) {
 	const api = useStoreApi();
+	const location = useLocation();
 	const [form] = Form.useForm<Settings>();
 	const [saving, setSaving] = useState(false);
 	const [quota, setQuota] = useState<string>("");
 	const [checking, setChecking] = useState(false);
+	const [tab, setTab] = useState(
+		new URLSearchParams(location.search).get("tab") === "integrations"
+			? "integrations"
+			: "general",
+	);
+	const version = useRef(data.settings.version);
 	const save = async () => {
 		try {
 			const value = await form.validateFields();
 			value.category_fees = value.category_fees || {};
 			setSaving(true);
-			await api("/settings", value, "PUT");
+			const saved = await api<{ settings: Settings }>(
+				"/settings",
+				{ ...data.settings, ...value, version: version.current },
+				"PUT",
+			);
+			version.current = saved.settings.version;
 			await onSaved();
 		} catch (e) {
 			if (e instanceof Error) onError(e.message);
@@ -52,14 +67,17 @@ export default function SettingsPage({
 					<h1>费率与评分设置</h1>
 					<p>为每次测算提供明确的费用、汇率和比较口径。</p>
 				</div>
-				<Button
-					type="primary"
-					icon={<SaveOutlined />}
-					loading={saving}
-					onClick={save}
-				>
-					保存设置
-				</Button>
+				{tab !== "integrations" && (
+					<Button
+						aria-label="保存设置"
+						type="primary"
+						icon={<SaveOutlined />}
+						loading={saving}
+						onClick={save}
+					>
+						保存设置
+					</Button>
+				)}
 			</div>
 			<Form
 				name="settings-editor"
@@ -79,7 +97,20 @@ export default function SettingsPage({
 					}
 				/>
 				<Tabs
+					activeKey={tab}
+					onChange={setTab}
 					items={[
+						{
+							key: "integrations",
+							label: "外部服务",
+							children: (
+								<IntegrationSettings
+									config={data.integrations}
+									onSaved={onSaved}
+									onError={onError}
+								/>
+							),
+						},
 						{
 							key: "general",
 							label: "汇率与权重",
@@ -87,6 +118,20 @@ export default function SettingsPage({
 								<div className="settings-grid">
 									<section>
 										<h2>人民币结算与汇率保护</h2>
+										<ExchangeRatePreview
+											key={data.integrations.version}
+											settings={data.settings}
+											onError={onError}
+											onApplied={async (next) => {
+												version.current = next.version;
+												form.setFieldsValue({
+													fx: next.fx,
+													fx_date: next.fx_date,
+													fx_source: next.fx_source,
+												});
+												await onSaved();
+											}}
+										/>
 										<p className="muted-text">
 											汇率单位为1 CNY兑换的RUB；人民币收入按合同口径计算。
 											销售及佣金分档使用下单日口径；部分服务按提供日汇率收费。当前为统一汇率预算，非订单对账。
@@ -165,7 +210,9 @@ export default function SettingsPage({
 												</Tag>
 												{data.seerfar.mock && <Tag>Mock测试环境</Tag>}
 											</Space>
-											<p>API凭证由服务端环境配置，页面不展示密钥。</p>
+											<p>
+												地址和凭据可在“外部服务”中配置，密钥仅由服务端使用。
+											</p>
 											<Button
 												loading={checking}
 												disabled={!data.seerfar.configured}

@@ -1,4 +1,5 @@
 import {
+	Alert,
 	Button,
 	Checkbox,
 	Collapse,
@@ -14,6 +15,8 @@ import { useEffect, useState } from "react";
 import type { Product, Quote, Settings } from "../types";
 import DiscountEditor, { noDiscount } from "./DiscountEditor";
 import { AttributesInput, DaysInput, FeeEditor, PercentInput } from "./Fields";
+import { money, pct, time } from "../lib";
+import ProfitCheckFields from "./ProfitCheckFields";
 
 export default function ProductPanel({
 	product,
@@ -65,6 +68,45 @@ export default function ProductPanel({
 				</div>
 				<Tag bordered={false}>{product.demo ? "演示商品" : "我的商品"}</Tag>
 			</div>
+			{product.notes && (
+				<details className="product-source">
+					<summary>商品资料与来源</summary>
+					<p style={{ whiteSpace: "pre-wrap" }}>{product.notes}</p>
+				</details>
+			)}
+			{(product.returns.unclassified_rate || 0) > 0 && (
+				<Alert
+					showIcon
+					type="warning"
+					title={`待分类售后异常率 ${pct(product.returns.unclassified_rate)}`}
+					description="合并数据不能直接作签收后退货率。请在“折扣与售后损失”中核对分类及费用，完整利润暂不可计算。"
+				/>
+			)}
+			{product.sourcing && (
+				<details className="product-source">
+					<summary>
+						1688采购来源{product.sourcing.demo ? " · Mock演示" : ""}
+					</summary>
+					<p>
+						<a
+							href={product.sourcing.original_url}
+							target="_blank"
+							rel="noreferrer"
+						>
+							商品 {product.sourcing.offer_id}
+						</a>{" "}
+						{product.sourcing.sku_id && <>· SKU {product.sourcing.sku_id}</>}
+					</p>
+					<p>
+						导入时参考价：{money(product.sourcing.price)}／
+						{product.sourcing.unit} · 数量 {product.sourcing.quantity}
+					</p>
+					<p className="muted-text">
+						获取于 {time(product.sourcing.fetched_at)} · 配置版本{" "}
+						{product.sourcing.profile_version} · 包装信息需核实
+					</p>
+				</details>
+			)}
 			<Form
 				name="product-editor"
 				form={form}
@@ -111,11 +153,14 @@ export default function ProductPanel({
 							maxTagCount="responsive"
 							options={quotes
 								.filter(
-									(q) => q.kind === "international" && q.status === "active",
+									(q) =>
+										q.kind === "international" &&
+										(q.status === "active" ||
+											product.route_ids?.includes(q.id)),
 								)
 								.map((q) => ({
 									value: q.id,
-									label: `${q.name}${q.demo ? " · 演示" : ""}`,
+									label: `${q.name}${q.demo ? " · 演示" : ""}${q.status === "historical" ? " · 历史参考" : q.status === "pending" ? " · 待确认" : q.status === "excluded" ? " · 不适用" : ""}`,
 								}))}
 						/>
 					</Form.Item>
@@ -154,6 +199,49 @@ export default function ProductPanel({
 					ghost
 					defaultActiveKey={window.innerWidth > 760 ? ["costs"] : []}
 					items={[
+						{
+							key: "profit-check",
+							label: "订单利润校验样本",
+							children: product.profit_check ? (
+								<ProfitCheckFields />
+							) : (
+								<Button
+									onClick={() => {
+										form.setFieldValue("profit_check", {
+											order_ref: "",
+											date: "",
+											source: "",
+											carrier: "",
+											freight_kind: "",
+											fee_label: "",
+											fee_kind: "",
+											amount: null,
+											procurement: null,
+											freight: null,
+											commission_rate: null,
+											fixed_fee: null,
+											reported_profit: null,
+										});
+										changed();
+									}}
+								>
+									添加手工校验样本
+								</Button>
+							),
+						},
+						{
+							key: "reference",
+							label: "商品备注与数据来源",
+							children: (
+								<Form.Item name="notes" label="资料、统计范围及待核对项">
+									<Input.TextArea
+										autoSize={{ minRows: 5, maxRows: 22 }}
+										maxLength={10000}
+										placeholder="记录商品SKU、来源链接、数据日期和待确认资料"
+									/>
+								</Form.Item>
+							),
+						},
 						{
 							key: "costs",
 							label: "单件费用",
@@ -274,6 +362,13 @@ export default function ProductPanel({
 										label="售后设置及费用依据"
 									>
 										<Input placeholder="后台退货设置／服务商协议／预算依据" />
+									</Form.Item>
+									<Form.Item
+										name={["returns", "unclassified_rate"]}
+										label="待分类售后异常率（原始订单口径）"
+										extra="将合并比例分配至拒收／未签收率和签收后退货率，核对费用后将待分类项归零；不可与两个分类重复计入。"
+									>
+										<PercentInput max={99.99} />
 									</Form.Item>
 									<Form.Item
 										name={["returns", "refusal_rate"]}

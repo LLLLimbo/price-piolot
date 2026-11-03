@@ -139,7 +139,7 @@ func TestOzonReferenceUpgradePreservesHistoryAndIsIdempotent(t *testing.T) {
 }
 
 func TestHistoricalPartnerQuotesDoNotClaimAnOfficialShutdownDate(t *testing.T) {
-	count := 0
+	providers := map[string]bool{}
 	for _, q := range publicQuotes() {
 		if q.ID == "historical-chinapost" && contains(q.Includes, "tail_delivery") {
 			t.Fatal("historical postal quote inherited OGL's included last-mile service")
@@ -147,12 +147,12 @@ func TestHistoricalPartnerQuotesDoNotClaimAnOfficialShutdownDate(t *testing.T) {
 		if q.Source != partnerSource {
 			continue
 		}
-		count++
+		providers[q.Provider] = true
 		if q.Status != "historical" || q.ValidTo != "" || len(q.Fees) != 2 {
 			t.Fatalf("%+v", q)
 		}
 	}
-	if count != 10 {
-		t.Fatal("missing historical references", count)
+	if len(providers) != 10 {
+		t.Fatal("missing historical providers", providers)
 	}
 }

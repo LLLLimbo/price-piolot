@@ -147,7 +147,7 @@ func CalculateContexts(in Input, promos []PromotionScenario) []ContextResult {
 			result, err = Solve(input)
 		}
 		if err != nil {
-			result = Result{Status: "invalid", Mode: input.Product.Mode, SnapshotID: input.Snapshot.ID, CalculatedAt: input.AsOf, Demo: input.Product.Demo || input.Settings.Demo || input.Snapshot.Demo, Messages: []string{err.Error()}, Alternatives: []Evaluation{}, Unavailable: []Unavailable{}}
+			result = Result{Status: "invalid", Mode: input.Product.Mode, SnapshotID: input.Snapshot.ID, CalculatedAt: input.AsOf, Demo: input.Product.Demo || input.Settings.Demo || input.Snapshot.Demo || (input.Settings.FXMeta != nil && input.Settings.FXMeta.Demo), Messages: []string{err.Error()}, Alternatives: []Evaluation{}, Unavailable: []Unavailable{}}
 		}
 		out = append(out, ContextResult{ID: id, Name: name, State: state, Promotion: p, Input: input, Result: result})
 	}

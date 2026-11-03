@@ -1,5 +1,24 @@
 name: price-pilot-tests
 services:
+  mock-1688:
+    image: price-pilot-1688:local
+    environment:
+      MOCK_BASE_URL: http://mock-1688:8080
+    networks: [simulation]
+    healthcheck:
+      test: [CMD, curl, -fsS, http://localhost:8080/health]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+  mock-fx:
+    image: price-pilot:local
+    entrypoint: [/app/mockfx]
+    healthcheck:
+      test: [CMD, /app/mockfx, health]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    networks: [simulation]
   mock-seerfar:
     image: price-pilot-seerfar:local
     environment:
@@ -29,7 +48,12 @@ services:
       SEERFAR_API_KEY: seerfar-test-key
       SEERFAR_MODE: mock
     networks: [simulation]
+    volumes: [sqlite-data:/app/data]
     depends_on:
+      mock-1688:
+        condition: service_healthy
+      mock-fx:
+        condition: service_healthy
       mock-seerfar:
         condition: service_healthy
   app-postgres:
@@ -41,7 +65,12 @@ services:
       SEERFAR_API_KEY: seerfar-test-key
       SEERFAR_MODE: mock
     networks: [simulation]
+    volumes: [postgres-app-data:/app/data]
     depends_on:
+      mock-1688:
+        condition: service_healthy
+      mock-fx:
+        condition: service_healthy
       mock-seerfar:
         condition: service_healthy
       postgres:
@@ -64,7 +93,7 @@ services:
   api-tests:
     image: python:3.12-slim
     command: [python, /tests/integration.py]
-    volumes: [".:/tests:ro"]
+    volumes: [".:/tests:ro", "./artifacts:/artifacts"]
     networks: [simulation]
     depends_on:
       app:
@@ -85,3 +114,6 @@ services:
 networks:
   simulation:
     internal: true
+volumes:
+  sqlite-data:
+  postgres-app-data:
