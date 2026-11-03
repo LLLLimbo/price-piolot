@@ -1,0 +1,2841 @@
+{
+  "AGENT_NEWTON_CLOUD_TASK_NOTIFY": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=AGENT_NEWTON_CLOUD_TASK_NOTIFY",
+    "available": true,
+    "detail": {
+      "topicId": "AGENT_NEWTON_CLOUD_TASK_NOTIFY",
+      "topicName": "NEWTON_CLOUD_TASK_NOTIFY",
+      "topicDisplayName": "牛顿云任务执行通知队列",
+      "topicGroupName": "AGENT",
+      "topicGroupDisplayName": "智能体",
+      "desc": "牛顿云任务执行通知队列，用户开启的长程任务状态发生改变后，会往该队列投递消息",
+      "messageDocs": [
+        {
+          "name": "taskId",
+          "desc": "唯一标识任务的UUID",
+          "type": "String",
+          "sample": "0cabd613-7c43-4259-8230-834d7df7cdbf",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sessionId",
+          "desc": "唯一标识会话的UUID",
+          "type": "String",
+          "sample": "f84b407a-c495-49a0-942b-a24c3985ca3f",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "status",
+          "desc": "任务当前状态，例如 END 表示结束",
+          "type": "String",
+          "sample": "END",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "createdAt",
+          "desc": "任务创建的时间戳（ISO 8601格式）",
+          "type": "String",
+          "sample": "2026-06-02T13:17:34.000Z",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "finishedAt",
+          "desc": "任务完成的时间戳（ISO 8601格式）",
+          "type": "String",
+          "sample": "2026-06-02T13:17:38.000Z",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "errorMessage",
+          "desc": "如果任务失败，包含具体的错误描述；成功时为 null",
+          "type": "String",
+          "sample": "用户手动中断",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "stage",
+          "desc": "中间态事件标识，如 WAIT_USER / TOOL_PROGRESS / COMPLEX_TABLE_READY / ERROR；终态通知无此字段\t",
+          "type": "String",
+          "sample": "WAIT_USER",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "stageDetail",
+          "desc": "中间态详情，JSON格式扁平kv（≤256字节）；终态通知无此字段\t",
+          "type": "String",
+          "sample": "{&quot;reason&quot;:&quot;show_interaction&quot;,&quot;toolName&quot;:&quot;search&quot;,&quot;toolCallId&quot;:&quot;call_abc123&quot;,&quot;expectedEventType&quot;:&quot;EXTERNAL_EXECUTION_RESULT&quot;}",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "payload",
+          "desc": "中间态负载，JSON 对象序列化（≤1024字节）；终态通知无此字段",
+          "type": "String",
+          "sample": "{&quot;toolCallId&quot;:&quot;call_abc123&quot;,&quot;toolName&quot;:&quot;search&quot;,&quot;expectedEventType&quot;:&quot;EXTERNAL_EXECUTION_RESULT&quot;,&quot;message&quot;:&quot;请提供搜索关键词&quot;}",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1784103489000,
+      "sample": "{&quot;taskId&quot;:&quot;0cabd613-7c43-4259-8230-834d7df7cdbf&quot;,&quot;sessionId&quot;:&quot;f84b407a-c495-49a0-942b-a24c3985ca3f&quot;,&quot;status&quot;:&quot;END&quot;,&quot;createdAt&quot;:&quot;2026-06-02T13:17:34.000Z&quot;,&quot;finishedAt&quot;:&quot;2026-06-02T13:17:38.000Z&quot;,&quot;errorMessage&quot;:&quot;用户手动中断&quot;,&quot;stage&quot;:&quot;WAIT_USER&quot;,&quot;stageDetail&quot;:&quot;{&quot;reason&quot;:&quot;show_interaction&quot;,&quot;toolName&quot;:&quot;search&quot;,&quot;toolCallId&quot;:&quot;call_abc123&quot;,&quot;expectedEventType&quot;:&quot;EXTERNAL_EXECUTION_RESULT&quot;}&quot;,&quot;payload&quot;:&quot;{&quot;toolCallId&quot;:&quot;call_abc123&quot;,&quot;toolName&quot;:&quot;search&quot;,&quot;expectedEventType&quot;:&quot;EXTERNAL_EXECUTION_RESULT&quot;,&quot;message&quot;:&quot;请提供搜索关键词&quot;}&quot;}",
+      "subscribed": false
+    }
+  },
+  "CROSSBOARD_CROSSBOARD_ADD_SUPPLY": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=CROSSBOARD_CROSSBOARD_ADD_SUPPLY",
+    "available": true,
+    "detail": {
+      "topicId": "CROSSBOARD_CROSSBOARD_ADD_SUPPLY",
+      "topicName": "CROSSBOARD_ADD_SUPPLY",
+      "topicDisplayName": "跨境设为货源",
+      "topicGroupName": "CROSSBOARD",
+      "topicGroupDisplayName": "跨境消息",
+      "desc": "当用户在 ISV 中访问产品开发工具同款页面并将 1688 商品设为货源时，系统将生成一条关于货源的记录，并通过消息通知到开放平台，由开放平台将此消息推送至下游 ISV；ISV 接受到此消息时，将产品和 1688 货源进行关联。",
+      "messageDocs": [
+        {
+          "name": "offerId",
+          "desc": "1688商品ID",
+          "type": "String",
+          "sample": "537321696540",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "clientId",
+          "desc": "ISV中的用户ID",
+          "type": "String",
+          "sample": "b2b-26800439112ddd0",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "productId",
+          "desc": "ISV中的商品ID",
+          "type": "String",
+          "sample": "560604911564",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "productUri",
+          "desc": "ISV中的商品URL",
+          "type": "String",
+          "sample": "http:123test.com",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1530172131000,
+      "sample": "{&quot;offerId&quot;:&quot;537321696540&quot;,&quot;clientId&quot;:&quot;b2b-26800439112ddd0&quot;,&quot;productId&quot;:&quot;560604911564&quot;,&quot;productUri&quot;:&quot;http:123test.com&quot;}",
+      "subscribed": false
+    }
+  },
+  "CROSSBOARD_LP_DISTRIBUTION": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=CROSSBOARD_LP_DISTRIBUTION",
+    "available": true,
+    "detail": {
+      "topicId": "CROSSBOARD_LP_DISTRIBUTION",
+      "topicName": "LP_DISTRIBUTION",
+      "topicDisplayName": "跨境采购助手一键铺货消息",
+      "topicGroupName": "CROSSBOARD",
+      "topicGroupDisplayName": "跨境消息",
+      "desc": "跨境采购助手页面将1688的商品一键铺货到接入的ERP系统中",
+      "messageDocs": [
+        {
+          "name": "customerId",
+          "desc": "接入选品页客户id",
+          "type": "String",
+          "sample": "testIsv1",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "userKey",
+          "desc": "isv系统内用户的加密id，不变",
+          "type": "String",
+          "sample": "qwerty",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "appkey",
+          "desc": "开放平台appkey",
+          "type": "String",
+          "sample": "123",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "userToken",
+          "desc": "isv系统内用户token信息（isv能够解析出自己的用户登陆态信息）",
+          "type": "String",
+          "sample": "asdfggjkl",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "offerList",
+          "desc": "铺货商品列表",
+          "type": "Object[]",
+          "sample": " &quot;offerList&quot;:[{  &quot;offerId&quot;:&quot;1244567&quot; ，   &quot;pic&quot;:&quot;商品图片&quot;}]",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": [
+            {
+              "name": "offerId",
+              "desc": "商品id",
+              "type": "String",
+              "sample": "1244567",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "pic",
+              "desc": "商品主图url",
+              "type": "String",
+              "sample": "https://cbu01.alicdn.com/xxx.jpg",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            }
+          ]
+        },
+        {
+          "name": "sign",
+          "desc": "签名信息",
+          "type": "String",
+          "sample": "ABCDEFG",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "timestamp",
+          "desc": "当前铺货操作的时间戳（毫秒）",
+          "type": "String",
+          "sample": "123454654645",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1734403915000,
+      "sample": "{&quot;customerId&quot;:&quot;testIsv1&quot;,&quot;userKey&quot;:&quot;qwerty&quot;,&quot;appkey&quot;:&quot;123&quot;,&quot;userToken&quot;:&quot;asdfggjkl&quot;,&quot;offerList&quot;:[{&quot;offerId&quot;:&quot;1244567&quot;,&quot;pic&quot;:&quot;https://cbu01.alicdn.com/xxx.jpg&quot;}],&quot;sign&quot;:&quot;ABCDEFG&quot;,&quot;timestamp&quot;:&quot;123454654645&quot;}",
+      "subscribed": false
+    }
+  },
+  "FENXIAO_PAY_CREDIT_FUND_CHARGE_REFUND_RESULT": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=FENXIAO_PAY_CREDIT_FUND_CHARGE_REFUND_RESULT",
+    "available": true,
+    "detail": {
+      "topicId": "FENXIAO_PAY_CREDIT_FUND_CHARGE_REFUND_RESULT",
+      "topicName": "PAY_CREDIT_FUND_CHARGE_REFUND_RESULT",
+      "topicDisplayName": "采购金申请退款结果",
+      "topicGroupName": "FENXIAO",
+      "topicGroupDisplayName": "分销",
+      "desc": "采购金申请退款结果",
+      "messageDocs": [
+        {
+          "name": "payerName",
+          "desc": "付款方logInId",
+          "type": "String",
+          "sample": "分销大b测试001",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "status",
+          "desc": "支付状态（SUCCEED 退款成功 FAILED 退款失败 PROCESSING 处理中）",
+          "type": "String",
+          "sample": "SUCCEED",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "outBizNo",
+          "desc": "批量支付批次单号",
+          "type": "String",
+          "sample": "3sJ8kLKaP6Sa",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "applyNo",
+          "desc": "批量支付申请单号，ISV 发起批量预充值支付请求时 平台返回的申请单号 ",
+          "type": "String",
+          "sample": "72960100001033123120500000016001",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "assertNo",
+          "desc": "批量预充值支付成功时，平台异步通知给ISV的支付成功回执单号，失败时无此单号",
+          "type": "String",
+          "sample": "72960100008033123120500000011001",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "outRefundNo",
+          "desc": "外部支付幂等号",
+          "type": "String",
+          "sample": "v9qGBNuBTwkE",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "refundNo",
+          "desc": "平台退款单号，平台支付退回受理单号，可根据此单号反查状态",
+          "type": "String",
+          "sample": "72960100004033123120500000007001",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "refundAmount",
+          "desc": "退回金额（分）",
+          "type": "Number",
+          "sample": "100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1703130540000,
+      "sample": "{&quot;payerName&quot;:&quot;分销大b测试001&quot;,&quot;status&quot;:&quot;SUCCEED&quot;,&quot;outBizNo&quot;:&quot;3sJ8kLKaP6Sa&quot;,&quot;applyNo&quot;:&quot;72960100001033123120500000016001&quot;,&quot;assertNo&quot;:&quot;72960100008033123120500000011001&quot;,&quot;outRefundNo&quot;:&quot;v9qGBNuBTwkE&quot;,&quot;refundNo&quot;:&quot;72960100004033123120500000007001&quot;,&quot;refundAmount&quot;:100}",
+      "subscribed": false
+    }
+  },
+  "FENXIAO_PAY_CREDIT_FUND_CHARGE_RESULT": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=FENXIAO_PAY_CREDIT_FUND_CHARGE_RESULT",
+    "available": true,
+    "detail": {
+      "topicId": "FENXIAO_PAY_CREDIT_FUND_CHARGE_RESULT",
+      "topicName": "PAY_CREDIT_FUND_CHARGE_RESULT",
+      "topicDisplayName": "采购金预充值支付结果",
+      "topicGroupName": "FENXIAO",
+      "topicGroupDisplayName": "分销",
+      "desc": "采购金预充值支付结果",
+      "messageDocs": [
+        {
+          "name": "payerName",
+          "desc": "付款方logInId",
+          "type": "String",
+          "sample": "分销xxx1",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "amount",
+          "desc": "支付成功金额（分）",
+          "type": "Number",
+          "sample": "100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "status",
+          "desc": "支付状态（SUCCEED\u0000 支付成功 FAILED 支付失败）",
+          "type": "String",
+          "sample": "SUCCEED",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "outBizNo",
+          "desc": "ISV 发起批量支付请求时 ISV的批次单号，最长64",
+          "type": "String",
+          "sample": "123456",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "applyNo",
+          "desc": "ISV 发起批量预充值支付请求时 平台返回的申请单号 applyNo",
+          "type": "String",
+          "sample": "123456",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "assertNo",
+          "desc": "批量预充值支付成功时，平台异步通知给ISV的支付成功回执单号，失败时无此单号",
+          "type": "String",
+          "sample": "123456",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "outPayNo",
+          "desc": "外部支付幂等号",
+          "type": "String",
+          "sample": "123456",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1702950444000,
+      "sample": "{&quot;payerName&quot;:&quot;分销xxx1&quot;,&quot;amount&quot;:100,&quot;status&quot;:&quot;SUCCEED&quot;,&quot;outBizNo&quot;:&quot;123456&quot;,&quot;applyNo&quot;:&quot;123456&quot;,&quot;assertNo&quot;:&quot;123456&quot;,&quot;outPayNo&quot;:&quot;123456&quot;}",
+      "subscribed": false
+    }
+  },
+  "LOGISTICS_BUYER_VIEW_TRACE": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=LOGISTICS_BUYER_VIEW_TRACE",
+    "available": true,
+    "detail": {
+      "topicId": "LOGISTICS_BUYER_VIEW_TRACE",
+      "topicName": "BUYER_VIEW_TRACE",
+      "topicDisplayName": "物流单状态变更（买家视角）",
+      "topicGroupName": "LOGISTICS",
+      "topicGroupDisplayName": "物流消息",
+      "desc": "1688物流单状态变更消息，包括发货、揽收、运输、派送、签收五个节点首次触发时的消息，仅买家或买家授权的用户能接收到",
+      "messageDocs": [
+        {
+          "name": "OrderLogisticsTracingModel",
+          "desc": " ",
+          "type": "Object",
+          "sample": " ",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": [
+            {
+              "name": "logisticsId",
+              "desc": "物流编号",
+              "type": "String",
+              "sample": "12345",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "cpCode",
+              "desc": "cp code",
+              "type": "String",
+              "sample": "123",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "mailNo",
+              "desc": "运单号",
+              "type": "String",
+              "sample": "123456",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "statusChanged",
+              "desc": "物流单发生变化的状态，包括发货（CONSIGN）、揽收（ACCEPT）、运输（TRANSPORT）、派送（DELIVERING）、待取件（AGENT_SIGN）、签收（SIGN）、异常（FAILED）",
+              "type": "String",
+              "sample": "CONSIGN",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "changeTime",
+              "desc": "发生变化的时间",
+              "type": "Date",
+              "sample": " ",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "orderLogsItems",
+              "desc": "该物流单关联的订单信息",
+              "type": "Object[]",
+              "sample": " ",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": [
+                {
+                  "name": "orderId",
+                  "desc": "交易主单id",
+                  "type": "Number",
+                  "sample": "2938624554509662976",
+                  "required": false,
+                  "privacyLevel": null,
+                  "sensitiveLabel": null,
+                  "children": null
+                },
+                {
+                  "name": "orderEntryId",
+                  "desc": "交易子单id",
+                  "type": "Number",
+                  "sample": "2958624554509662976",
+                  "required": false,
+                  "privacyLevel": null,
+                  "sensitiveLabel": null,
+                  "children": null
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "gmtModify": 1775790380000,
+      "sample": "{&quot;OrderLogisticsTracingModel&quot;:{&quot;logisticsId&quot;:&quot;12345&quot;,&quot;cpCode&quot;:&quot;123&quot;,&quot;mailNo&quot;:&quot;123456&quot;,&quot;statusChanged&quot;:&quot;CONSIGN&quot;,&quot;changeTime&quot;:&quot; &quot;,&quot;orderLogsItems&quot;:[{&quot;orderId&quot;:2938624554509662976,&quot;orderEntryId&quot;:2958624554509662976}]}}",
+      "subscribed": false
+    }
+  },
+  "LOGISTICS_MAIL_NO_CHANGE": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=LOGISTICS_MAIL_NO_CHANGE",
+    "available": true,
+    "detail": {
+      "topicId": "LOGISTICS_MAIL_NO_CHANGE",
+      "topicName": "MAIL_NO_CHANGE",
+      "topicDisplayName": "物流单号修改消息",
+      "topicGroupName": "LOGISTICS",
+      "topicGroupDisplayName": "物流消息",
+      "desc": "针对1688物流单号修改的情况，及时通知上下游",
+      "messageDocs": [
+        {
+          "name": "MailNoChangeModel",
+          "desc": " ",
+          "type": "Object",
+          "sample": " ",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": [
+            {
+              "name": "logisticsId",
+              "desc": "物流单号",
+              "type": "String",
+              "sample": "123456",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "oldCpCode",
+              "desc": "更改前的cp code",
+              "type": "String",
+              "sample": "1234",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "newCpCode",
+              "desc": "更改后的cp code",
+              "type": "String",
+              "sample": "12345",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "oldMailNo",
+              "desc": "更改前的运单号",
+              "type": "String",
+              "sample": "123",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "newMailNo",
+              "desc": "更改后的运单号",
+              "type": "String",
+              "sample": "1234",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "eventTime",
+              "desc": "发生时间",
+              "type": "Date",
+              "sample": " ",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "orderLogsItems",
+              "desc": "该物流单关联的订单信息",
+              "type": "Object[]",
+              "sample": " ",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": [
+                {
+                  "name": "orderId",
+                  "desc": "交易主单id",
+                  "type": "Number",
+                  "sample": "2958424554509662976",
+                  "required": false,
+                  "privacyLevel": null,
+                  "sensitiveLabel": null,
+                  "children": null
+                },
+                {
+                  "name": "orderEntryId",
+                  "desc": "交易子单id",
+                  "type": "Number",
+                  "sample": "2958424554509662976",
+                  "required": false,
+                  "privacyLevel": null,
+                  "sensitiveLabel": null,
+                  "children": null
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "gmtModify": 1761808522000,
+      "sample": "{&quot;MailNoChangeModel&quot;:{&quot;logisticsId&quot;:&quot;123456&quot;,&quot;oldCpCode&quot;:&quot;1234&quot;,&quot;newCpCode&quot;:&quot;12345&quot;,&quot;oldMailNo&quot;:&quot;123&quot;,&quot;newMailNo&quot;:&quot;1234&quot;,&quot;eventTime&quot;:&quot; &quot;,&quot;orderLogsItems&quot;:[{&quot;orderId&quot;:2958424554509662976,&quot;orderEntryId&quot;:2958424554509662976}]}}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BATCH_PAY": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BATCH_PAY",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BATCH_PAY",
+      "topicName": "BATCH_PAY",
+      "topicDisplayName": "1688订单批量支付状态同步消息",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "订单批量支付状态同步消息，能返回批量支付订单各个订单的支付状态。",
+      "messageDocs": [
+        {
+          "name": "batchPay",
+          "desc": "",
+          "type": "Object[]",
+          "sample": "",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": [
+            {
+              "name": "orderId",
+              "desc": "订单id",
+              "type": "String",
+              "sample": "558880835194545941",
+              "required": true,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "status",
+              "desc": "订单支付状态，可为successed（支付成功）、ACCOUNT_BALANCE_NOT_ENOUGH（余额不足）、ACCOUNT_NOT_EXIST（跨境宝2.0场景下可能签约但是在ipay没有开户）、ACCOUNT_FROZEN（账户冻结）、PARAM_ILLEGAL（参数非法）",
+              "type": "String",
+              "sample": "successed",
+              "required": true,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            }
+          ]
+        }
+      ],
+      "gmtModify": 1565156370000,
+      "sample": "{&quot;batchPay&quot;:[{&quot;orderId&quot;:&quot;558880835194545941&quot;,&quot;status&quot;:&quot;successed&quot;}]}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_ANNOUNCE_SENDGOODS": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_ANNOUNCE_SENDGOODS",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_ANNOUNCE_SENDGOODS",
+      "topicName": "BUYER_VIEW_ANNOUNCE_SENDGOODS",
+      "topicDisplayName": "1688订单发货（买家视角）/1688 order delivery (buyer view)",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688订单发货（买家视角）。状态是顺序变化的，但消息是异步发送的，会出现后发的消息先到的情况/1688 order delivery (buyer view)",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "167539019420540000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态，状态值为waitbuyerreceive",
+          "type": "String",
+          "sample": "waitbuyerreceive",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:34:27",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-665170100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-1676547900b7bb3",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1555577031000,
+      "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;waitbuyerreceive&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_BUYER_MAKE": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_BUYER_MAKE",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_BUYER_MAKE",
+      "topicName": "BUYER_VIEW_BUYER_MAKE",
+      "topicDisplayName": "1688创建订单（买家视角）/order created (buyer view)",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688创建订单（买家视角）/order created (buyer view)",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "167539019420540000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态，状态值为waitbuyerpay",
+          "type": "String",
+          "sample": "waitbuyerpay",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间\t",
+          "type": "String",
+          "sample": "2018-05-30 19:24:18",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-665170100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-1676547900b7bb3",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1553846484000,
+      "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;waitbuyerpay&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:24:18&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_MODIFY_MEMO": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_MODIFY_MEMO",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_MODIFY_MEMO",
+      "topicName": "BUYER_VIEW_MODIFY_MEMO",
+      "topicDisplayName": "1688订单备注修改（买家视角）/order remarks modification (buyer view)",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688订单备注修改消息，修改订单备注时会发送该消息，仅买家能接收到/order remarks modification (buyer view)",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "152116865139041139",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态，状态值为waitsellersend",
+          "type": "String",
+          "sample": "waitbuyerpay",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:24:18",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-665170100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-1676547900b7bb3",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1553845134000,
+      "sample": "{&quot;orderId&quot;:152116865139041139,&quot;currentStatus&quot;:&quot;waitbuyerpay&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:24:18&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_ORDER_BOPS_CLOSE": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_ORDER_BOPS_CLOSE",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_ORDER_BOPS_CLOSE",
+      "topicName": "BUYER_VIEW_ORDER_BOPS_CLOSE",
+      "topicDisplayName": "1688运营后台关闭订单（买家视角）",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688运营后台关闭订单，付款超时关闭，包括买家拍下未付款，系统自动关闭订单情况",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "167539019420540000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态",
+          "type": "String",
+          "sample": "cancel",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:34:27",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-665170100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-1676547900b7bb3",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1534770507000,
+      "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;cancel&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_ORDER_BUYER_CLOSE": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_ORDER_BUYER_CLOSE",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_ORDER_BUYER_CLOSE",
+      "topicName": "BUYER_VIEW_ORDER_BUYER_CLOSE",
+      "topicDisplayName": "1688买家关闭订单（买家视角）/buyer closing order (buyer view)",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688买家关闭订单（买家视角）/buyer closing order (buyer view)",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "167539019420540000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态，状态值为cancel\t",
+          "type": "String",
+          "sample": "cancel",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:34:27",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-665170100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-1676547900b7bb3",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1553845085000,
+      "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;cancel&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_ORDER_BUYER_REFUND_IN_SALES": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_ORDER_BUYER_REFUND_IN_SALES",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_ORDER_BUYER_REFUND_IN_SALES",
+      "topicName": "BUYER_VIEW_ORDER_BUYER_REFUND_IN_SALES",
+      "topicDisplayName": "1688订单售中退款（买家视角）",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688订单售中退款，交易未完结，仅买家能收到退款消息",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "1479266113491823456",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态",
+          "type": "String",
+          "sample": "refundsuccess",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:30:13",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-9161839253fcc5",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "refundAction",
+          "desc": "退款操作，具体状态为：BUYER_APPLY_REFUND(买家申请退款)、BUYER_RECEIVE_CLOSE(买家确认收货关闭)、SELLER_SEND_GOODS_CLOSE(卖家发货关闭)、BUYER_CANCEL_REFUND_CLOSE(买家撤销退款申请关闭)、BUYER_UPLOAD_BILL(买家上传凭证)、SELLER_UPLOAD_BILL(卖家上传凭证)、SELLER_REJECT_REFUND(卖家拒绝退款)、SELLER_AGREE_REFUND(卖家同意退款)、SELLER_RECEIVE_GOODS(卖家确认收货)、BUYER_SEND_GOODS(买家声明发货)、BUYER_MODIFY_REFUND_PROTOCOL(买家修改退款协议)、BUYER_APPLY_SUPPORT(买家申请客服介入)、SELLER_APPLY_SUPPORT(卖家申请客服介入)、SYSTEM_AGREE_REFUND_PROTOCOL(系统超时同意退款协议)、SYSTEM_AGREE_REFUND(系统超时同意退款，即退款成功)、SYSTEM_SEND_GOODS(系统超时退货，主交易流程的退货)、SYSTEM_MODIFY_REFUND_PROTOCOL(系统超时修改协议)、SYSTEM_NOTIFY_APPLY_SUPPORT(系统通知申请客服介入)、SELLER_AGREE_REFUND_PROCOTOL(卖家同意退款协议)、 SELLER_REJECT_REFUND_PROCOTOL(卖家拒绝退款协议)、 CRM_APPLY_TIMEOUT_CLOSE(申请客服介入、超时关闭、目前仅售后业务在用)、CRM_APPLY_SUPPORT(CRM申请介入)、 CRM_INTERVENE_TASK(CRM介入处理)、 CRM_DISMISS_TASK(CRM撤销工单)、 CRM_FINISH_TASK(CRM完结工单)、BUYER_STEP_PAY_ORDER_CLOSE(买家支付，退款关闭，分阶段订单情况)、BUYER_STEP_CONFIRM_CLOSE(买家确认，退款关闭，分阶段订单情况)、BUYER_CLOSE_TRADE_CLOSE(买家终止交易，退款关闭，分阶段订单情况)、SELLER_CONFIRM_ORDER_CLOSE(卖家确认，退款关闭，分阶段订单情况)、SELLER_STEP_PUSH_CLOSE(卖家推进，退款关闭，分阶段订单情况)",
+          "type": "String",
+          "sample": "SYSTEM_AGREE_REFUND_PROTOCOL",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "operator",
+          "desc": "操作的发起人，buyer(买家)，seller(卖家)，system(系统)",
+          "type": "String",
+          "sample": "system",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-346900403",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "refundId",
+          "desc": "退款单ID",
+          "type": "String",
+          "sample": "1234556",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1582252079000,
+      "sample": "{&quot;orderId&quot;:1479266113491823456,&quot;currentStatus&quot;:&quot;refundsuccess&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:30:13&quot;,&quot;buyerMemberId&quot;:&quot;b2b-9161839253fcc5&quot;,&quot;refundAction&quot;:&quot;SYSTEM_AGREE_REFUND_PROTOCOL&quot;,&quot;operator&quot;:&quot;system&quot;,&quot;sellerMemberId&quot;:&quot;b2b-346900403&quot;,&quot;refundId&quot;:&quot;1234556&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_ORDER_COMFIRM_RECEIVEGOODS": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_ORDER_COMFIRM_RECEIVEGOODS",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_ORDER_COMFIRM_RECEIVEGOODS",
+      "topicName": "BUYER_VIEW_ORDER_COMFIRM_RECEIVEGOODS",
+      "topicDisplayName": "1688订单确认收货（买家视角）/order receipt confirmation (buyer view)",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688订单确认收货（买家视角）。每次确认收货都会发送这个消息，部分确认收货也是这个消息。1688 order receipt confirmation (buyer view)",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "167539019420540000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态，状态值为confirm_goods_and_has_subsidy\t",
+          "type": "String",
+          "sample": "confirm_goods_and_has_subsidy",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:34:27",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-665170100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-1676547900b7bb3",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1553845061000,
+      "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;confirm_goods_and_has_subsidy&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_ORDER_PAY": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_ORDER_PAY",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_ORDER_PAY",
+      "topicName": "BUYER_VIEW_ORDER_PAY",
+      "topicDisplayName": "1688交易付款（买家视角）/1688 transaction payment (buyer view)",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688交易付款（买家视角）。分阶段的第一次付款，都会发送这个消息/1688 transaction payment (buyer view)",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "167539019420540000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态，状态值为waitsellersend",
+          "type": "String",
+          "sample": "waitsellersend",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:34:27",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-665170100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-1676547900b7bb3",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1667875124000,
+      "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;waitsellersend&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_ORDER_PRICE_MODIFY": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_ORDER_PRICE_MODIFY",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_ORDER_PRICE_MODIFY",
+      "topicName": "BUYER_VIEW_ORDER_PRICE_MODIFY",
+      "topicDisplayName": "1688修改订单价格（买家视角）/order price modification (buyer view)",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688修改订单价格（买家视角），包括关闭子订单。订单价格修改成功后会发送该消息，用户可以根据该消息调用API查询最新的订单价格/1688 order price modification (buyer view)",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "167539019420540000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态，状态值为waitbuyerpay",
+          "type": "String",
+          "sample": "waitbuyerpay",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:34:27",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-665170100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-1676547900b7bb3",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1553844495000,
+      "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;waitbuyerpay&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_ORDER_REFUND_AFTER_SALES": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_ORDER_REFUND_AFTER_SALES",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_ORDER_REFUND_AFTER_SALES",
+      "topicName": "BUYER_VIEW_ORDER_REFUND_AFTER_SALES",
+      "topicDisplayName": "1688订单售后退款（买家视角）",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688订单售后退款，交易已完成，仅买家能收到退款消息",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "161292821695900310",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态",
+          "type": "String",
+          "sample": "waitbuyersend",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:37:28",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-346900403",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "refundAction",
+          "desc": "退款操作，具体状态为：BUYER_APPLY_REFUND(买家申请退款)、BUYER_RECEIVE_CLOSE(买家确认收货关闭)、SELLER_SEND_GOODS_CLOSE(卖家发货关闭)、BUYER_CANCEL_REFUND_CLOSE(买家撤销退款申请关闭)、BUYER_UPLOAD_BILL(买家上传凭证)、SELLER_UPLOAD_BILL(卖家上传凭证)、SELLER_REJECT_REFUND(卖家拒绝退款)、SELLER_AGREE_REFUND(卖家同意退款)、SELLER_RECEIVE_GOODS(卖家确认收货)、BUYER_SEND_GOODS(买家声明发货)、BUYER_MODIFY_REFUND_PROTOCOL(买家修改退款协议)、BUYER_APPLY_SUPPORT(买家申请客服介入)、SELLER_APPLY_SUPPORT(卖家申请客服介入)、SYSTEM_AGREE_REFUND_PROTOCOL(系统超时同意退款协议)、SYSTEM_AGREE_REFUND(系统超时同意退款，即退款成功)、SYSTEM_SEND_GOODS(系统超时退货，主交易流程的退货)、SYSTEM_MODIFY_REFUND_PROTOCOL(系统超时修改协议)、SYSTEM_NOTIFY_APPLY_SUPPORT(系统通知申请客服介入)、SELLER_AGREE_REFUND_PROCOTOL(卖家同意退款协议)、 SELLER_REJECT_REFUND_PROCOTOL(卖家拒绝退款协议)、 CRM_APPLY_TIMEOUT_CLOSE(申请客服介入、超时关闭、目前仅售后业务在用)、CRM_APPLY_SUPPORT(CRM申请介入)、 CRM_INTERVENE_TASK(CRM介入处理)、 CRM_DISMISS_TASK(CRM撤销工单)、 CRM_FINISH_TASK(CRM完结工单)、BUYER_STEP_PAY_ORDER_CLOSE(买家支付，退款关闭，分阶段订单情况)、BUYER_STEP_CONFIRM_CLOSE(买家确认，退款关闭，分阶段订单情况)、BUYER_CLOSE_TRADE_CLOSE(买家终止交易，退款关闭，分阶段订单情况)、SELLER_CONFIRM_ORDER_CLOSE(卖家确认，退款关闭，分阶段订单情况)、SELLER_STEP_PUSH_CLOSE(卖家推进，退款关闭，分阶段订单情况)",
+          "type": "String",
+          "sample": "SELLER_AGREE_REFUND_PROCOTOL",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "operator",
+          "desc": "操作的发起人，buyer(买家)，seller(卖家)，system(系统)",
+          "type": "String",
+          "sample": "seller",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-9161839253fcc5",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "refundId",
+          "desc": "退款单ID",
+          "type": "String",
+          "sample": "1234567",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1582252107000,
+      "sample": "{&quot;orderId&quot;:161292821695900310,&quot;currentStatus&quot;:&quot;waitbuyersend&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:37:28&quot;,&quot;buyerMemberId&quot;:&quot;b2b-346900403&quot;,&quot;refundAction&quot;:&quot;SELLER_AGREE_REFUND_PROCOTOL&quot;,&quot;operator&quot;:&quot;seller&quot;,&quot;sellerMemberId&quot;:&quot;b2b-9161839253fcc5&quot;,&quot;refundId&quot;:&quot;1234567&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_ORDER_SELLER_CLOSE": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_ORDER_SELLER_CLOSE",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_ORDER_SELLER_CLOSE",
+      "topicName": "BUYER_VIEW_ORDER_SELLER_CLOSE",
+      "topicDisplayName": "1688卖家关闭订单（买家视角）/seller closing order (buyer view)",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688卖家关闭订单（买家视角）。退款导致交易关闭，也会发送此消息/1688 seller closing order (buyer view)",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "167539019420540000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态，状态值为cancel\t",
+          "type": "String",
+          "sample": "cancel",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:34:27",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-665170100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-1676547900b7bb3",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1553845109000,
+      "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;cancel&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_ORDER_SELLER_MODIFY_ADRESS": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_ORDER_SELLER_MODIFY_ADRESS",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_ORDER_SELLER_MODIFY_ADRESS",
+      "topicName": "BUYER_VIEW_ORDER_SELLER_MODIFY_ADRESS",
+      "topicDisplayName": "商家修改订单地址(买家视角)",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "商家修改订单地址(买家视角)",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "123456",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态，状态值为waitBuyerPay或者waitSellerSend",
+          "type": "String",
+          "sample": "waitBuyerPay",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "messageSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2022-03-22 00:00:00",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家MemberId",
+          "type": "String",
+          "sample": "123456",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家MemberId",
+          "type": "String",
+          "sample": "123456",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1649399488000,
+      "sample": "{&quot;orderId&quot;:123456,&quot;currentStatus&quot;:&quot;waitBuyerPay&quot;,&quot;messageSendTime&quot;:&quot;2022-03-22 00:00:00&quot;,&quot;sellerMemberId&quot;:&quot;123456&quot;,&quot;buyerMemberId&quot;:&quot;123456&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_ORDER_STEP_PAY": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_ORDER_STEP_PAY",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_ORDER_STEP_PAY",
+      "topicName": "BUYER_VIEW_ORDER_STEP_PAY",
+      "topicDisplayName": "1688订单阶段付款（买家视角）",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688订单阶段付款（买家视角）",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "167539019420540000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态， 状态值为waitsellersend",
+          "type": "String",
+          "sample": "waitsellersend",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:34:27",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-665170100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-1676547900b7bb3",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1534770570000,
+      "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;waitsellersend&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_ORDER_SUCCESS": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_ORDER_SUCCESS",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_ORDER_SUCCESS",
+      "topicName": "BUYER_VIEW_ORDER_SUCCESS",
+      "topicDisplayName": "1688交易成功（买家视角）",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688交易成功（买家视角）",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "167539019420540000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态，状态值为success\t",
+          "type": "String",
+          "sample": "success",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:34:27",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-665170100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-1676547900b7bb3",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1533088907000,
+      "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;success&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+      "subscribed": false
+    }
+  },
+  "ORDER_BUYER_VIEW_PART_PART_SENDGOODS": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=ORDER_BUYER_VIEW_PART_PART_SENDGOODS",
+    "available": true,
+    "detail": {
+      "topicId": "ORDER_BUYER_VIEW_PART_PART_SENDGOODS",
+      "topicName": "BUYER_VIEW_PART_PART_SENDGOODS",
+      "topicDisplayName": "1688订单部分发货（买家视角）/Partial delivery of 1688 order (buyer view)",
+      "topicGroupName": "ORDER",
+      "topicGroupDisplayName": "订单消息",
+      "desc": "1688订单部分发货（买家视角）。状态是顺序变化的，但消息是异步发送的，会出现后发的消息先到的情况/Partial delivery of 1688 order (buyer view)",
+      "messageDocs": [
+        {
+          "name": "orderId",
+          "desc": "订单ID",
+          "type": "Number",
+          "sample": "167539019420540000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "currentStatus",
+          "desc": "当前订单状态，状态值为waitsellersend",
+          "type": "String",
+          "sample": "waitsellersend",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 19:34:27",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "buyerMemberId",
+          "desc": "买家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-665170100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "sellerMemberId",
+          "desc": "卖家中文站会员ID",
+          "type": "String",
+          "sample": "b2b-1676547900b7bb3",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1553844950000,
+      "sample": "{&quot;orderId&quot;:167539019420540000,&quot;currentStatus&quot;:&quot;waitsellersend&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 19:34:27&quot;,&quot;buyerMemberId&quot;:&quot;b2b-665170100&quot;,&quot;sellerMemberId&quot;:&quot;b2b-1676547900b7bb3&quot;}",
+      "subscribed": false
+    }
+  },
+  "PRODUCT_FENXIAO_ADD_SUPPLY": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=PRODUCT_FENXIAO_ADD_SUPPLY",
+    "available": true,
+    "detail": {
+      "topicId": "PRODUCT_FENXIAO_ADD_SUPPLY",
+      "topicName": "FENXIAO_ADD_SUPPLY",
+      "topicDisplayName": "分销商品铺货消息",
+      "topicGroupName": "PRODUCT",
+      "topicGroupDisplayName": "商品消息",
+      "desc": "分销OD商品铺货消息",
+      "messageDocs": [
+        {
+          "name": "distributionId",
+          "desc": "分销ID",
+          "type": "Number",
+          "sample": "2212625891418",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "offerId",
+          "desc": "商品ID",
+          "type": "Number",
+          "sample": "729912713045",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "outItemCode",
+          "desc": "外部商品code",
+          "type": "String",
+          "sample": "729706520091",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "outShopCode",
+          "desc": "外部店铺Code",
+          "type": "String",
+          "sample": "测试店铺code",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1695194350000,
+      "sample": "{&quot;distributionId&quot;:2212625891418,&quot;offerId&quot;:729912713045,&quot;outItemCode&quot;:&quot;729706520091&quot;,&quot;outShopCode&quot;:&quot;测试店铺code&quot;}",
+      "subscribed": false
+    }
+  },
+  "PRODUCT_PFT_OFFER_PRICE_MODIFY": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=PRODUCT_PFT_OFFER_PRICE_MODIFY",
+    "available": true,
+    "detail": {
+      "topicId": "PRODUCT_PFT_OFFER_PRICE_MODIFY",
+      "topicName": "PFT_OFFER_PRICE_MODIFY",
+      "topicDisplayName": "精选货源商品价格变动消息",
+      "topicGroupName": "PRODUCT",
+      "topicGroupDisplayName": "商品消息",
+      "desc": "精选货源商品价格变动消息",
+      "messageDocs": [
+        {
+          "name": "offerId",
+          "desc": "商品ID",
+          "type": "Number",
+          "sample": "679304426617",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "minPrice",
+          "desc": "价格变动",
+          "type": "Number",
+          "sample": "2100",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "activeTime",
+          "desc": "价格变动生效时间",
+          "type": "Number",
+          "sample": "1662426000000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "skuUpdateInfos",
+          "desc": "sku价格变动情况",
+          "type": "Object",
+          "sample": "",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": [
+            {
+              "name": "skuId",
+              "desc": "skuId",
+              "type": "Number",
+              "sample": "4851072600824",
+              "required": true,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "historyRetailPrice",
+              "desc": "变更价格，分",
+              "type": "Number",
+              "sample": "1550",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            }
+          ]
+        }
+      ],
+      "gmtModify": 1724407979000,
+      "sample": "{&quot;offerId&quot;:679304426617,&quot;minPrice&quot;:2100,&quot;activeTime&quot;:1662426000000,&quot;skuUpdateInfos&quot;:{&quot;skuId&quot;:4851072600824,&quot;historyRetailPrice&quot;:1550}}",
+      "subscribed": false
+    }
+  },
+  "PRODUCT_PFT_OFFER_QUIT": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=PRODUCT_PFT_OFFER_QUIT",
+    "available": true,
+    "detail": {
+      "topicId": "PRODUCT_PFT_OFFER_QUIT",
+      "topicName": "PFT_OFFER_QUIT",
+      "topicDisplayName": "精选货源商品下架消息",
+      "topicGroupName": "PRODUCT",
+      "topicGroupDisplayName": "商品消息",
+      "desc": "精选货源商品下架消息",
+      "messageDocs": [
+        {
+          "name": "offerId",
+          "desc": "产品id",
+          "type": "Number",
+          "sample": "662112483578",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "type",
+          "desc": "团类型",
+          "type": "String",
+          "sample": "single_direct",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "openUid",
+          "desc": "offer所属商家openUid",
+          "type": "String",
+          "sample": "1117283046",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1687339939000,
+      "sample": "{&quot;offerId&quot;:662112483578,&quot;type&quot;:&quot;single_direct&quot;,&quot;openUid&quot;:&quot;1117283046&quot;}",
+      "subscribed": false
+    }
+  },
+  "PRODUCT_PRODUCT_CHANGE": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=PRODUCT_PRODUCT_CHANGE",
+    "available": true,
+    "detail": {
+      "topicId": "PRODUCT_PRODUCT_CHANGE",
+      "topicName": "PRODUCT_CHANGE",
+      "topicDisplayName": "商品变更消息(包含所有商品变更动作)",
+      "topicGroupName": "PRODUCT",
+      "topicGroupDisplayName": "商品消息",
+      "desc": "商品变更消息(包含所有商品变更动作)",
+      "messageDocs": [
+        {
+          "name": "memberId",
+          "desc": "用户memberid",
+          "type": "String",
+          "sample": "xxxx",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "offerIds",
+          "desc": "商品ID列表",
+          "type": "String",
+          "sample": "&quot;111&quot;,&quot;2222&quot;",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "action",
+          "desc": "操作类型",
+          "type": "String",
+          "sample": "动作(new:用户新发,modify:用户修改,member_delete:用户删除,member_expired:用户下架,repost:用户重发,audit:小二审核,update:运营或运营工具修改,revised:商品订正,publish:上架,sku_new:sku发布,sku_modify:sku编辑,sku_delete:sku删除)",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1701849601000,
+      "sample": "{&quot;memberId&quot;:&quot;xxxx&quot;,&quot;offerIds&quot;:&quot;&quot;111&quot;,&quot;2222&quot;&quot;,&quot;action&quot;:&quot;动作(new:用户新发,modify:用户修改,member_delete:用户删除,member_expired:用户下架,repost:用户重发,audit:小二审核,update:运营或运营工具修改,revised:商品订正,publish:上架,sku_new:sku发布,sku_modify:sku编辑,sku_delete:sku删除)&quot;}",
+      "subscribed": false
+    }
+  },
+  "PRODUCT_PRODUCT_CROSSBOARD_INFORM": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=PRODUCT_PRODUCT_CROSSBOARD_INFORM",
+    "available": true,
+    "detail": {
+      "topicId": "PRODUCT_PRODUCT_CROSSBOARD_INFORM",
+      "topicName": "PRODUCT_CROSSBOARD_INFORM",
+      "topicDisplayName": "一键铺货消息",
+      "topicGroupName": "PRODUCT",
+      "topicGroupDisplayName": "商品消息",
+      "desc": "用户触发一键铺货",
+      "messageDocs": [
+        {
+          "name": "offerId",
+          "desc": "商品ID",
+          "type": "String",
+          "sample": "570046582711",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "userInfo",
+          "desc": "分销商CBU的会员ID",
+          "type": "String",
+          "sample": "2804951212",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "action",
+          "desc": "执行动作，值为distribution",
+          "type": "String",
+          "sample": "distribution",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1530172258000,
+      "sample": "{&quot;offerId&quot;:&quot;570046582711&quot;,&quot;userInfo&quot;:&quot;2804951212&quot;,&quot;action&quot;:&quot;distribution&quot;}",
+      "subscribed": false
+    }
+  },
+  "PRODUCT_PRODUCT_INVENTORY_CHANGE": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=PRODUCT_PRODUCT_INVENTORY_CHANGE",
+    "available": true,
+    "detail": {
+      "topicId": "PRODUCT_PRODUCT_INVENTORY_CHANGE",
+      "topicName": "PRODUCT_INVENTORY_CHANGE",
+      "topicDisplayName": "1688商品库存变更消息（关系用户视角）",
+      "topicGroupName": "PRODUCT",
+      "topicGroupDisplayName": "商品消息",
+      "desc": "商品库存变更消息，如下情况会导致触发商品库存变更：商家编辑商品、交易下单、订单关闭，回补库存、小二修改库存、API修改库存。接收某商品库存变更的前提，需先调用关注商品API关注某个商品，然后才能接收该商品库存变更的消息。",
+      "messageDocs": [
+        {
+          "name": "OfferInventoryChangeList",
+          "desc": "库存变更列表",
+          "type": "Object[]",
+          "sample": "",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": [
+            {
+              "name": "offerId",
+              "desc": "1688商品id",
+              "type": "Number",
+              "sample": "1234567890",
+              "required": true,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "offerOnSale",
+              "desc": "在线可售offer数量",
+              "type": "Number",
+              "sample": "100",
+              "required": true,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "skuId",
+              "desc": "商品skuId",
+              "type": "Number",
+              "sample": "1234567890",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "skuOnSale",
+              "desc": "在线可售sku数量",
+              "type": "Number",
+              "sample": "20",
+              "required": false,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "quantity",
+              "desc": "该offer整体库存变化数",
+              "type": "Number",
+              "sample": "-10",
+              "required": true,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "bizTime",
+              "desc": "库存变更时间",
+              "type": "Date",
+              "sample": "1564984329147",
+              "required": true,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            }
+          ]
+        }
+      ],
+      "gmtModify": 1590548688000,
+      "sample": "{&quot;OfferInventoryChangeList&quot;:[{&quot;offerId&quot;:1234567890,&quot;offerOnSale&quot;:100,&quot;skuId&quot;:1234567890,&quot;skuOnSale&quot;:20,&quot;quantity&quot;:-10,&quot;bizTime&quot;:&quot;1564984329147&quot;}]}",
+      "subscribed": false
+    }
+  },
+  "PRODUCT_RELATION_VIEW_PRODUCT_AUDIT": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=PRODUCT_RELATION_VIEW_PRODUCT_AUDIT",
+    "available": true,
+    "detail": {
+      "topicId": "PRODUCT_RELATION_VIEW_PRODUCT_AUDIT",
+      "topicName": "RELATION_VIEW_PRODUCT_AUDIT",
+      "topicDisplayName": "1688产品审核（关系用户视角）",
+      "topicGroupName": "PRODUCT",
+      "topicGroupDisplayName": "商品消息",
+      "desc": "1688产品审核，关系用户（包含跨境、分销等关系）视角",
+      "messageDocs": [
+        {
+          "name": "productIds",
+          "desc": "商品ID集合，至少有一个，用逗号分割",
+          "type": "String",
+          "sample": "570872343603",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "memberId",
+          "desc": "1688会员ID",
+          "type": "String",
+          "sample": "b2b-342071512394d025",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "status",
+          "desc": "消息类型，具体可为RELATION_VIEW_PRODUCT_EXPIRE、RELATION_VIEW_PRODUCT_NEW_OR_MODIFY、RELATION_VIEW_PRODUCT_DELETE、RELATION_VIEW_PRODUCT_REPOST",
+          "type": "String",
+          "sample": "RELATION_VIEW_PRODUCT_AUDIT",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 20:26:41",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1726800738000,
+      "sample": "{&quot;productIds&quot;:&quot;570872343603&quot;,&quot;memberId&quot;:&quot;b2b-342071512394d025&quot;,&quot;status&quot;:&quot;RELATION_VIEW_PRODUCT_AUDIT&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 20:26:41&quot;}",
+      "subscribed": false
+    }
+  },
+  "PRODUCT_RELATION_VIEW_PRODUCT_DELETE": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=PRODUCT_RELATION_VIEW_PRODUCT_DELETE",
+    "available": true,
+    "detail": {
+      "topicId": "PRODUCT_RELATION_VIEW_PRODUCT_DELETE",
+      "topicName": "RELATION_VIEW_PRODUCT_DELETE",
+      "topicDisplayName": "1688产品删除（关系用户视角）",
+      "topicGroupName": "PRODUCT",
+      "topicGroupDisplayName": "商品消息",
+      "desc": "1688产品删除，关系用户（包含跨境、分销等关系）视角",
+      "messageDocs": [
+        {
+          "name": "productIds",
+          "desc": "商品ID集合，至少有一个，用逗号分割",
+          "type": "String",
+          "sample": "570872343603",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "memberId",
+          "desc": "1688会员ID",
+          "type": "String",
+          "sample": "b2b-342071512394d025",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "status",
+          "desc": "消息类型，具体可为RELATION_VIEW_PRODUCT_EXPIRE、RELATION_VIEW_PRODUCT_NEW_OR_MODIFY、RELATION_VIEW_PRODUCT_DELETE、RELATION_VIEW_PRODUCT_REPOST",
+          "type": "String",
+          "sample": "RELATION_VIEW_PRODUCT_DELETE",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 20:26:41",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1550736302000,
+      "sample": "{&quot;productIds&quot;:&quot;570872343603&quot;,&quot;memberId&quot;:&quot;b2b-342071512394d025&quot;,&quot;status&quot;:&quot;RELATION_VIEW_PRODUCT_DELETE&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 20:26:41&quot;}",
+      "subscribed": false
+    }
+  },
+  "PRODUCT_RELATION_VIEW_PRODUCT_EXPIRE": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=PRODUCT_RELATION_VIEW_PRODUCT_EXPIRE",
+    "available": true,
+    "detail": {
+      "topicId": "PRODUCT_RELATION_VIEW_PRODUCT_EXPIRE",
+      "topicName": "RELATION_VIEW_PRODUCT_EXPIRE",
+      "topicDisplayName": "1688产品下架（关系用户视角）",
+      "topicGroupName": "PRODUCT",
+      "topicGroupDisplayName": "商品消息",
+      "desc": "1688产品下架，仅关系用户（包含跨境、分销等关系）可见",
+      "messageDocs": [
+        {
+          "name": "productIds",
+          "desc": "商品ID集合，至少有一个，用逗号分割",
+          "type": "String",
+          "sample": "44179498967",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "memberId",
+          "desc": "1688会员ID",
+          "type": "String",
+          "sample": "xuxan",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "status",
+          "desc": "消息类型，具体可为RELATION_VIEW_PRODUCT_EXPIRE、RELATION_VIEW_PRODUCT_NEW_OR_MODIFY、RELATION_VIEW_PRODUCT_DELETE、RELATION_VIEW_PRODUCT_REPOST",
+          "type": "String",
+          "sample": "RELATION_VIEW_PRODUCT_EXPIRE",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 20:27:48",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1550736281000,
+      "sample": "{&quot;productIds&quot;:&quot;44179498967&quot;,&quot;memberId&quot;:&quot;xuxan&quot;,&quot;status&quot;:&quot;RELATION_VIEW_PRODUCT_EXPIRE&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 20:27:48&quot;}",
+      "subscribed": false
+    }
+  },
+  "PRODUCT_RELATION_VIEW_PRODUCT_NEW_OR_MODIFY": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=PRODUCT_RELATION_VIEW_PRODUCT_NEW_OR_MODIFY",
+    "available": true,
+    "detail": {
+      "topicId": "PRODUCT_RELATION_VIEW_PRODUCT_NEW_OR_MODIFY",
+      "topicName": "RELATION_VIEW_PRODUCT_NEW_OR_MODIFY",
+      "topicDisplayName": "1688产品新增或修改（关系用户视角）",
+      "topicGroupName": "PRODUCT",
+      "topicGroupDisplayName": "商品消息",
+      "desc": "1688产品新增或修改，仅关系用户（包含跨境、分销等关系）可见",
+      "messageDocs": [
+        {
+          "name": "productIds",
+          "desc": "商品ID集合，至少有一个，用逗号分割",
+          "type": "String",
+          "sample": "547096780502",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "memberId",
+          "desc": "1688会员ID",
+          "type": "String",
+          "sample": "b2b-28308412336ca4e7",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "status",
+          "desc": "消息类型，具体可为RELATION_VIEW_PRODUCT_EXPIRE、RELATION_VIEW_PRODUCT_NEW_OR_MODIFY、RELATION_VIEW_PRODUCT_DELETE、RELATION_VIEW_PRODUCT_REPOST",
+          "type": "String",
+          "sample": "RELATION_VIEW_PRODUCT_NEW_OR_MODIFY",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 20:28:42",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1550736287000,
+      "sample": "{&quot;productIds&quot;:&quot;547096780502&quot;,&quot;memberId&quot;:&quot;b2b-28308412336ca4e7&quot;,&quot;status&quot;:&quot;RELATION_VIEW_PRODUCT_NEW_OR_MODIFY&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 20:28:42&quot;}",
+      "subscribed": false
+    }
+  },
+  "PRODUCT_RELATION_VIEW_PRODUCT_REPOST": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=PRODUCT_RELATION_VIEW_PRODUCT_REPOST",
+    "available": true,
+    "detail": {
+      "topicId": "PRODUCT_RELATION_VIEW_PRODUCT_REPOST",
+      "topicName": "RELATION_VIEW_PRODUCT_REPOST",
+      "topicDisplayName": "1688产品上架（关系用户视角）",
+      "topicGroupName": "PRODUCT",
+      "topicGroupDisplayName": "商品消息",
+      "desc": "1688产品上架，仅关系用户（包含跨境、分销等关系）可见",
+      "messageDocs": [
+        {
+          "name": "productIds",
+          "desc": "商品ID集合，至少有一个，用逗号分割",
+          "type": "String",
+          "sample": "107680826",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "memberId",
+          "desc": "1688会员ID",
+          "type": "String",
+          "sample": "shyxsscl",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "status",
+          "desc": "消息类型，具体可为RELATION_VIEW_PRODUCT_EXPIRE、RELATION_VIEW_PRODUCT_NEW_OR_MODIFY、RELATION_VIEW_PRODUCT_DELETE、RELATION_VIEW_PRODUCT_REPOST",
+          "type": "String",
+          "sample": "RELATION_VIEW_PRODUCT_REPOST",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "msgSendTime",
+          "desc": "消息发送时间",
+          "type": "String",
+          "sample": "2018-05-30 20:29:37",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1550736252000,
+      "sample": "{&quot;productIds&quot;:&quot;107680826&quot;,&quot;memberId&quot;:&quot;shyxsscl&quot;,&quot;status&quot;:&quot;RELATION_VIEW_PRODUCT_REPOST&quot;,&quot;msgSendTime&quot;:&quot;2018-05-30 20:29:37&quot;}",
+      "subscribed": false
+    }
+  },
+  "SYT_ADD_CONTRACT_CONTENT": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=SYT_ADD_CONTRACT_CONTENT",
+    "available": true,
+    "detail": {
+      "topicId": "SYT_ADD_CONTRACT_CONTENT",
+      "topicName": "ADD_CONTRACT_CONTENT",
+      "topicDisplayName": "新增交易存证通知消息",
+      "topicGroupName": "SYT",
+      "topicGroupDisplayName": "生意通",
+      "desc": "可用于：对手方在采购单/合同详情页面，新增物流凭证、发货凭证、付款凭证等信息时会做消息通知",
+      "messageDocs": [
+        {
+          "name": "draftNo",
+          "desc": "合同号/采购单号",
+          "type": "String",
+          "sample": "88SYT20240113169004",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "content",
+          "desc": "增加的具体内容，文本内容",
+          "type": "String",
+          "sample": "无",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "eventType",
+          "desc": "当前事件类型",
+          "type": "String",
+          "sample": "CONTRACT_CONTENT_ADD_SUCCESS",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "submitterRole",
+          "desc": "交易存证提交人角色",
+          "type": "String",
+          "sample": "PART_A:买家;PART_B:商家",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "addTime",
+          "desc": "添加时间事件毫秒戳",
+          "type": "Number",
+          "sample": "1768288592321",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "attachments",
+          "desc": "文件附件",
+          "type": "Object[]",
+          "sample": "无",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": [
+            {
+              "name": "fileName",
+              "desc": "附件名称",
+              "type": "String",
+              "sample": "a.png",
+              "required": true,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            },
+            {
+              "name": "filePath",
+              "desc": "附件文件地址",
+              "type": "String",
+              "sample": "https://www.xxx.xxx/xxx.pdf",
+              "required": true,
+              "privacyLevel": null,
+              "sensitiveLabel": null,
+              "children": null
+            }
+          ]
+        }
+      ],
+      "gmtModify": 1778638378000,
+      "sample": "{&quot;draftNo&quot;:&quot;88SYT20240113169004&quot;,&quot;content&quot;:&quot;无&quot;,&quot;eventType&quot;:&quot;CONTRACT_CONTENT_ADD_SUCCESS&quot;,&quot;submitterRole&quot;:&quot;PART_A:买家;PART_B:商家&quot;,&quot;addTime&quot;:1768288592321,&quot;attachments&quot;:[{&quot;fileName&quot;:&quot;a.png&quot;,&quot;filePath&quot;:&quot;https://www.xxx.xxx/xxx.pdf&quot;}]}",
+      "subscribed": false
+    }
+  },
+  "SYT_CONTRACT_PAY_SUCCESS": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=SYT_CONTRACT_PAY_SUCCESS",
+    "available": true,
+    "detail": {
+      "topicId": "SYT_CONTRACT_PAY_SUCCESS",
+      "topicName": "CONTRACT_PAY_SUCCESS",
+      "topicDisplayName": "合同/采购单双方支付成功消息通知",
+      "topicGroupName": "SYT",
+      "topicGroupDisplayName": "生意通",
+      "desc": "合同/采购单双方支付成功消息通知",
+      "messageDocs": [
+        {
+          "name": "draftNo",
+          "desc": "合同号或采购单号",
+          "type": "String",
+          "sample": "88SYT20230113169004",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "contractCurrentStatus",
+          "desc": "合同或采购单当前状态",
+          "type": "String",
+          "sample": "PAID",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "eventType",
+          "desc": "当前事件类型",
+          "type": "String",
+          "sample": "CONTRACT_PAY_SUCCESS_EVENT",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "payChannel",
+          "desc": "买家支付渠道",
+          "type": "String",
+          "sample": "BANK_TRANSFER",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1778638271000,
+      "sample": "{&quot;draftNo&quot;:&quot;88SYT20230113169004&quot;,&quot;contractCurrentStatus&quot;:&quot;PAID&quot;,&quot;eventType&quot;:&quot;CONTRACT_PAY_SUCCESS_EVENT&quot;,&quot;payChannel&quot;:&quot;BANK_TRANSFER&quot;}",
+      "subscribed": false
+    }
+  },
+  "SYT_CONTRACT_REJECT": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=SYT_CONTRACT_REJECT",
+    "available": true,
+    "detail": {
+      "topicId": "SYT_CONTRACT_REJECT",
+      "topicName": "CONTRACT_REJECT",
+      "topicDisplayName": "采购单/合同拒绝消息通知",
+      "topicGroupName": "SYT",
+      "topicGroupDisplayName": "生意通",
+      "desc": "生意通采购单/合同拒绝消息通知",
+      "messageDocs": [
+        {
+          "name": "draftNo",
+          "desc": "合同号或采购单号",
+          "type": "String",
+          "sample": "88SYT20230113169004",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "contractCurrentStatus",
+          "desc": "合同当前状态",
+          "type": "String",
+          "sample": "SIGN_REJECT",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "eventType",
+          "desc": "当前事件类型",
+          "type": "String",
+          "sample": "CONTRACT_SIGN_REJECT_EVENT",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "signRejectReason",
+          "desc": "拒绝原因",
+          "type": "String",
+          "sample": "无",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "signRejectTime",
+          "desc": "拒绝事件毫秒戳",
+          "type": "String",
+          "sample": "1778505510000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1778638312000,
+      "sample": "{&quot;draftNo&quot;:&quot;88SYT20230113169004&quot;,&quot;contractCurrentStatus&quot;:&quot;SIGN_REJECT&quot;,&quot;eventType&quot;:&quot;CONTRACT_SIGN_REJECT_EVENT&quot;,&quot;signRejectReason&quot;:&quot;无&quot;,&quot;signRejectTime&quot;:&quot;1778505510000&quot;}",
+      "subscribed": false
+    }
+  },
+  "SYT_CONTRACT_SIGN_SUCCESS": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=SYT_CONTRACT_SIGN_SUCCESS",
+    "available": true,
+    "detail": {
+      "topicId": "SYT_CONTRACT_SIGN_SUCCESS",
+      "topicName": "CONTRACT_SIGN_SUCCESS",
+      "topicDisplayName": "合同/采购单双方签署成功通知",
+      "topicGroupName": "SYT",
+      "topicGroupDisplayName": "生意通",
+      "desc": "合同/采购单双方签署成功后，会做消息通知",
+      "messageDocs": [
+        {
+          "name": "draftNo",
+          "desc": "合同号或采购单号",
+          "type": "String",
+          "sample": "88SYT20230113169004",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "contractCurrentStatus",
+          "desc": "合同/采购单当前状态",
+          "type": "String",
+          "sample": "SIGN_SUCCESS",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "eventType",
+          "desc": "当前事件类型",
+          "type": "String",
+          "sample": "CONTRACT_SIGN_SUCCESS_EVENT",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "signSuccessTime",
+          "desc": "签约成功时间毫秒戳",
+          "type": "String",
+          "sample": "1778505510000",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1778638242000,
+      "sample": "{&quot;draftNo&quot;:&quot;88SYT20230113169004&quot;,&quot;contractCurrentStatus&quot;:&quot;SIGN_SUCCESS&quot;,&quot;eventType&quot;:&quot;CONTRACT_SIGN_SUCCESS_EVENT&quot;,&quot;signSuccessTime&quot;:&quot;1778505510000&quot;}",
+      "subscribed": false
+    }
+  },
+  "SYT_CONTRACT_WAIT_SIGN": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=SYT_CONTRACT_WAIT_SIGN",
+    "available": true,
+    "detail": {
+      "topicId": "SYT_CONTRACT_WAIT_SIGN",
+      "topicName": "CONTRACT_WAIT_SIGN",
+      "topicDisplayName": "合同或采购单待签署消息",
+      "topicGroupName": "SYT",
+      "topicGroupDisplayName": "生意通",
+      "desc": "当合同或采购单需要签署确认时，会做消息通知",
+      "messageDocs": [
+        {
+          "name": "draftNo",
+          "desc": "合同号或采购单号",
+          "type": "String",
+          "sample": "88SYT20230113169004",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "contractCurrentStatus",
+          "desc": "合同或采购单当前状态",
+          "type": "String",
+          "sample": "SIGNING",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "eventType",
+          "desc": "当前事件类型",
+          "type": "String",
+          "sample": "CONTRACT_WAIT_SIGN_EVENT",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1778638210000,
+      "sample": "{&quot;draftNo&quot;:&quot;88SYT20230113169004&quot;,&quot;contractCurrentStatus&quot;:&quot;SIGNING&quot;,&quot;eventType&quot;:&quot;CONTRACT_WAIT_SIGN_EVENT&quot;}",
+      "subscribed": false
+    }
+  },
+  "SYT_REFUND_FINISH_NOTICE": {
+    "source": "https://open.1688.com/msg/dataNew/getTopic.json?topicId=SYT_REFUND_FINISH_NOTICE",
+    "available": true,
+    "detail": {
+      "topicId": "SYT_REFUND_FINISH_NOTICE",
+      "topicName": "REFUND_FINISH_NOTICE",
+      "topicDisplayName": "合同或采购单退款结果消息",
+      "topicGroupName": "SYT",
+      "topicGroupDisplayName": "生意通",
+      "desc": "合同或采购单退款结果消息",
+      "messageDocs": [
+        {
+          "name": "draftNo",
+          "desc": "合同号/采购单号",
+          "type": "String",
+          "sample": "88SYT20240113169004",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "eventType",
+          "desc": "当前事件类型",
+          "type": "String",
+          "sample": "CONTRACT_REFUND_FINISH",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "refundOrderNo",
+          "desc": "退款单号",
+          "type": "String",
+          "sample": "8896010RO10005525121800000017003",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "refundStatus",
+          "desc": "退款单状态",
+          "type": "String",
+          "sample": "REFUND_SUCCESS/FAILED",
+          "required": true,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        },
+        {
+          "name": "rejectReason",
+          "desc": "退款拒绝原因",
+          "type": "String",
+          "sample": "无",
+          "required": false,
+          "privacyLevel": null,
+          "sensitiveLabel": null,
+          "children": null
+        }
+      ],
+      "gmtModify": 1778638341000,
+      "sample": "{&quot;draftNo&quot;:&quot;88SYT20240113169004&quot;,&quot;eventType&quot;:&quot;CONTRACT_REFUND_FINISH&quot;,&quot;refundOrderNo&quot;:&quot;8896010RO10005525121800000017003&quot;,&quot;refundStatus&quot;:&quot;REFUND_SUCCESS/FAILED&quot;,&quot;rejectReason&quot;:&quot;无&quot;}",
+      "subscribed": false
+    }
+  }
+}

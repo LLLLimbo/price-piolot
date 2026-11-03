@@ -1,0 +1,1485 @@
+{
+  "cn.alibaba.open:alibaba.app.pieceorder.get-1": {
+    "params": {
+      "gmtCreate": "20260101000000000+0800"
+    }
+  },
+  "cn.alibaba.open:alibaba.relation.querySuppliers-1": {
+    "params": {}
+  },
+  "cn.alibaba.open:app.expire.get-1": {
+    "params": {
+      "gmtServiceEnd": "20261201000000000+0800"
+    }
+  },
+  "cn.alibaba.open:app.order.get-1": {
+    "params": {
+      "gmtCreate": "20260101000000000+0800"
+    }
+  },
+  "cn.alibaba.open:push.cursor.messageList-1": {
+    "params": {}
+  },
+  "cn.alibaba.open:push.message.confirm-1": {
+    "params": {}
+  },
+  "cn.alibaba.open:push.query.messageList-1": {
+    "params": {}
+  },
+  "com.alibaba.account:account.wangwangUrl.get-1": {
+    "params": {
+      "toOpenUid": "mock-open-seller-1"
+    }
+  },
+  "com.alibaba.account:alibaba.account.agent.crossBasic-1": {
+    "params": {
+      "loginId": "buyer"
+    }
+  },
+  "com.alibaba.account:alibaba.account.basic-1": {
+    "params": {}
+  },
+  "com.alibaba.account:alibaba.subAccount.list-1": {
+    "params": {}
+  },
+  "com.alibaba.account:loginid.openuid.encrypt-1": {
+    "params": {
+      "loginId": "buyer"
+    }
+  },
+  "com.alibaba.account:wangwangnick.openuid.decrypt-1": {
+    "params": {
+      "openUid": "mock-open-buyer-1"
+    }
+  },
+  "com.alibaba.agent:newtoncloud.batchInquiry.getResult-1": {
+    "params": {
+      "taskId": "task-1"
+    }
+  },
+  "com.alibaba.agent:newtoncloud.file.upload-1": {
+    "params": {
+      "contentBase64": "aGVsbG8=",
+      "filename": "sample.txt"
+    }
+  },
+  "com.alibaba.agent:newtoncloud.model.list-1": {
+    "params": {}
+  },
+  "com.alibaba.agent:newtoncloud.points.query-1": {
+    "params": {}
+  },
+  "com.alibaba.agent:newtoncloud.task.create-1": {
+    "params": {
+      "message": "寻找棉质短袖"
+    }
+  },
+  "com.alibaba.agent:newtoncloud.task.fetch-1": {
+    "params": {
+      "taskId": "task-1",
+      "id": "1",
+      "scene": "procurement",
+      "subScene": "products"
+    }
+  },
+  "com.alibaba.agent:newtoncloud.task.get-1": {
+    "params": {
+      "taskId": "task-1"
+    }
+  },
+  "com.alibaba.agent:newtoncloud.task.kill-1": {
+    "params": {
+      "taskId": "task-1",
+      "reason": "测试取消"
+    }
+  },
+  "com.alibaba.agent:newtoncloud.task.list-1": {
+    "params": {}
+  },
+  "com.alibaba.agent:newtoncloud.task.resume-1": {
+    "params": {
+      "sessionId": "session-1",
+      "scene": "procurement",
+      "taskId": "task-1"
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:account.business.save-1": {
+    "params": {
+      "accountPerformance": {
+        "account": "fixture",
+        "business": "fixture"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:account.user.register-1": {
+    "params": {
+      "countryAccount": {
+        "country": "en",
+        "site": "fixture",
+        "outLoginId": "newbuyer",
+        "outMemberId": "newbuyer",
+        "email": "new@example.test",
+        "mobile": "13800000000",
+        "mobileArea": "fixture",
+        "ip": "fixture"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:alibaba.lpAuthToken.generate-1": {
+    "params": {
+      "lpAccessInfoParam": {
+        "customerId": "fixture",
+        "secret": "fixture",
+        "userKey": "fixture",
+        "userToken": "fixture"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:alibaba.lpIsvInfo.createSubcustomer-1": {
+    "params": {
+      "isvInfoParam": {
+        "customerId": "fixture",
+        "subCustomerId": "fixture",
+        "subCustomerName": "fixture"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:category.translation.getById-1": {
+    "params": {
+      "language": "en",
+      "categoryId": 101,
+      "outMemberId": "external1"
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:category.translation.getByKeyword-1": {
+    "params": {
+      "language": "en",
+      "cateName": "日用百货",
+      "outMemberId": "external1"
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:global.agent.auth-1": {
+    "params": {
+      "userIdentity": "external-1",
+      "aliId": "buyer-1"
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:logistics.order.getOutOrderId-1": {
+    "params": {
+      "shipmentId": "TRACK-1"
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:material.query.sync-1": {
+    "params": {
+      "param": {
+        "offerId": 1001,
+        "offerCollectionId": "material-1",
+        "outerUserIdentity": "external-1"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:order.relation.write-1": {
+    "params": {
+      "orderRelationParam": {
+        "orderId": "20001",
+        "parentOrderId": "fixture",
+        "purchaseOrderId": 2000100,
+        "purchaseParentOrderId": 20001
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:pool.product.pull-1": {
+    "params": {
+      "offerPoolQueryParam": {
+        "offerPoolId": 1,
+        "taskId": "task-1",
+        "pageNo": 1,
+        "pageSize": 20
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:pool.product.total-1": {
+    "params": {
+      "appKey": "fixture",
+      "palletId": 1,
+      "categoryId": "101"
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.analyze.getPerdaySellQuantityTrend-1": {
+    "params": {
+      "param": {
+        "offerId": 1001,
+        "startDate": "20261025",
+        "endDate": "20261026"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.analyze.getPerdaySellQuantityTrendNew-1": {
+    "params": {
+      "tendQueryParam": {
+        "offerId": 1001,
+        "startDate": "20261025",
+        "endDate": "20261026"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.analyze.getRepurchaseRateTrend-1": {
+    "params": {
+      "params": {
+        "offerId": 1001,
+        "startDate": "20261025",
+        "endDate": "20261026"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.analyze.getRepurchaseRateTrendNew-1": {
+    "params": {
+      "trendQueryParam": {
+        "offerId": 1001,
+        "startDate": "20261025",
+        "endDate": "20261026"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.analyze.getThirtyDayMedianPriceTrend-1": {
+    "params": {
+      "params": {
+        "offerId": 1001,
+        "startDate": "20261025",
+        "endDate": "20261026"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.analyze.getThirtyDayMedianPriceTrendNew-1": {
+    "params": {
+      "trendQueryParam": {
+        "offerId": 1001,
+        "startDate": "20261025",
+        "endDate": "20261026"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.freight.estimate-1": {
+    "params": {
+      "productFreightQueryParamsNew": {
+        "offerId": 1002,
+        "toProvinceCode": "330000",
+        "toCityCode": "330100",
+        "toCountryCode": "330108",
+        "totalNum": 3,
+        "logisticsSkuNumModels": [
+          {
+            "skuId": "1002",
+            "number": 2
+          },
+          {
+            "skuId": "2002",
+            "number": 1
+          }
+        ]
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.image.upload-1": {
+    "params": {
+      "uploadImageParam": {
+        "imageBase64": "aGVsbG8="
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.kjdistribute.addRelation-1": {
+    "params": {
+      "offerId": 1001
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.related.recommend-1": {
+    "params": {
+      "relatedQueryParams": {
+        "offerId": 1001,
+        "pageNo": 1,
+        "pageSize": 10,
+        "language": "en"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.search.imageQuery-1": {
+    "params": {
+      "offerQueryParam": {
+        "imageId": "fixture",
+        "beginPage": 1,
+        "pageSize": 20,
+        "country": "en"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.search.imageQueryBasic-1": {
+    "params": {
+      "searchParam": {
+        "imageBase64": "aGVsbG8=",
+        "beginPage": "1",
+        "pageSize": "20"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.search.keywordQuery-1": {
+    "params": {
+      "offerQueryParam": {
+        "keyword": "棉",
+        "beginPage": 1,
+        "pageSize": 20,
+        "country": "en"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.search.keywordSNQuery-1": {
+    "params": {
+      "snParams": {
+        "keyword": "棉",
+        "language": "en",
+        "region": "fixture",
+        "currency": "fixture"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.search.offerRecommend-1": {
+    "params": {
+      "recommendOfferParam": {
+        "beginPage": 1,
+        "pageSize": 20,
+        "country": "en",
+        "outMemberId": "fixture"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.search.queryProductDetail-1": {
+    "params": {
+      "offerDetailParam": {
+        "offerId": 1001,
+        "country": "en"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.search.querySellerOfferList-1": {
+    "params": {
+      "offerQueryParam": {
+        "beginPage": 1,
+        "pageSize": 20,
+        "country": "en",
+        "sellerOpenId": "fixture"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.search.topKeyword-1": {
+    "params": {
+      "topSeKeywordParam": {
+        "country": "en",
+        "sourceId": "101",
+        "hotKeywordType": "cate"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:product.topList.query-1": {
+    "params": {
+      "rankQueryParams": {
+        "rankId": "101",
+        "rankType": "hot",
+        "limit": 20,
+        "language": "en"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:trade.cross.logisticsOrderSync-1": {
+    "params": {
+      "orderLogisticsParam": {
+        "orderId": "20001",
+        "logisticsId": "fixture",
+        "logisticsStatus": "fixture",
+        "createTime": "20260101000000000+0800",
+        "signTime": "20260101000000000+0800",
+        "province": "浙江省",
+        "city": "杭州市",
+        "area": "滨江区",
+        "address": "网商路699号"
+      }
+    }
+  },
+  "com.alibaba.fenxiao.crossborder:trade.cross.orderSync-1": {
+    "params": {
+      "orderParam": {
+        "orderId": "20001",
+        "createTime": "2026-10-26 00:00:00",
+        "outMemberId": "fixture",
+        "payTime": "2026-10-26 00:01:00",
+        "paidFee": 1,
+        "status": "payed",
+        "productId": "1001",
+        "productName": "棉质短袖",
+        "skuId": "sku-1001",
+        "skuName": "白色"
+      }
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.feedback.out.product.add-1": {
+    "params": {
+      "outUserId": "external-1",
+      "channel": "other",
+      "outShopId": "fixture",
+      "outItemId": 1,
+      "title": "测试公司",
+      "url": "fixture",
+      "imgUrl": "fixture",
+      "skuName": "fixture",
+      "skuImgUrl": "fixture",
+      "skuDesc": "fixture",
+      "categoryLv1Name": "fixture",
+      "features": "fixture",
+      "avgSalePrice30d": 1,
+      "lowestSalePrice30d": 1,
+      "saleQuantity1d": 1,
+      "saleAmount1d": 1
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.fenxiao.buyer.outproduct.relation.add-1": {
+    "params": {
+      "channel": "other",
+      "outItemCode": "item-1",
+      "outShopCode": "shop-1"
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.fenxiao.buyer.outproduct.relation.delete-1": {
+    "params": {
+      "outShopCode": "shop-1",
+      "outItemCode": "item-1",
+      "channel": "other"
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.fenxiao.buyer.outproduct.relation.get-1": {
+    "params": {
+      "outItemCode": "item-1",
+      "channel": "other",
+      "outShopCode": "shop-1",
+      "offerId": 1001
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.fenxiao.buyer.outshop.add-1": {
+    "params": {
+      "outShopCode": "shop-1",
+      "channel": "other"
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.fenxiao.buyer.outshop.delete-1": {
+    "params": {
+      "channel": "other",
+      "outShopCode": "shop-1"
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.fenxiao.chosen.offerlist.get-1": {
+    "params": {
+      "uniqueKey": "fixture"
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.fenxiao.chosen.offerlist.removeall-1": {
+    "params": {
+      "uniqueKey": "fixture"
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.fenxiao.productInfo.get-1": {
+    "params": {
+      "offerId": 1001
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.fenxiao.relationadd-1": {
+    "params": {
+      "offerId": 1001
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.pifatuan.product.detail.list-2": {
+    "params": {
+      "offerIds": [
+        1001
+      ]
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.pifatuan.product.list-1": {
+    "params": {}
+  },
+  "com.alibaba.fenxiao:alibaba.pifatuan.product.match.get-1": {
+    "params": {
+      "outOfferId": "1001"
+    }
+  },
+  "com.alibaba.fenxiao:alibaba.pifatuan.product.search.tag.list-1": {
+    "params": {}
+  },
+  "com.alibaba.fenxiao:dkey.get-1": {
+    "params": {
+      "offerIds": [
+        1001
+      ]
+    }
+  },
+  "com.alibaba.fenxiao:fenxiao.distributebill.getList-1": {
+    "params": {}
+  },
+  "com.alibaba.fenxiao:fenxiao.distributebill.removeall-1": {
+    "params": {}
+  },
+  "com.alibaba.fenxiao:jxhy.product.getPageList-1": {
+    "params": {}
+  },
+  "com.alibaba.fenxiao:jxhy.productFilter.get-1": {
+    "params": {}
+  },
+  "com.alibaba.fenxiao:paycredit.batchFundCharge.apply-1": {
+    "params": {
+      "param": {
+        "supplierName": "seller",
+        "applyAmount": 1990,
+        "outBizNo": "request-1",
+        "outPayNo": "payment-1"
+      }
+    }
+  },
+  "com.alibaba.fenxiao:paycredit.batchFundCharge.decison-1": {
+    "params": {
+      "supplierName": "seller",
+      "applyAmount": 1990
+    }
+  },
+  "com.alibaba.fenxiao:paycredit.batchFundCharge.status-1": {
+    "params": {
+      "applyNo": "fund-1"
+    }
+  },
+  "com.alibaba.fenxiao:paycredit.fundCharge.refund-1": {
+    "params": {
+      "param": {
+        "identifier": "fixture",
+        "outBizNo": "request-1",
+        "applyNo": "fund-1",
+        "assertNo": "asset-fund-1",
+        "applyRefundAmount": 1990,
+        "orderTotalNums": 0,
+        "orderSuccessNums": 0,
+        "totalPayAmount": 0,
+        "totalPaySuccessAmount": 0
+      }
+    }
+  },
+  "com.alibaba.fenxiao:paycredit.orderVerification.pay-1": {
+    "params": {
+      "orderId": "20001",
+      "outBizNo": "request-1",
+      "applyNo": "fund-1",
+      "assertNo": "asset-fund-1",
+      "checkOrder": true
+    }
+  },
+  "com.alibaba.fenxiao:paycredit.refundCharge.status-1": {
+    "params": {
+      "applyNo": "fund-1",
+      "refundNo": "fund-refund-1"
+    }
+  },
+  "com.alibaba.fenxiao:product.distribute.cnt.get-1": {
+    "params": {}
+  },
+  "com.alibaba.fenxiao:product.distribute.cnt.put-1": {
+    "params": {
+      "count": 5
+    }
+  },
+  "com.alibaba.fenxiao:product.keywords.search-1": {
+    "params": {
+      "param": {}
+    }
+  },
+  "com.alibaba.fenxiao:refund.address.get-1": {
+    "params": {
+      "mainOrderId": "20001"
+    }
+  },
+  "com.alibaba.logistics:alibaba.logistics.OpDeliverySendOrder.dummy-1": {
+    "params": {
+      "sendGoods": [
+        {
+          "sourceId": "20001",
+          "sendGoodEntries": [
+            {
+              "sourceEntryId": "2000100",
+              "amount": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ],
+      "extBody": "{\"noLogisticsCondition\": \"4\"}"
+    }
+  },
+  "com.alibaba.logistics:alibaba.logistics.OpDeliverySendOrder.offline-1": {
+    "params": {
+      "sendGoods": [
+        {
+          "sourceId": "20001",
+          "sendGoodEntries": [
+            {
+              "sourceEntryId": "2000100",
+              "amount": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ],
+      "extBody": "{\"logisticsBillNo\": \"TRACK-1\"}"
+    }
+  },
+  "com.alibaba.logistics:alibaba.logistics.OpQueryLogisticCompanyList-1": {
+    "params": {}
+  },
+  "com.alibaba.logistics:alibaba.logistics.OpQueryLogisticCompanyList.offline-1": {
+    "params": {}
+  },
+  "com.alibaba.logistics:alibaba.logistics.myFreightTemplate.list.get-1": {
+    "params": {
+      "templateId": 10001,
+      "querySubTemplate": true,
+      "queryRate": true
+    }
+  },
+  "com.alibaba.logistics:alibaba.trade.getLogisticsInfos.buyerView-1": {
+    "params": {
+      "orderId": 20001,
+      "webSite": "1688"
+    }
+  },
+  "com.alibaba.logistics:alibaba.trade.getLogisticsTraceInfo.buyerView-1": {
+    "params": {
+      "orderId": 20001,
+      "webSite": "1688",
+      "logisticsId": "20001"
+    }
+  },
+  "com.alibaba.logistics:logistics.delivery.urge-1": {
+    "params": {
+      "orderId": "20001"
+    }
+  },
+  "com.alibaba.logistics:refundofficialdelivery.order.cancel-1": {
+    "params": {
+      "param": {
+        "cancelText": "fixture",
+        "cancelType": "PLAN_CHANGED",
+        "officialDeliveryOrderId": 40001
+      }
+    }
+  },
+  "com.alibaba.logistics:refundofficialdelivery.order.create-1": {
+    "params": {
+      "param": {
+        "dateStr": "2026-10-27",
+        "gmtAcceptStart": "09:00",
+        "gmtAcceptEnd": "11:00",
+        "goodsType": "DAILY_NECESSITIES",
+        "packageCount": "1",
+        "refundId": "30001",
+        "solutionCode": "pickup-standard"
+      }
+    }
+  },
+  "com.alibaba.logistics:refundofficialdelivery.order.get-1": {
+    "params": {
+      "officialDeliveryOrderId": "40001"
+    }
+  },
+  "com.alibaba.logistics:refundofficialdelivery.order.modify-1": {
+    "params": {
+      "param": {
+        "officialDeliveryOrderId": 40001,
+        "dateStr": "2026-10-27",
+        "gmtAcceptEnd": "11:00",
+        "gmtAcceptStart": "09:00",
+        "goodsType": "DAILY_NECESSITIES",
+        "packageCount": "1",
+        "refundId": "30001",
+        "solutionCode": "pickup-standard"
+      }
+    }
+  },
+  "com.alibaba.logistics:refundofficialdelivery.solution.get-1": {
+    "params": {
+      "param": {
+        "refundId": "30001",
+        "packageCount": 1
+      }
+    }
+  },
+  "com.alibaba.marketing:coupon.optimal.claim-1": {
+    "params": {
+      "offerIds": [
+        1001
+      ]
+    }
+  },
+  "com.alibaba.p4p:alibaba.cps.genClickUrl-1": {
+    "params": {
+      "type": 1,
+      "mediaId": 1,
+      "mediaZoneId": 1,
+      "objectValueList": [
+        "1001"
+      ]
+    }
+  },
+  "com.alibaba.p4p:alibaba.cps.genSearchPjjxIntroduceUrlByKeyword-1": {
+    "params": {
+      "keyword": "棉",
+      "mediaId": 1,
+      "mediaZoneId": 1
+    }
+  },
+  "com.alibaba.p4p:alibaba.cps.generateIntroduceUrlByParam-1": {
+    "params": {
+      "mediaId": 1,
+      "mediaZoneId": 1,
+      "offerIds": [
+        1001
+      ]
+    }
+  },
+  "com.alibaba.p4p:alibaba.cps.getCPSSettleSummaryInfo-1": {
+    "params": {}
+  },
+  "com.alibaba.p4p:alibaba.cps.getCpsRecommendOfferList-1": {
+    "params": {
+      "loginId": "buyer",
+      "mediaId": 1,
+      "mediaZoneId": "1",
+      "pageNo": 1,
+      "pageSize": 20
+    }
+  },
+  "com.alibaba.p4p:alibaba.cps.getCpsRecommendSameOfferList-1": {
+    "params": {
+      "offerId": 1001,
+      "offerType": "1688",
+      "mediaZoneId": 1,
+      "mediaId": 1
+    }
+  },
+  "com.alibaba.p4p:alibaba.cps.listActivityPageQuery-1": {
+    "params": {}
+  },
+  "com.alibaba.p4p:alibaba.cps.listCPSSettleInfoDetail-1": {
+    "params": {
+      "pageNo": 1,
+      "pageSize": 20
+    }
+  },
+  "com.alibaba.p4p:alibaba.cps.listMediaInfo-1": {
+    "params": {}
+  },
+  "com.alibaba.p4p:alibaba.cps.listOfferPageQuery-1": {
+    "params": {
+      "pageNo": 1,
+      "pageSize": 20,
+      "categoryId": 101
+    }
+  },
+  "com.alibaba.p4p:alibaba.cps.listShopPageQuery-1": {
+    "params": {
+      "categoryId": 101,
+      "pageNo": 1,
+      "pageSize": 20
+    }
+  },
+  "com.alibaba.p4p:alibaba.cps.queryOfferDetailActivity-1": {
+    "params": {
+      "offerId": 1001
+    }
+  },
+  "com.alibaba.p4p:alibaba.cps.queryRealtimeVisitor-1": {
+    "params": {}
+  },
+  "com.alibaba.p4p:alibaba.cps.queryTradeInfoSum-1": {
+    "params": {
+      "startDate": 1792886400000,
+      "endDate": 1793059200000
+    }
+  },
+  "com.alibaba.p4p:alibaba.cps.tradeBillList-1": {
+    "params": {
+      "queryOrderType": "orderAll",
+      "pageNo": 1,
+      "pageSize": 20,
+      "queryTimeType": "gmtCreateTime",
+      "queryStartTime": "2026-10-25",
+      "queryEndTime": "2026-10-27"
+    }
+  },
+  "com.alibaba.p4p:alibaba.cps.webUnionTradeBillList-1": {
+    "params": {
+      "queryOrderType": "orderAll",
+      "queryTimeType": "gmtCreateTime",
+      "queryStartTime": "2026-10-25",
+      "queryEndTime": "2026-10-27",
+      "pageNo": 1,
+      "pageSize": 20,
+      "webUnionKey": "test-web-union"
+    }
+  },
+  "com.alibaba.product.push:alibaba.cross.syncProductListPushed-1": {
+    "params": {
+      "productIdList": [
+        1001
+      ]
+    }
+  },
+  "com.alibaba.product.push:alibaba.product.push.syncPushProductResult-1": {
+    "params": {
+      "platformDefinition": {
+        "definitionId": "AMAZON"
+      },
+      "pushProductResults": {
+        "productIdInTargetPlatform": "fixture",
+        "productIdInPartner": "fixture",
+        "productIdInSource": "1001",
+        "productPushStatus": "fixture",
+        "productInfoInTargetPlatform": {
+          "id": "1",
+          "price": 1,
+          "subject": "fixture",
+          "description": "测试退款",
+          "url": "fixture",
+          "priceRanges": [
+            {
+              "price": 1,
+              "startQuantity": 1
+            }
+          ]
+        },
+        "skus": [
+          {
+            "skuIdInSource": "fixture",
+            "skuPushStatus": "fixture",
+            "skuIdInTargetPlatform": "fixture"
+          }
+        ],
+        "userShopIdInTargetPlatform": "fixture"
+      }
+    }
+  },
+  "com.alibaba.product:alibaba.category.attribute.get-1": {
+    "params": {
+      "categoryID": 101,
+      "webSite": "1688"
+    }
+  },
+  "com.alibaba.product:alibaba.category.get-1": {
+    "params": {
+      "categoryID": 101
+    }
+  },
+  "com.alibaba.product:alibaba.category.searchByKeyword-1": {
+    "params": {
+      "keyword": "日用"
+    }
+  },
+  "com.alibaba.product:alibaba.cross.productInfo-1": {
+    "params": {
+      "productId": 1001
+    }
+  },
+  "com.alibaba.product:alibaba.cross.productList-1": {
+    "params": {
+      "productIdList": [
+        1001
+      ]
+    }
+  },
+  "com.alibaba.product:alibaba.product.follow-1": {
+    "params": {
+      "productId": 1001
+    }
+  },
+  "com.alibaba.product:alibaba.product.follow.crossborder-1": {
+    "params": {
+      "productId": 1001
+    }
+  },
+  "com.alibaba.product:alibaba.product.genDijiaFxUrl-1": {
+    "params": {
+      "isvId": "fixture",
+      "pid": "fixture"
+    }
+  },
+  "com.alibaba.product:alibaba.product.genTongkuanFxUrl-1": {
+    "params": {
+      "isvId": "fixture",
+      "pid": "fixture"
+    }
+  },
+  "com.alibaba.product:alibaba.product.simple.get-1": {
+    "params": {
+      "productID": 1001,
+      "webSite": "1688"
+    }
+  },
+  "com.alibaba.product:alibaba.product.suggest.crossBorder-1": {
+    "params": {
+      "keyWord": "棉"
+    }
+  },
+  "com.alibaba.product:alibaba.product.unfollow.crossborder-1": {
+    "params": {
+      "productId": 1001
+    }
+  },
+  "com.alibaba.product:alibaba.public.image.similar.offer.search-1": {
+    "params": {
+      "imgBase64": "aGVsbG8="
+    }
+  },
+  "com.alibaba.product:product.keyword.search-1": {
+    "params": {
+      "param": {
+        "keywords": "棉"
+      }
+    }
+  },
+  "com.alibaba.product:product.skuinfo.get-1": {
+    "params": {
+      "offerId": "1001"
+    }
+  },
+  "com.alibaba.search:alibaba.search.relation.supply-1": {
+    "params": {}
+  },
+  "com.alibaba.syt:syt.buyer.confirmPurchaseOrder-1": {
+    "params": {
+      "request": {
+        "draftNo": "contract-1"
+      }
+    }
+  },
+  "com.alibaba.syt:syt.buyer.draftPurchaseOrder-1": {
+    "params": {
+      "request": {
+        "origin": "fixture",
+        "requestNo": "fixture",
+        "payTerm": {
+          "amount": 19.9,
+          "payMethod": "fixture",
+          "payTimeType": "fixture",
+          "payTimeContent": "fixture"
+        },
+        "contentTerm": {
+          "contentType": "fixture",
+          "purchaseItems": [
+            {
+              "key": "fixture",
+              "productName": "fixture",
+              "productSpec": "fixture",
+              "quantity": 1,
+              "unitPrice": 19.9,
+              "subtotal": 19.9
+            }
+          ]
+        },
+        "contractRoleInfoTerm": {
+          "counterpartyOrigin": "fixture",
+          "counterpartyLoginId": "fixture",
+          "counterpartyName": "fixture",
+          "counterpartyLicenseNo": "fixture",
+          "counterpartyLicenseType": "fixture"
+        },
+        "drafterNeedSignConfirmAgain": false,
+        "postFeeTerm": {
+          "postFee": 0.0
+        },
+        "confirmTerm": {
+          "contractConfirmType": "BUYER_MANUAL_CONFIRM",
+          "autoConfirmCondition": {
+            "conditionEnum": "fixture",
+            "xDay": 1
+          }
+        },
+        "receiverAddressTerm": {}
+      }
+    }
+  },
+  "com.alibaba.syt:syt.buyer.queryContractDetail-1": {
+    "params": {
+      "request": {
+        "draftNo": "contract-1"
+      }
+    }
+  },
+  "com.alibaba.syt:syt.contract.confirm-1": {
+    "params": {
+      "request": {
+        "draftNo": "contract-1"
+      }
+    }
+  },
+  "com.alibaba.syt:syt.contract.invalid-1": {
+    "params": {
+      "request": {
+        "draftNo": "contract-1"
+      }
+    }
+  },
+  "com.alibaba.syt:syt.contract.pay-1": {
+    "params": {
+      "request": {
+        "draftNo": "contract-1",
+        "amount": 19.9
+      }
+    }
+  },
+  "com.alibaba.syt:syt.contract.payTransfer-1": {
+    "params": {
+      "request": {
+        "draftNo": "contract-1",
+        "payOrderNo": "fixture",
+        "escrowAccount": {
+          "cardHolderType": "COMPANY",
+          "accountNumber": "6222000000000001",
+          "holder": "模拟托管账户"
+        },
+        "transferToAmount": 19.9,
+        "transferFromCurrency": "USD",
+        "transferFundChannel": "WORLD_FIRST",
+        "transferFundChannelConfig": {
+          "clientId": "fixture",
+          "customerId": "fixture",
+          "privateKeyCiphertext": "fixture",
+          "privateKeyVersion": "fixture"
+        }
+      }
+    }
+  },
+  "com.alibaba.syt:syt.contract.refund-1": {
+    "params": {
+      "request": {
+        "draftNo": "contract-1",
+        "amount": 19.9,
+        "requestNo": "fixture",
+        "payOrderNo": "fixture",
+        "refundReason": "fixture"
+      }
+    }
+  },
+  "com.alibaba.syt:syt.customer.queryUserAuthStatus-1": {
+    "params": {
+      "request": {
+        "loginId": "buyer"
+      }
+    }
+  },
+  "com.alibaba.trade:alibaba.accountPeriod.list.buyerView-1": {
+    "params": {}
+  },
+  "com.alibaba.trade:alibaba.alipay.url.get-1": {
+    "params": {
+      "orderIdList": [
+        20001
+      ]
+    }
+  },
+  "com.alibaba.trade:alibaba.createOrder.preview-1": {
+    "params": {
+      "addressParam": {
+        "addressId": 1
+      },
+      "cargoParamList": [
+        {
+          "offerId": 1001,
+          "specId": "sku-1001",
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  "com.alibaba.trade:alibaba.creditPay.url.get-1": {
+    "params": {
+      "orderIdList": [
+        20001
+      ]
+    }
+  },
+  "com.alibaba.trade:alibaba.crossBorderPay.url.get-1": {
+    "params": {
+      "orderIdList": [
+        20001
+      ]
+    }
+  },
+  "com.alibaba.trade:alibaba.member.getRelationUserInfo-1": {
+    "params": {
+      "domain": "seller"
+    }
+  },
+  "com.alibaba.trade:alibaba.order.memoAdd-1": {
+    "params": {
+      "orderId": 20001,
+      "memo": "测试备注",
+      "remarkIcon": "1"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.OpQueryMarketingMixConfig-1": {
+    "params": {
+      "sellerMemberId": "seller-1"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.addFeedback-1": {
+    "params": {
+      "tradeFeedbackParam": {
+        "feedback": "fixture",
+        "orderId": "20001"
+      }
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.addresscode.get-1": {
+    "params": {
+      "areaCode": "330108",
+      "webSite": "1688"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.addresscode.getchild-1": {
+    "params": {
+      "webSite": "1688"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.addresscode.parse-1": {
+    "params": {
+      "addressInfo": "浙江省杭州市滨江区网商路699号"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.cancel-1": {
+    "params": {
+      "webSite": "1688",
+      "tradeID": 20001,
+      "cancelReason": "buyerCancel"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.cancelRefund-1": {
+    "params": {
+      "refundId": "30001"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.createCrossOrder-1": {
+    "params": {
+      "flow": "general",
+      "addressParam": {
+        "addressId": 1
+      },
+      "cargoParamList": [
+        {
+          "offerId": 1001,
+          "specId": "sku-1001",
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.createRefund-1": {
+    "params": {
+      "orderId": 20001,
+      "orderEntryIds": [
+        2000100
+      ],
+      "disputeRequest": "refund",
+      "applyPayment": 1990,
+      "applyCarriage": 0,
+      "applyReasonId": 1,
+      "description": "测试退款",
+      "goodsStatus": "refundWaitSellerSend"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.fastCreateOrder-1": {
+    "params": {
+      "flow": "general",
+      "addressParam": {
+        "addressId": 1
+      },
+      "cargoParamList": [
+        {
+          "offerId": 1001,
+          "specId": "sku-1001",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.get.buyerView-1": {
+    "params": {
+      "webSite": "1688",
+      "orderId": 20001
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.getBuyerOrderList-1": {
+    "params": {
+      "orderStatus": "waitbuyerpay"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.getMaxRefundFee-1": {
+    "params": {
+      "input": {
+        "goodsStatus": "refundWaitSellerSend",
+        "orderId": 20001,
+        "refundGoodsCountList": [
+          {
+            "id": 2000100,
+            "count": 1
+          }
+        ]
+      }
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.getRefundReasonList-1": {
+    "params": {
+      "orderId": 20001,
+      "orderEntryIds": [
+        2000100
+      ],
+      "goodsStatus": "refundWaitSellerSend"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.getSellerOrderList-1": {
+    "params": {}
+  },
+  "com.alibaba.trade:alibaba.trade.grouppay.url.get-1": {
+    "params": {
+      "orderIds": [
+        20001
+      ]
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.pay.protocolPay.isopen-1": {
+    "params": {}
+  },
+  "com.alibaba.trade:alibaba.trade.pay.protocolPay.preparePay-1": {
+    "params": {
+      "tradeWithholdPreparePayParam": {
+        "orderId": 20001
+      }
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.payWay.query-1": {
+    "params": {
+      "orderId": "20001"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.queryOrderByInsure-1": {
+    "params": {
+      "policyNo": "policy-1"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.receiveAddress.get-1": {
+    "params": {}
+  },
+  "com.alibaba.trade:alibaba.trade.refund.OpQueryBatchRefundByOrderIdAndStatus-1": {
+    "params": {
+      "orderId": "20001",
+      "queryType": "1"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.refund.OpQueryOrderRefund-1": {
+    "params": {
+      "refundId": "30001"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.refund.OpQueryOrderRefundOperationList-1": {
+    "params": {
+      "refundId": "30001",
+      "pageNo": "1",
+      "pageSize": "20"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.refund.buyer.queryOrderRefundList-1": {
+    "params": {}
+  },
+  "com.alibaba.trade:alibaba.trade.refund.returnGoods-1": {
+    "params": {
+      "refundId": "30001",
+      "logisticsCompanyNo": "fixture",
+      "freightBill": "RETURN-1"
+    }
+  },
+  "com.alibaba.trade:alibaba.trade.uploadRefundVoucher-1": {
+    "params": {
+      "imageData": [
+        255,
+        216,
+        255,
+        217
+      ]
+    }
+  },
+  "com.alibaba.trade:order.receiveAddress.buyerUpdate-1": {
+    "params": {
+      "param": {
+        "orderId": 20001,
+        "receiveAddress": {
+          "addressId": 1,
+          "fullName": "测试买家",
+          "mobile": "13800000000",
+          "phone": "057100000000",
+          "postCode": "310000",
+          "cityText": "杭州市",
+          "cityCode": "330100",
+          "provinceText": "浙江省",
+          "provinceCode": "330000",
+          "areaText": "滨江区",
+          "areaCode": "330108",
+          "townText": "fixture",
+          "townCode": "fixture",
+          "address": "网商路699号",
+          "districtCode": "330108"
+        }
+      }
+    }
+  },
+  "com.alibaba.trade:repurchase.contract.get-1": {
+    "params": {
+      "param": {
+        "offerIds": [
+          1001
+        ]
+      }
+    }
+  },
+  "com.alibaba.trade:shipping.insurance.get-1": {
+    "params": {
+      "orderId": 20001,
+      "type": "fixture"
+    }
+  },
+  "com.alibaba.trade:trade.address.parseText-1": {
+    "params": {
+      "param": {
+        "area": "滨江区",
+        "city": "杭州市",
+        "country": "en",
+        "province": "浙江省"
+      }
+    }
+  },
+  "com.alibaba.trade:trade.invoice.apply-1": {
+    "params": {
+      "input": {
+        "invoiceApplyModelList": [
+          {
+            "orderId": 20001,
+            "amount": 1990,
+            "invoiceType": "VATAX_COMM",
+            "purchaserInvoiceTitleModel": {
+              "titleType": "COMPANY",
+              "title": "测试公司",
+              "taxpayerIdentify": "91330100TEST000001"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "com.alibaba.trade:trade.invoice.consult-1": {
+    "params": {
+      "reqDTO": {
+        "orderIdsJsonList": "[20001]"
+      }
+    }
+  },
+  "com.alibaba.trade:trade.invoice.getListBuyerView-1": {
+    "params": {
+      "input": {
+        "orderId": 20001
+      }
+    }
+  },
+  "com.alibaba.trade:trade.invoice.mergeapply-1": {
+    "params": {
+      "reqDTO": {
+        "invoiceType": "VATAX_COMM",
+        "orderIdGroupsJsonList": "[[20001]]",
+        "purchaserInvoiceTitle": {
+          "title": "测试公司",
+          "titleType": 1,
+          "taxpayerIdentify": "91330100TEST000001"
+        }
+      }
+    }
+  },
+  "com.alibaba.trade:trade.invoice.sellerqueryrelatedorders-1": {
+    "params": {
+      "reqDTO": {
+        "orderId": "20001",
+        "outBizId": "fixture"
+      }
+    }
+  },
+  "com.alibaba.trade:trade.invoiceAmount.getList-1": {
+    "params": {
+      "input": {
+        "orderIds": [
+          20001
+        ]
+      }
+    }
+  },
+  "com.alibaba.trade:trade.invoiceApply.getPageListBuyerView-1": {
+    "params": {
+      "input": {
+        "page": 1,
+        "pageSize": 20
+      }
+    }
+  },
+  "com.alibaba.trade:trade.invoiceTitle.getPageList-1": {
+    "params": {
+      "input": {}
+    }
+  },
+  "com.alibaba.trade:trade.order.buyerdelete-1": {
+    "params": {
+      "orderId": 20001
+    }
+  },
+  "com.alibaba.trade:trade.orderpay.analysis-1": {
+    "params": {
+      "orderIds": [
+        20001
+      ],
+      "payChannel": "fixture"
+    }
+  },
+  "com.alibaba.trade:trade.receivegoods.confirm-1": {
+    "params": {
+      "orderId": 20001,
+      "orderEntryIds": [
+        2000100
+      ]
+    }
+  },
+  "system.oauth2:subaccount.auth.add-1": {
+    "params": {
+      "subUserIdentityList": [
+        "sub-1"
+      ]
+    }
+  },
+  "system.oauth2:subaccount.auth.cancel-1": {
+    "params": {
+      "subUserIdentityList": [
+        "sub-1"
+      ]
+    }
+  },
+  "system.oauth2:subaccount.auth.list-1": {
+    "params": {
+      "subUserIdentityList": [
+        "sub-1"
+      ]
+    }
+  }
+}

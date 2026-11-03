@@ -1,0 +1,1490 @@
+{
+  "time": 1792972800000,
+  "state": {
+    "current_app": "test-app",
+    "fixed_time": null,
+    "offset_ms": 0,
+    "sequence": 10000,
+    "generation": 0,
+    "apps": {
+      "test-app": "test-secret"
+    },
+    "accounts": {
+      "buyer-1": {
+        "domain": "buyer.1688.com",
+        "user_id": 1,
+        "id": "buyer-1",
+        "login": "buyer",
+        "balance": "100000.00",
+        "frozen": false,
+        "scopes": [
+          "*"
+        ]
+      },
+      "buyer-2": {
+        "domain": "other-buyer.1688.com",
+        "user_id": 2,
+        "id": "buyer-2",
+        "login": "other-buyer",
+        "balance": "100000.00",
+        "frozen": false,
+        "scopes": [
+          "*"
+        ]
+      },
+      "seller-1": {
+        "domain": "seller.1688.com",
+        "user_id": 3,
+        "id": "seller-1",
+        "login": "seller",
+        "balance": "100000.00",
+        "frozen": false,
+        "scopes": [
+          "*"
+        ]
+      }
+    },
+    "tokens": {
+      "other-token": {
+        "sub_account": null,
+        "parent_token": null,
+        "account": "buyer-2",
+        "app_key": "test-app",
+        "expires": 4102444800000,
+        "refresh": "refresh-other-token",
+        "refresh_expires": 4102444800000
+      },
+      "seller-token": {
+        "sub_account": null,
+        "parent_token": null,
+        "account": "seller-1",
+        "app_key": "test-app",
+        "expires": 4102444800000,
+        "refresh": "refresh-seller-token",
+        "refresh_expires": 4102444800000
+      },
+      "test-token": {
+        "sub_account": null,
+        "parent_token": null,
+        "account": "buyer-1",
+        "app_key": "test-app",
+        "expires": 4102444800000,
+        "refresh": "refresh-test-token",
+        "refresh_expires": 4102444800000
+      }
+    },
+    "codes": {},
+    "products": {
+      "1001": {
+        "merchandise": {
+          "tags": [
+            "noReason7DReturn",
+            "isOnePsale",
+            "isOnePsaleFreePostage",
+            "isSupportMix",
+            "1688_yx",
+            "isQqyx",
+            "select",
+            "JPFL"
+          ],
+          "invoice_types": [
+            "VATAX_COMM",
+            "VATAX_SPEC"
+          ],
+          "private_buyers": [],
+          "sale_start": null,
+          "max_quantity": null,
+          "quantity_scale": null,
+          "trade_types": [],
+          "mix_min_quantity": null,
+          "mix_min_amount": null,
+          "wholesale_minimum": null,
+          "shipping": "shipIn24Hours",
+          "score": "5.0",
+          "response_rate": "0.98",
+          "dispute_score": "4.8",
+          "turnover_rate": "0.15",
+          "collection_rate24": "99",
+          "collection_rate48": "99",
+          "return_rate": "0",
+          "certified": true,
+          "created": 1792800000000,
+          "modified": null,
+          "collections": [
+            "262105288"
+          ],
+          "regions": [
+            "JP"
+          ],
+          "navigation": [
+            "978",
+            "978:1352"
+          ],
+          "sales": {
+            "sales14": 20,
+            "sales30": 40,
+            "sales7": 10,
+            "sales90": 120,
+            "totalSales": 100
+          },
+          "ratio": "0.01",
+          "old_buyer_ratio": "0.01",
+          "promotion_count": 10,
+          "buyer_count": 5,
+          "order_count": 120,
+          "rules": [
+            "1",
+            "228169",
+            "357954"
+          ],
+          "pools": [
+            "1"
+          ],
+          "translations": {}
+        },
+        "id": 1001,
+        "sku": "sku-1001",
+        "seller": "seller-1",
+        "title": "棉质短袖 T-shirt",
+        "price": "19.90",
+        "stock": "100",
+        "minimum": "1",
+        "active": true,
+        "category": 101,
+        "freight": {
+          "template_id": 1,
+          "service_type": 0,
+          "package": {
+            "weight": "0.2",
+            "width": "10",
+            "height": "5",
+            "length": "20"
+          },
+          "skus": {}
+        }
+      },
+      "1002": {
+        "merchandise": {
+          "tags": [
+            "isOnePsale",
+            "USFL"
+          ],
+          "invoice_types": [
+            "VATAX_COMM",
+            "VATAX_SPEC"
+          ],
+          "private_buyers": [],
+          "sale_start": null,
+          "max_quantity": null,
+          "quantity_scale": null,
+          "trade_types": [],
+          "mix_min_quantity": null,
+          "mix_min_amount": null,
+          "wholesale_minimum": null,
+          "shipping": "shipIn48Hours",
+          "score": "4.5",
+          "response_rate": "0.98",
+          "dispute_score": "4.8",
+          "turnover_rate": "0.15",
+          "collection_rate24": "94",
+          "collection_rate48": "99",
+          "return_rate": "0",
+          "certified": false,
+          "created": 1792800000000,
+          "modified": null,
+          "collections": [
+            "262105286"
+          ],
+          "regions": [
+            "US"
+          ],
+          "navigation": [
+            "978",
+            "978:1352"
+          ],
+          "sales": {
+            "sales14": 20,
+            "sales30": 40,
+            "sales7": 10,
+            "sales90": 120,
+            "totalSales": 100
+          },
+          "ratio": "0.01",
+          "old_buyer_ratio": "0.01",
+          "promotion_count": 10,
+          "buyer_count": 5,
+          "order_count": 60,
+          "rules": [
+            "1",
+            "228169",
+            "357954"
+          ],
+          "pools": [
+            "1"
+          ],
+          "translations": {}
+        },
+        "id": 1002,
+        "sku": "sku-1002",
+        "seller": "seller-1",
+        "title": "陶瓷杯 Ceramic cup",
+        "price": "12.50",
+        "stock": "50",
+        "minimum": "2",
+        "active": true,
+        "category": 101,
+        "freight": {
+          "template_id": 10001,
+          "service_type": 0,
+          "package": {
+            "weight": "0.2",
+            "width": "10",
+            "height": "5",
+            "length": "20"
+          },
+          "skus": {
+            "1002": {
+              "weight": "0.2",
+              "width": "10",
+              "height": "5",
+              "length": "20"
+            },
+            "2002": {
+              "weight": "0.8",
+              "width": "10",
+              "height": "5",
+              "length": "20"
+            }
+          }
+        }
+      },
+      "1003": {
+        "merchandise": {
+          "tags": [
+            "isOnePsale",
+            "USFL"
+          ],
+          "invoice_types": [
+            "VATAX_COMM",
+            "VATAX_SPEC"
+          ],
+          "private_buyers": [],
+          "sale_start": null,
+          "max_quantity": null,
+          "quantity_scale": null,
+          "trade_types": [],
+          "mix_min_quantity": null,
+          "mix_min_amount": null,
+          "wholesale_minimum": null,
+          "shipping": "shipIn48Hours",
+          "score": "4.5",
+          "response_rate": "0.98",
+          "dispute_score": "4.8",
+          "turnover_rate": "0.15",
+          "collection_rate24": "94",
+          "collection_rate48": "99",
+          "return_rate": "0",
+          "certified": false,
+          "created": 1792800000000,
+          "modified": null,
+          "collections": [
+            "262105286"
+          ],
+          "regions": [
+            "US"
+          ],
+          "navigation": [
+            "978",
+            "978:1352"
+          ],
+          "sales": {
+            "sales14": 20,
+            "sales30": 40,
+            "sales7": 10,
+            "sales90": 120,
+            "totalSales": 100
+          },
+          "ratio": "0.01",
+          "old_buyer_ratio": "0.01",
+          "promotion_count": 10,
+          "buyer_count": 5,
+          "order_count": 60,
+          "rules": [
+            "1",
+            "228169",
+            "357954"
+          ],
+          "pools": [
+            "1"
+          ],
+          "translations": {}
+        },
+        "id": 1003,
+        "sku": "sku-1003",
+        "seller": "seller-1",
+        "title": "缺货商品",
+        "price": "10.00",
+        "stock": "0",
+        "minimum": "1",
+        "active": true,
+        "category": 101
+      },
+      "1004": {
+        "merchandise": {
+          "tags": [
+            "isOnePsale",
+            "USFL"
+          ],
+          "invoice_types": [
+            "VATAX_COMM",
+            "VATAX_SPEC"
+          ],
+          "private_buyers": [],
+          "sale_start": null,
+          "max_quantity": null,
+          "quantity_scale": null,
+          "trade_types": [],
+          "mix_min_quantity": null,
+          "mix_min_amount": null,
+          "wholesale_minimum": null,
+          "shipping": "shipIn48Hours",
+          "score": "4.5",
+          "response_rate": "0.98",
+          "dispute_score": "4.8",
+          "turnover_rate": "0.15",
+          "collection_rate24": "94",
+          "collection_rate48": "99",
+          "return_rate": "0",
+          "certified": false,
+          "created": 1792800000000,
+          "modified": null,
+          "collections": [
+            "262105286"
+          ],
+          "regions": [
+            "US"
+          ],
+          "navigation": [
+            "978",
+            "978:1352"
+          ],
+          "sales": {
+            "sales14": 20,
+            "sales30": 40,
+            "sales7": 10,
+            "sales90": 120,
+            "totalSales": 100
+          },
+          "ratio": "0.01",
+          "old_buyer_ratio": "0.01",
+          "promotion_count": 10,
+          "buyer_count": 5,
+          "order_count": 60,
+          "rules": [
+            "1",
+            "228169",
+            "357954"
+          ],
+          "pools": [
+            "1"
+          ],
+          "translations": {}
+        },
+        "id": 1004,
+        "sku": "sku-1004",
+        "seller": "seller-1",
+        "title": "已下架商品",
+        "price": "10.00",
+        "stock": "10",
+        "minimum": "1",
+        "active": false,
+        "category": 101
+      }
+    },
+    "orders": {
+      "9001": {
+        "metadata": {
+          "cps": {},
+          "seller_order": false,
+          "stock_at_payment": false,
+          "pay_channels": null,
+          "received": {},
+          "paid_invoice_types": {},
+          "modified": 1767225600000,
+          "paid": null,
+          "shipped": null,
+          "completed": null,
+          "flow": "",
+          "trade_type": "",
+          "business_type": "",
+          "buyer_rate": null,
+          "seller_rate": null,
+          "historical": false,
+          "complaint": false,
+          "official_logistics": false,
+          "close_reason": "",
+          "close_operator": ""
+        },
+        "id": 9001,
+        "buyer": "buyer-1",
+        "seller": "seller-1",
+        "status": "waitbuyerpay",
+        "lines": [
+          {
+            "title": "棉质短袖",
+            "offer_id": 1001,
+            "spec_id": "sku-1001",
+            "quantity": "1",
+            "price": "19.90"
+          }
+        ],
+        "amount": "19.90",
+        "refunded": "0",
+        "address": {
+          "id": 1,
+          "addressId": 1,
+          "fullName": "测试买家",
+          "mobile": "13800000000",
+          "provinceText": "浙江省",
+          "cityText": "杭州市",
+          "areaText": "滨江区",
+          "address": "网商路699号",
+          "postCode": "310000",
+          "provinceCode": "330000",
+          "cityCode": "330100",
+          "areaCode": "330108"
+        },
+        "memo": "内置关联样例",
+        "feedback": [],
+        "external_id": "sample-9001",
+        "created": 1767225600000,
+        "tracking": null,
+        "deleted": false
+      },
+      "9002": {
+        "metadata": {
+          "cps": {},
+          "seller_order": false,
+          "stock_at_payment": false,
+          "pay_channels": null,
+          "received": {},
+          "paid_invoice_types": {},
+          "modified": 1767225600000,
+          "paid": 1767225600000,
+          "shipped": 1767225600000,
+          "completed": 1767225600000,
+          "flow": "",
+          "trade_type": "",
+          "business_type": "",
+          "buyer_rate": null,
+          "seller_rate": null,
+          "historical": false,
+          "complaint": false,
+          "official_logistics": false,
+          "close_reason": "",
+          "close_operator": ""
+        },
+        "id": 9002,
+        "buyer": "buyer-1",
+        "seller": "seller-1",
+        "status": "success",
+        "lines": [
+          {
+            "title": "棉质短袖",
+            "offer_id": 1001,
+            "spec_id": "sku-1001",
+            "quantity": "1",
+            "price": "19.90"
+          }
+        ],
+        "amount": "19.90",
+        "refunded": "0",
+        "address": {
+          "id": 1,
+          "addressId": 1,
+          "fullName": "测试买家",
+          "mobile": "13800000000",
+          "provinceText": "浙江省",
+          "cityText": "杭州市",
+          "areaText": "滨江区",
+          "address": "网商路699号",
+          "postCode": "310000",
+          "provinceCode": "330000",
+          "cityCode": "330100",
+          "areaCode": "330108"
+        },
+        "memo": "内置关联样例",
+        "feedback": [],
+        "external_id": "sample-9002",
+        "created": 1767225600000,
+        "tracking": "SAMPLE-TRACK",
+        "deleted": false
+      }
+    },
+    "refunds": {
+      "9003": {
+        "entries": {
+          "900200": {
+            "quantity": "1",
+            "amount": "5.00",
+            "restock": false
+          }
+        },
+        "id": 9003,
+        "order_id": 9002,
+        "buyer": "buyer-1",
+        "amount": "5.00",
+        "status": "waitselleragree",
+        "return_goods": false,
+        "tracking": null,
+        "history": [
+          {
+            "action": "apply",
+            "time": 1767225600000,
+            "afterSales": true
+          }
+        ]
+      }
+    },
+    "records": {
+      "account_periods": {
+        "buyer-1:seller-1": {
+          "owner": "buyer-1",
+          "seller": "seller-1",
+          "quota": "10000",
+          "granted": 1792886400000,
+          "days": 30,
+          "status": "NORMAL"
+        }
+      },
+      "addresses": {
+        "buyer-1:1": {
+          "id": 1,
+          "addressId": 1,
+          "fullName": "测试买家",
+          "mobile": "13800000000",
+          "provinceText": "浙江省",
+          "cityText": "杭州市",
+          "areaText": "滨江区",
+          "address": "网商路699号",
+          "postCode": "310000",
+          "provinceCode": "330000",
+          "cityCode": "330100",
+          "areaCode": "330108"
+        }
+      },
+      "app_configs": {
+        "test-app": {
+          "distribution": true,
+          "product_active": true,
+          "users": [
+            "buyer-1",
+            "buyer-2"
+          ],
+          "webUnionKeys": [
+            "test-web-union"
+          ]
+        }
+      },
+      "app_orders": {
+        "buyer-1:sample-app-order": {
+          "orderItemNum": "sample-app-order",
+          "memberId": "buyer-1",
+          "loginId": "buyer",
+          "productName": "模拟 ERP 订阅",
+          "bizStatus": "S",
+          "bizStatusExt": "service",
+          "payStatus": "payment_success",
+          "paymentAmount": 100,
+          "executePrice": 100,
+          "gmtCreate": "20260101000000000+0000",
+          "gmtServiceBegin": "20260101000000000+0000",
+          "gmtServiceEnd": "20270101000000000+0000",
+          "gmtConfirm": "20260101000000000+0000",
+          "skuVersion": "V0",
+          "skuName": "基础版"
+        }
+      },
+      "contracts": {
+        "buyer-1:sample-contract": {
+          "draftNo": "sample-contract",
+          "contractId": "sample-contract",
+          "status": "SIGNED",
+          "contractCurrentStatus": "SIGNED",
+          "amount": 100
+        }
+      },
+      "distribution": {
+        "buyer-1:1001": {
+          "offerId": 1001,
+          "status": "PUSHED"
+        }
+      },
+      "follows": {
+        "buyer-1:1001": {
+          "offerId": 1001,
+          "productId": 1001
+        }
+      },
+      "freight_templates": {
+        "buyer-1:0": {
+          "addressCodeText": "浙江省 杭州市 滨江区",
+          "fromAreaCode": "330108",
+          "id": 0,
+          "memberId": "buyer-1",
+          "name": "模拟运费说明",
+          "remark": "运费以卖家说明为准",
+          "status": 1,
+          "type": "2"
+        },
+        "buyer-1:1": {
+          "addressCodeText": "浙江省 杭州市 滨江区",
+          "fromAreaCode": "330108",
+          "id": 1,
+          "memberId": "buyer-1",
+          "name": "模拟包邮模板",
+          "remark": "卖家承担运费",
+          "status": 1,
+          "type": "2"
+        },
+        "buyer-2:0": {
+          "addressCodeText": "浙江省 杭州市 滨江区",
+          "fromAreaCode": "330108",
+          "id": 0,
+          "memberId": "buyer-2",
+          "name": "模拟运费说明",
+          "remark": "运费以卖家说明为准",
+          "status": 1,
+          "type": "2"
+        },
+        "buyer-2:1": {
+          "addressCodeText": "浙江省 杭州市 滨江区",
+          "fromAreaCode": "330108",
+          "id": 1,
+          "memberId": "buyer-2",
+          "name": "模拟包邮模板",
+          "remark": "卖家承担运费",
+          "status": 1,
+          "type": "2"
+        },
+        "seller-1:0": {
+          "addressCodeText": "浙江省 杭州市 滨江区",
+          "fromAreaCode": "330108",
+          "id": 0,
+          "memberId": "seller-1",
+          "name": "模拟运费说明",
+          "remark": "运费以卖家说明为准",
+          "status": 1,
+          "type": "2"
+        },
+        "seller-1:1": {
+          "addressCodeText": "浙江省 杭州市 滨江区",
+          "fromAreaCode": "330108",
+          "id": 1,
+          "memberId": "seller-1",
+          "name": "模拟包邮模板",
+          "remark": "卖家承担运费",
+          "status": 1,
+          "type": "2"
+        },
+        "seller-1:10001": {
+          "addressCodeText": "浙江省 杭州市 滨江区",
+          "fromAreaCode": "330108",
+          "id": 10001,
+          "memberId": "seller-1",
+          "name": "模拟普通运费模板",
+          "remark": "买家承担运费",
+          "status": 1,
+          "type": "2",
+          "expressSubTemplate": {
+            "subTemplateDTO": {
+              "chargeType": 0,
+              "isSysTemplate": false,
+              "serviceChargeType": 1,
+              "serviceType": 0,
+              "type": 0
+            },
+            "rateList": [
+              {
+                "isSysRate": false,
+                "toAreaCodeText": "浙江省、江苏省、上海",
+                "rateDTO": {
+                  "firstUnit": 1000,
+                  "firstUnitFee": 800,
+                  "leastExpenses": 800
+                },
+                "mockPricing": {
+                  "toAreaCodes": [
+                    "330000",
+                    "320000",
+                    "310000"
+                  ],
+                  "nextUnit": 1000,
+                  "nextUnitFee": 200
+                }
+              }
+            ]
+          },
+          "logisticsSubTemplate": {
+            "subTemplateDTO": {
+              "chargeType": 1,
+              "isSysTemplate": false,
+              "serviceChargeType": 1,
+              "serviceType": 1,
+              "type": 0
+            },
+            "rateList": [
+              {
+                "isSysRate": false,
+                "toAreaCodeText": "浙江省、江苏省、上海",
+                "rateDTO": {
+                  "firstUnit": 1,
+                  "firstUnitFee": 500,
+                  "leastExpenses": 500
+                },
+                "mockPricing": {
+                  "toAreaCodes": [
+                    "330000",
+                    "320000",
+                    "310000"
+                  ],
+                  "nextUnit": 1,
+                  "nextUnitFee": 100
+                }
+              }
+            ]
+          },
+          "codSubTemplate": {
+            "subTemplateDTO": {
+              "chargeType": 2,
+              "isSysTemplate": false,
+              "serviceChargeType": 1,
+              "serviceType": 2,
+              "type": 0
+            },
+            "rateList": [
+              {
+                "isSysRate": false,
+                "toAreaCodeText": "浙江省、江苏省、上海",
+                "rateDTO": {
+                  "firstUnit": 1,
+                  "firstUnitFee": 1200,
+                  "leastExpenses": 1200
+                },
+                "mockPricing": {
+                  "toAreaCodes": [
+                    "330000",
+                    "320000",
+                    "310000"
+                  ],
+                  "nextUnit": 1,
+                  "nextUnitFee": 500
+                }
+              }
+            ]
+          }
+        },
+        "seller-1:10002": {
+          "addressCodeText": "浙江省 杭州市 滨江区",
+          "fromAreaCode": "330108",
+          "id": 10002,
+          "memberId": "seller-1",
+          "name": "模拟官方运费模板",
+          "remark": "官方物流",
+          "status": 1,
+          "type": "3",
+          "expressSubTemplate": {
+            "subTemplateDTO": {
+              "chargeType": 0,
+              "isSysTemplate": true,
+              "serviceChargeType": 1,
+              "serviceType": 0,
+              "type": 0
+            },
+            "rateList": [
+              {
+                "isSysRate": true,
+                "toAreaCodeText": "浙江省、江苏省、上海",
+                "sysRateDTO": {
+                  "firstUnit": 1000,
+                  "firstUnitFee": 1000,
+                  "leastExpenses": 1000,
+                  "nextUnit": 500
+                },
+                "mockPricing": {
+                  "toAreaCodes": [
+                    "330000",
+                    "320000",
+                    "310000"
+                  ],
+                  "nextUnitFee": 200
+                }
+              }
+            ]
+          }
+        }
+      },
+      "funds": {
+        "buyer-1:sample-fund": {
+          "applyNo": "sample-fund",
+          "outBizNo": "sample-batch",
+          "outPayNo": "sample-pay",
+          "applyAmount": 10000,
+          "payAmount": 10000,
+          "payedAmount": 10000,
+          "availableAmount": 10000,
+          "status": "SUCCESS",
+          "assertNo": "sample-receipt",
+          "payNo": "sample-payment",
+          "cashierUrl": "http://localhost:8080/payment/sample-fund"
+        }
+      },
+      "insurance": {
+        "buyer-1:sample-policy": {
+          "policyNo": "sample-policy",
+          "insuranceId": 8001,
+          "orderId": 9002,
+          "tradeClaimList": []
+        }
+      },
+      "invoice_titles": {
+        "buyer-1:1": {
+          "id": 1,
+          "titleId": 1,
+          "invoiceTitleId": 1,
+          "title": "测试公司",
+          "titleType": "COMPANY",
+          "taxpayerIdentify": "91330100TEST000001",
+          "companyName": "测试公司",
+          "taxpayerIdentifier": "91330100TEST000001",
+          "invoiceType": 0
+        }
+      },
+      "materials": {
+        "buyer-1:sample-material": {
+          "id": 1001,
+          "offerId": 1001,
+          "productId": 1001,
+          "productID": 1001,
+          "subject": "棉质短袖 T-shirt",
+          "subjectTrans": "棉质短袖 T-shirt",
+          "title": "棉质短袖 T-shirt",
+          "name": "棉质短袖 T-shirt",
+          "categoryId": 101,
+          "categoryID": 101,
+          "categoryName": "日用百货",
+          "firstCateName": "家居用品",
+          "secondCateName": "日用百货",
+          "thirdCateName": "日用百货",
+          "topCategoryId": 1,
+          "secondCategoryId": 101,
+          "thirdCategoryId": 101,
+          "sellerId": 3,
+          "supplierUserId": 3,
+          "supplierLoginId": "seller",
+          "sellerOpenId": "mock-open-seller-1",
+          "memberId": "seller-1",
+          "companyName": "seller-1",
+          "status": "published",
+          "price": "19.90",
+          "salePrice": "19.90",
+          "priceInfo": {
+            "price": "19.90",
+            "jxhyPrice": "19.90",
+            "pfJxhyPrice": "19.90",
+            "pftPrice": "19.90",
+            "jxhyPfPrice": "19.90",
+            "consignPrice": "19.90",
+            "promotionPrice": "19.90"
+          },
+          "amountOnSale": "100",
+          "stock": "100",
+          "minOrderQuantity": "1",
+          "minPurchaseQuantity": "1",
+          "quantityBegin": "1",
+          "batchNumber": 1,
+          "productImage": {
+            "images": [
+              "http://localhost:8080/assets/product.svg"
+            ],
+            "whiteImage": "http://localhost:8080/assets/product.svg"
+          },
+          "productImageTrans": {
+            "images": [
+              "http://localhost:8080/assets/product.svg"
+            ],
+            "whiteImage": "http://localhost:8080/assets/product.svg"
+          },
+          "images": [
+            "http://localhost:8080/assets/product.svg"
+          ],
+          "detailImages": [
+            "http://localhost:8080/assets/product.svg"
+          ],
+          "imageUrl": "http://localhost:8080/assets/product.svg",
+          "picUrl": "http://localhost:8080/assets/product.svg",
+          "mainImageUrl": "http://localhost:8080/assets/product.svg",
+          "aigcImageUrl": "http://localhost:8080/assets/product.svg",
+          "whiteImage": "http://localhost:8080/assets/product.svg",
+          "offerUrl": "http://localhost:8080/product/1001",
+          "detailUrl": "http://localhost:8080/product/1001",
+          "longClickUrl": "http://localhost:8080/promotion/1001",
+          "mainVideo": "",
+          "detailVideo": "",
+          "productAttribute": [
+            {
+              "attributeId": "1",
+              "attributeID": 1,
+              "valueID": 1,
+              "attributeName": "规格",
+              "attributeNameTrans": "Specification",
+              "value": "sku-1001",
+              "valueTrans": "sku-1001"
+            }
+          ],
+          "productSkuInfos": [
+            {
+              "skuId": 1001,
+              "specId": "sku-1001",
+              "cargoNumber": "sku-1001",
+              "price": "19.90",
+              "jxhyPrice": "19.90",
+              "pfJxhyPrice": "19.90",
+              "pftPrice": "19.90",
+              "jxhyPfPrice": "19.90",
+              "consignPrice": "19.90",
+              "promotionPrice": "19.90",
+              "retailPrice": "19.90",
+              "foreignCurrencyPrice": "19.90",
+              "foreignCurrencyPromotionPrice": "19.90",
+              "foreignCurrencyRetailPrice": "19.90",
+              "fenxiaoPriceInfo": {
+                "onePiecePrice": "19.90",
+                "offerPrice": "19.90"
+              },
+              "amountOnSale": "100",
+              "skuAttributes": [
+                {
+                  "attributeId": 1,
+                  "attributeID": 1,
+                  "attributeDisplayName": "规格",
+                  "attributeValue": "sku-1001",
+                  "attrType": "enum",
+                  "attributeName": "规格",
+                  "attributeNameTrans": "Specification",
+                  "value": "sku-1001",
+                  "valueTrans": "sku-1001",
+                  "skuImageUrl": "http://localhost:8080/assets/product.svg",
+                  "skuImageUrlTrans": "http://localhost:8080/assets/product.svg"
+                }
+              ],
+              "attributes": [
+                {
+                  "attributeId": 1,
+                  "attributeID": 1,
+                  "attributeDisplayName": "规格",
+                  "attributeValue": "sku-1001",
+                  "attrType": "enum",
+                  "attributeName": "规格",
+                  "attributeNameTrans": "Specification",
+                  "value": "sku-1001",
+                  "valueTrans": "sku-1001",
+                  "skuImageUrl": "http://localhost:8080/assets/product.svg",
+                  "skuImageUrlTrans": "http://localhost:8080/assets/product.svg"
+                }
+              ]
+            }
+          ],
+          "skuInfos": [
+            {
+              "skuId": 1001,
+              "specId": "sku-1001",
+              "cargoNumber": "sku-1001",
+              "price": "19.90",
+              "jxhyPrice": "19.90",
+              "pfJxhyPrice": "19.90",
+              "pftPrice": "19.90",
+              "jxhyPfPrice": "19.90",
+              "consignPrice": "19.90",
+              "promotionPrice": "19.90",
+              "retailPrice": "19.90",
+              "foreignCurrencyPrice": "19.90",
+              "foreignCurrencyPromotionPrice": "19.90",
+              "foreignCurrencyRetailPrice": "19.90",
+              "fenxiaoPriceInfo": {
+                "onePiecePrice": "19.90",
+                "offerPrice": "19.90"
+              },
+              "amountOnSale": "100",
+              "skuAttributes": [
+                {
+                  "attributeId": 1,
+                  "attributeID": 1,
+                  "attributeDisplayName": "规格",
+                  "attributeValue": "sku-1001",
+                  "attrType": "enum",
+                  "attributeName": "规格",
+                  "attributeNameTrans": "Specification",
+                  "value": "sku-1001",
+                  "valueTrans": "sku-1001",
+                  "skuImageUrl": "http://localhost:8080/assets/product.svg",
+                  "skuImageUrlTrans": "http://localhost:8080/assets/product.svg"
+                }
+              ],
+              "attributes": [
+                {
+                  "attributeId": 1,
+                  "attributeID": 1,
+                  "attributeDisplayName": "规格",
+                  "attributeValue": "sku-1001",
+                  "attrType": "enum",
+                  "attributeName": "规格",
+                  "attributeNameTrans": "Specification",
+                  "value": "sku-1001",
+                  "valueTrans": "sku-1001",
+                  "skuImageUrl": "http://localhost:8080/assets/product.svg",
+                  "skuImageUrlTrans": "http://localhost:8080/assets/product.svg"
+                }
+              ]
+            }
+          ],
+          "saleInfo": {
+            "priceRanges": [
+              {
+                "startQuantity": "1",
+                "price": "19.90",
+                "promotionPrice": "19.90",
+                "foreignCurrencyPrice": "19.90",
+                "foreignCurrencyPromotionPrice": "19.90"
+              }
+            ],
+            "amountOnSale": "100",
+            "minOrderQuantity": "1",
+            "beginAmount": "1",
+            "supportOnlineTrade": true,
+            "consignPrice": "19.90",
+            "jxhyPrice": "19.90",
+            "retailPrice": "19.90",
+            "retailprice": "19.90",
+            "pftPrice": "19.90",
+            "jxhyPfPrice": "19.90",
+            "retailBeginAmount": "1",
+            "price": "19.90"
+          },
+          "productSaleInfo": {
+            "amountOnSale": "100",
+            "priceRangeList": [
+              {
+                "startQuantity": "1",
+                "price": "19.90",
+                "promotionPrice": "19.90",
+                "foreignCurrencyPrice": "19.90",
+                "foreignCurrencyPromotionPrice": "19.90"
+              }
+            ],
+            "quoteType": 1,
+            "unitInfo": {
+              "unit": "件",
+              "transUnit": "piece"
+            },
+            "fenxiaoSaleInfo": {
+              "onePieceFreePostage": true,
+              "startQuantity": "1",
+              "onePiecePrice": "19.90",
+              "offerPrice": "19.90"
+            },
+            "retailPrice": "19.90",
+            "consignPrice": "19.90",
+            "jxhyPrice": "19.90",
+            "foreignCurrencyPrice": "1990",
+            "foreignCurrencyRetailPrice": "19.90"
+          },
+          "productSimpleShippingInfo": {
+            "shippingTimeGuarantee": "shipIn24Hours",
+            "shippingOrigin": "浙江省杭州市",
+            "shippingOriginCode": "330100",
+            "perfectFulfillmentRate30d": "1",
+            "pickupWithin24hRate30d": "0.99",
+            "qualityReturnRate30d": "0",
+            "perfectFulfillmentRate7d": "1",
+            "pickupWithin24hRate7d": "0.99",
+            "delayedShippingRate7d": "0"
+          },
+          "productShippingInfo": {
+            "sendGoodsAddressText": "浙江省杭州市滨江区",
+            "shippingTimeGuarantee": "shipIn24Hours",
+            "weight": 0.2,
+            "width": 10,
+            "height": 5,
+            "length": 20,
+            "skuShippingInfoList": [
+              {
+                "skuId": 1001,
+                "specId": "sku-1001",
+                "width": 10,
+                "length": 20,
+                "height": 5,
+                "weight": 200,
+                "pkgSizeSource": "mock_fixture",
+                "officialLength": 20,
+                "officialWidth": 10,
+                "officialHeight": 5,
+                "officialWeight": 0.2,
+                "aiWeight": 0.2,
+                "aiWeightAccuracy": "fixture"
+              }
+            ],
+            "skuShippingDetails": [
+              {
+                "skuId": 1001,
+                "specId": "sku-1001",
+                "width": 10,
+                "length": 20,
+                "height": 5,
+                "weight": 0.2,
+                "pkgSizeSource": "mock_fixture",
+                "officialLength": 20,
+                "officialWidth": 10,
+                "officialHeight": 5,
+                "officialWeight": 0.2,
+                "aiWeight": 0.2,
+                "aiWeightAccuracy": "fixture"
+              }
+            ],
+            "pkgSizeSource": "mock_fixture",
+            "officialLength": 20,
+            "officialWidth": 10,
+            "officialHeight": 5,
+            "officialWeight": 0.2
+          },
+          "tagInfoList": [
+            {
+              "key": "noReason7DReturn",
+              "value": true
+            },
+            {
+              "key": "isOnePsale",
+              "value": true
+            },
+            {
+              "key": "isOnePsaleFreePostage",
+              "value": true
+            },
+            {
+              "key": "isSupportMix",
+              "value": true
+            },
+            {
+              "key": "1688_yx",
+              "value": true
+            },
+            {
+              "key": "isQqyx",
+              "value": true
+            },
+            {
+              "key": "select",
+              "value": true
+            },
+            {
+              "key": "JPFL",
+              "value": true
+            }
+          ],
+          "description": "棉质短袖 T-shirt",
+          "descriptionTrans": "棉质短袖 T-shirt",
+          "language": "en",
+          "saleLimitAddress": {
+            "status": 0
+          },
+          "rangePrice": {
+            "price": [
+              "1990.00"
+            ],
+            "beginQuantity": [
+              "1"
+            ]
+          },
+          "bookedCount": 100,
+          "saleCount": 40,
+          "saleQuantity": 40,
+          "monthSold": 40,
+          "soldOut": 100,
+          "sales7d": 10,
+          "ratio": "0.01",
+          "oldBuyerRatio": "0.01",
+          "tkCnt": 10,
+          "tkCommission": "1.9900",
+          "yhqDiscountFee": 0,
+          "repurchaseRate": "0.01",
+          "isOnePsale": true,
+          "isJxhy": true,
+          "isSelect": true,
+          "sellerIdentities": [
+            "certifiedFactory"
+          ],
+          "offerIdentities": [
+            "noReason7DReturn",
+            "isOnePsale",
+            "isOnePsaleFreePostage",
+            "isSupportMix",
+            "1688_yx",
+            "isQqyx",
+            "select",
+            "JPFL"
+          ],
+          "tradeScore": "5.0",
+          "sellerDataInfo": {
+            "tradeMedalLevel": "5",
+            "compositeServiceScore": "5.0",
+            "logisticsExperienceScore": "5.0",
+            "disputeComplaintScore": "4.8",
+            "offerExperienceScore": "5.0",
+            "afterSalesExperienceScore": "5.0",
+            "consultingExperienceScore": "5.0",
+            "repeatPurchasePercent": "0.01",
+            "collect30DayWithin48HPercent": "0.99",
+            "qualityRefundWithin30Day": "0",
+            "tpYear": 5
+          },
+          "sellerMixSetting": {
+            "generalHunpi": true,
+            "mixAmount": "0",
+            "mixNumber": "1"
+          },
+          "productCargoNumber": "sku-1001",
+          "promotionModel": {
+            "hasPromotion": false,
+            "promotionType": ""
+          },
+          "channelPrice": {
+            "channelSkuPriceList": [
+              {
+                "skuId": 1001,
+                "currentPrice": "19.90"
+              }
+            ]
+          },
+          "sellingPoint": [
+            "棉质短袖 T-shirt"
+          ],
+          "certificateList": [],
+          "isPatentProduct": false,
+          "createDate": "2026-10-24 08:00:00",
+          "modifyDate": "2026-10-24 08:00:00",
+          "createTime": 1792800000000,
+          "modifyTime": 1792800000000,
+          "lastUpdateTime": 1792800000000,
+          "sellStartTime": 1792800000000,
+          "itemId": 1001,
+          "imgUrl": "http://localhost:8080/assets/product.svg",
+          "salesCnt90d": 120,
+          "minPrice": "1990.00",
+          "maxPrice": "1990.00",
+          "serviceList": [
+            {
+              "code": "noReason7DReturn",
+              "name": "noReason7DReturn"
+            },
+            {
+              "code": "isOnePsale",
+              "name": "isOnePsale"
+            },
+            {
+              "code": "isOnePsaleFreePostage",
+              "name": "isOnePsaleFreePostage"
+            },
+            {
+              "code": "isSupportMix",
+              "name": "isSupportMix"
+            },
+            {
+              "code": "1688_yx",
+              "name": "1688_yx"
+            },
+            {
+              "code": "isQqyx",
+              "name": "isQqyx"
+            },
+            {
+              "code": "select",
+              "name": "select"
+            },
+            {
+              "code": "JPFL",
+              "name": "JPFL"
+            }
+          ],
+          "token": "mock-offer-1001",
+          "traceInfo": "mock-offer-1001",
+          "promotionURL": "http://localhost:8080/promotion/1001",
+          "promotionUrl": "http://localhost:8080/promotion/1001",
+          "ww30DResponseRate": "0.98",
+          "newTowerDisputeScore": "4.8",
+          "order30DTurnoverRate": "0.15",
+          "productTradeInfo": {
+            "addCartCount7d": 0,
+            "payBuyerCount7d": 5,
+            "addCartCount30d": 0,
+            "payBuyerCount30d": 5
+          },
+          "quantityPrice": [
+            {
+              "quantity": "≥1",
+              "value": "19.90",
+              "valueString": "19.90",
+              "integer": "19",
+              "decimals": "90.00"
+            }
+          ],
+          "priceUnderLine": "19.90",
+          "priceType": "NORMAL",
+          "consignPrice": "19.90",
+          "fenxiaoPrice": {
+            "price": "19.90",
+            "pfPrice": "19.90",
+            "freepostage": true
+          },
+          "invoiceInfo": {
+            "supportOnlineInvoice": true,
+            "supportFastInvoice": false,
+            "invoiceTypes": [
+              "VATAX_COMM",
+              "VATAX_SPEC"
+            ],
+            "taxpayerType": "general"
+          },
+          "attributes": [
+            {
+              "attributeId": "1",
+              "attributeID": 1,
+              "valueID": 1,
+              "attributeName": "规格",
+              "attributeNameTrans": "Specification",
+              "value": "sku-1001",
+              "valueTrans": "sku-1001"
+            }
+          ],
+          "shippingInfo": {
+            "sendGoodsAddressText": "浙江省杭州市滨江区",
+            "shippingTimeGuarantee": "shipIn24Hours",
+            "weight": 0.2,
+            "width": 10,
+            "height": 5,
+            "length": 20,
+            "skuShippingInfoList": [
+              {
+                "skuId": 1001,
+                "specId": "sku-1001",
+                "width": 10,
+                "length": 20,
+                "height": 5,
+                "weight": 200,
+                "pkgSizeSource": "mock_fixture",
+                "officialLength": 20,
+                "officialWidth": 10,
+                "officialHeight": 5,
+                "officialWeight": 0.2,
+                "aiWeight": 0.2,
+                "aiWeightAccuracy": "fixture"
+              }
+            ],
+            "skuShippingDetails": [
+              {
+                "skuId": 1001,
+                "specId": "sku-1001",
+                "width": 10,
+                "length": 20,
+                "height": 5,
+                "weight": 0.2,
+                "pkgSizeSource": "mock_fixture",
+                "officialLength": 20,
+                "officialWidth": 10,
+                "officialHeight": 5,
+                "officialWeight": 0.2,
+                "aiWeight": 0.2,
+                "aiWeightAccuracy": "fixture"
+              }
+            ],
+            "pkgSizeSource": "mock_fixture",
+            "officialLength": 20,
+            "officialWidth": 10,
+            "officialHeight": 5,
+            "officialWeight": 0.2,
+            "freightTemplateID": 1,
+            "unitWeight": "0.2"
+          },
+          "offerCollectionId": "sample-material",
+          "outerUserIdentity": "external-1"
+        }
+      },
+      "models": {
+        "flagship": {
+          "id": "flagship",
+          "displayName": "模拟旗舰模型",
+          "description": "固定采购结果",
+          "recommended": true,
+          "iconUrl": "/assets/product.svg",
+          "isDefault": true,
+          "sortOrder": 1,
+          "model": "flagship",
+          "name": "flagship",
+          "available": true
+        }
+      },
+      "payment_agreements": {
+        "buyer-1:ALIPAY": {
+          "payChannel": "ALIPAY",
+          "bindingStatus": true,
+          "signedStatus": true
+        }
+      },
+      "repurchase": {
+        "buyer-1:sample-contract": {
+          "contractId": 9004,
+          "offerId": 1001,
+          "price": 19.9,
+          "status": "ACTIVE"
+        }
+      },
+      "subaccounts": {
+        "buyer-1:sub-1": {
+          "id": "sub-1",
+          "memberId": "sub-1",
+          "loginId": "buyer:采购",
+          "authorized": false
+        }
+      },
+      "supplier_relations": {
+        "buyer-1:seller-1": {
+          "memberId": "seller-1",
+          "consignCreateTime": 1767225600000,
+          "consignStatus": "cooperating"
+        }
+      },
+      "tasks": {
+        "buyer-1:sample-task": {
+          "taskId": "sample-task",
+          "sessionId": "sample-session",
+          "status": "END",
+          "createdAt": "1767225600000",
+          "finishedAt": "2026-01-01 08:00:00",
+          "outputStatus": "done",
+          "chunks": "[]",
+          "content": "[{\"offerId\":1001}]",
+          "rows": [
+            {
+              "offerId": 1001
+            }
+          ],
+          "messages": [],
+          "nextIndex": 0
+        }
+      }
+    },
+    "events": [],
+    "subscriptions": [],
+    "faults": [],
+    "base_url": "http://localhost:8080"
+  }
+}

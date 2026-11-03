@@ -36,6 +36,7 @@ services:
       POSTGRES_PASSWORD: pricepilot
       POSTGRES_DB: pricepilot
     networks: [simulation]
+    volumes: ["./postgres-init.sql:/docker-entrypoint-initdb.d/01-snapshot.sql:ro"]
     healthcheck:
       test: [CMD-SHELL, pg_isready -U pricepilot -d pricepilot]
       interval: 1s
@@ -44,6 +45,7 @@ services:
   app:
     image: price-pilot:local
     environment:
+      INITIAL_DATA_MODE: demo
       SEERFAR_BASE_URL: http://mock-seerfar:8080
       SEERFAR_API_KEY: seerfar-test-key
       SEERFAR_MODE: mock
@@ -59,6 +61,7 @@ services:
   app-postgres:
     image: price-pilot:local
     environment:
+      INITIAL_DATA_MODE: demo
       DATABASE_DRIVER: postgres
       DATABASE_DSN: postgres://pricepilot:pricepilot@postgres:5432/pricepilot?sslmode=disable
       SEERFAR_BASE_URL: http://mock-seerfar:8080
@@ -90,6 +93,19 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+  snapshot-app:
+    extends:
+      service: app
+    environment:
+      INITIAL_DATA_MODE: snapshot
+    volumes: [snapshot-sqlite-data:/app/data]
+  snapshot-app-postgres:
+    extends:
+      service: app-postgres
+    environment:
+      INITIAL_DATA_MODE: snapshot
+      DATABASE_DSN: postgres://pricepilot:pricepilot@postgres:5432/pricepilot_snapshot?sslmode=disable
+    volumes: [snapshot-postgres-app-data:/app/data]
   api-tests:
     image: python:3.12-slim
     command: [python, /tests/integration.py]
@@ -117,3 +133,5 @@ networks:
 volumes:
   sqlite-data:
   postgres-app-data:
+  snapshot-sqlite-data:
+  snapshot-postgres-app-data:

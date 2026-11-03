@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"pricepilot/internal/app"
+	"pricepilot/internal/initialdata"
 	"pricepilot/internal/integrations"
 	"pricepilot/internal/seerfar"
 	"pricepilot/internal/store"
@@ -46,6 +47,15 @@ func main() {
 		log.Fatal(err)
 	}
 	defer db.Close()
+	switch env("INITIAL_DATA_MODE", "snapshot") {
+	case "snapshot":
+		if _, err = initialdata.Restore(context.Background(), db); err != nil {
+			log.Fatal(err)
+		}
+	case "demo":
+	default:
+		log.Fatal("INITIAL_DATA_MODE must be snapshot or demo")
+	}
 	if err = app.Seed(context.Background(), db); err != nil {
 		log.Fatal(err)
 	}

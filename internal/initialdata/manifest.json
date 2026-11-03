@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "exported_at": "2026-11-03T07:57:28.176597Z",
+  "record_count": 144,
+  "records_by_kind": {
+    "meta": 2,
+    "products": 4,
+    "products_versions": 13,
+    "promotions": 2,
+    "public_quotes": 31,
+    "quotes": 28,
+    "quotes_versions": 48,
+    "sales_scenarios": 3,
+    "settings": 2,
+    "settings_versions": 4,
+    "snapshots": 5,
+    "stores": 2
+  },
+  "stores": [
+    "default",
+    "demo-second"
+  ],
+  "excluded_kinds": [
+    "fx_previews",
+    "integrations",
+    "runs"
+  ],
+  "snapshot_sha256": "a6db65178d5a0c5290e6b2635b4e8092bc79bbebd80bc6b1ecc0758002765ead",
+  "uncompressed_bytes": 385729,
+  "compressed_bytes": 30740,
+  "external_services": "Connections use fresh Mock defaults; credentials and encryption keys are not included."
+}

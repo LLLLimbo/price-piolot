@@ -1,0 +1,19 @@
+[package]
+name = "mock-1688"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+
+[dependencies]
+axum = { version = "0.8", features = ["multipart"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "time", "signal"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order", "arbitrary_precision"] }
+serde_urlencoded = "0.7"
+base64 = "0.22"
+hmac = "0.12"
+sha1 = "0.10"
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+chrono-tz = "0.10"
+rust_decimal = { version = "1", features = ["serde-with-str"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }

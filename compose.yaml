@@ -12,6 +12,7 @@ services:
     environment:
       DATABASE_DRIVER: sqlite
       DATABASE_DSN: /app/data/pricepilot.db
+      INITIAL_DATA_MODE: ${INITIAL_DATA_MODE:-snapshot}
       SEERFAR_BASE_URL: ${SEERFAR_BASE_URL:-http://mock-seerfar:8080}
       SEERFAR_API_KEY: ${SEERFAR_API_KEY:-seerfar-test-key}
       SEERFAR_MODE: ${SEERFAR_MODE:-mock}
@@ -27,7 +28,7 @@ services:
   mock-1688:
     image: price-pilot-1688:local
     build:
-      context: ../mock-servers/1688-crossboarder-erp-api
+      context: ./mocks/1688-crossboarder-erp-api
       args:
         HTTP_PROXY: ${HTTP_PROXY:-}
         HTTPS_PROXY: ${HTTPS_PROXY:-}
@@ -49,7 +50,7 @@ services:
   mock-seerfar:
     image: price-pilot-seerfar:local
     build:
-      context: ../mock-servers/seerfar-api
+      context: ./mocks/seerfar-api
       args:
         HTTP_PROXY: ${HTTP_PROXY:-}
         HTTPS_PROXY: ${HTTPS_PROXY:-}

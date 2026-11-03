@@ -1,0 +1,4526 @@
+{
+  "base_url": "http://localhost:8084",
+  "fixed_time": null,
+  "generation": 0,
+  "sequence": 0,
+  "task_delay_ms": 1000,
+  "accounts": {
+    "123": {
+      "name": "测试主账号",
+      "active": true,
+      "terms_accepted": true,
+      "ozon_authorized": true,
+      "partner_type": 0,
+      "sub_accounts": {
+        "13800000000": "sub-1"
+      }
+    },
+    "456": {
+      "name": "独立测试账号",
+      "active": true,
+      "terms_accepted": true,
+      "ozon_authorized": true,
+      "partner_type": 0,
+      "sub_accounts": {
+        "13800000000": "sub-1"
+      }
+    }
+  },
+  "keys": {
+    "seerfar-test-key": {
+      "account": "123",
+      "active": true,
+      "credit_limit": 10000,
+      "credit_used": 0
+    },
+    "seerfar-same-account-key": {
+      "account": "123",
+      "active": true,
+      "credit_limit": 10000,
+      "credit_used": 0
+    },
+    "seerfar-other-key": {
+      "account": "456",
+      "active": true,
+      "credit_limit": 10000,
+      "credit_used": 0
+    }
+  },
+  "policies": {
+    "quota": {
+      "cost": 0,
+      "limit": 1,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-shop-search": {
+      "cost": 10,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-shop-brand-search": {
+      "cost": 10,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-shop-category-search": {
+      "cost": 10,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-product-detail-search": {
+      "cost": 3,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-product-similar": {
+      "cost": 15,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-product-variations-characteristics": {
+      "cost": 1,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-product-variations-top": {
+      "cost": 3,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-product-variations-search": {
+      "cost": 3,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-product-monthly-sales-trend": {
+      "cost": 1,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 10
+    },
+    "ozon-product-collect": {
+      "cost": 3,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-collect-box-page": {
+      "cost": 3,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 10
+    },
+    "ozon-category-search": {
+      "cost": 10,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-product-report-search": {
+      "cost": 10,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-market-keyword-search": {
+      "cost": 10,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-keyword-mining": {
+      "cost": 15,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-keyword-back-search": {
+      "cost": 15,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-review-analyse-task-add": {
+      "cost": 200,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-review-analyse-report": {
+      "cost": 0,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-review-analyse-word-frequency": {
+      "cost": 0,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-review-analyse-review-statistic": {
+      "cost": 0,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    },
+    "ozon-review-analyse-original-review": {
+      "cost": 0,
+      "limit": 3,
+      "window_ms": 3000,
+      "account_limit": 10,
+      "global_limit": 0
+    }
+  },
+  "products": {
+    "149222760": {
+      "sku": 149222760,
+      "title": "SvetoCopy 5 шт A4 500 л Бумага для принтера",
+      "productUrl": "https://www.ozon.ru/product/149222760",
+      "brandId": 33321059,
+      "brandName": "SvetoCopy",
+      "brandUrl": "https://www.ozon.ru/brand/33321059",
+      "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-9/wc300/7599846609.jpg",
+      "sellerId": 118364,
+      "sellerName": "Mock Paper Shop",
+      "sellers": 0,
+      "fulfillment": [
+        "OZON"
+      ],
+      "weight": 12520,
+      "questionsAndAnswers": 714,
+      "upTime": 1334869200000,
+      "upDays": 5115,
+      "upMonths": 170,
+      "price": 1794,
+      "grossMargin": 17.3,
+      "reviewCount": 649792,
+      "reviewRating": 4.8,
+      "reviewIncr": null,
+      "sales": 75246,
+      "salesRate": 7,
+      "revenue": 124187644,
+      "revenueRate": 11,
+      "categoryInfo": {
+        "category": {
+          "id": "17027492_17029017_91400",
+          "enTitle": "Printer Paper",
+          "title": "Бумага для принтера",
+          "cnTitle": "打印纸",
+          "pid": "17027492_17029017",
+          "level": 3,
+          "disabled": false,
+          "crossBorderSellable": true,
+          "children": null
+        },
+        "fullCategoryId": [
+          "17027492",
+          "17027492_17029017",
+          "17027492_17029017_91400"
+        ],
+        "titlePath": "Канцелярские товары > Бумага > Бумага для принтера",
+        "cnTitlePath": "文具 > 纸 > 打印纸",
+        "enTitlePath": "Stationery > Paper > Printer Paper"
+      },
+      "volume": 18.788,
+      "dimension": "305×280×220",
+      "labels": [
+        1,
+        2
+      ],
+      "variants": 2,
+      "variationIds": [
+        149222760,
+        149222761
+      ],
+      "variationsRelationId": 26792,
+      "sellerType": 0,
+      "sessionCount": 211521,
+      "sessionCountSearch": 343064,
+      "drr": 0,
+      "convToCartSearch": 10.25,
+      "discount": 15.5,
+      "promoRevenueShare": 62.4,
+      "convViewToOrder": 4.8,
+      "convToCartPdp": 14.96,
+      "returnCancellationRate": null,
+      "orderConversionRate": 209.8,
+      "views": 7311433,
+      "missedRevenue": 0,
+      "stock": 500,
+      "characteristics": [
+        {
+          "sourceName": "Цвет",
+          "name": "颜色",
+          "value": "白色",
+          "nameEn": "Color",
+          "valueEn": "White",
+          "valueRu": "Белый"
+        }
+      ]
+    },
+    "149222761": {
+      "sku": 149222761,
+      "title": "SvetoCopy A4 蓝色包装",
+      "productUrl": "https://www.ozon.ru/product/149222760",
+      "brandId": 33321059,
+      "brandName": "SvetoCopy",
+      "brandUrl": "https://www.ozon.ru/brand/33321059",
+      "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-9/wc300/7599846609.jpg",
+      "sellerId": 118364,
+      "sellerName": "Mock Paper Shop",
+      "sellers": 0,
+      "fulfillment": [
+        "OZON"
+      ],
+      "weight": 12520,
+      "questionsAndAnswers": 714,
+      "upTime": 1334869200000,
+      "upDays": 5115,
+      "upMonths": 170,
+      "price": 1800,
+      "grossMargin": 17.3,
+      "reviewCount": 649792,
+      "reviewRating": 4.8,
+      "reviewIncr": null,
+      "sales": 120,
+      "salesRate": 7,
+      "revenue": 216000,
+      "revenueRate": 11,
+      "categoryInfo": {
+        "category": {
+          "id": "17027492_17029017_91400",
+          "enTitle": "Printer Paper",
+          "title": "Бумага для принтера",
+          "cnTitle": "打印纸",
+          "pid": "17027492_17029017",
+          "level": 3,
+          "disabled": false,
+          "crossBorderSellable": true,
+          "children": null
+        },
+        "fullCategoryId": [
+          "17027492",
+          "17027492_17029017",
+          "17027492_17029017_91400"
+        ],
+        "titlePath": "Канцелярские товары > Бумага > Бумага для принтера",
+        "cnTitlePath": "文具 > 纸 > 打印纸",
+        "enTitlePath": "Stationery > Paper > Printer Paper"
+      },
+      "volume": 18.788,
+      "dimension": "305×280×220",
+      "labels": [
+        1,
+        2
+      ],
+      "variants": 2,
+      "variationIds": [
+        149222760,
+        149222761
+      ],
+      "variationsRelationId": 26792,
+      "sellerType": 0,
+      "sessionCount": 211521,
+      "sessionCountSearch": 343064,
+      "drr": 0,
+      "convToCartSearch": 10.25,
+      "discount": 15.5,
+      "promoRevenueShare": 62.4,
+      "convViewToOrder": 4.8,
+      "convToCartPdp": 14.96,
+      "returnCancellationRate": null,
+      "orderConversionRate": 209.8,
+      "views": 7311433,
+      "missedRevenue": 0,
+      "stock": 500,
+      "characteristics": [
+        {
+          "sourceName": "Цвет",
+          "name": "颜色",
+          "value": "蓝色",
+          "nameEn": "Color",
+          "valueEn": "Blue",
+          "valueRu": "Синий"
+        }
+      ]
+    },
+    "175924376": {
+      "sku": 175924376,
+      "title": "Яндекс Плюс на 12 месяцев",
+      "productUrl": "https://www.ozon.ru/product/175924376",
+      "brandId": 13013270,
+      "brandName": "Яндекс",
+      "brandUrl": "https://www.ozon.ru/brand/13013270/",
+      "imageUrls": [
+        "https://ir.ozone.ru/s3/multimedia-1-a/wc500/9252960310.jpg",
+        "https://ir.ozone.ru/s3/multimedia-1-l/wc500/9199921053.jpg",
+        "https://ir.ozone.ru/s3/multimedia-1-h/wc500/9199921013.jpg",
+        "https://ir.ozone.ru/s3/multimedia-1-5/wc500/9199921037.jpg",
+        "https://ir.ozone.ru/s3/multimedia-1-q/wc500/9199921022.jpg"
+      ],
+      "sellerId": -4,
+      "sellerName": "Ozon Россия",
+      "fulfillment": [
+        "OZON"
+      ],
+      "weight": null,
+      "questionsAndAnswers": 2850,
+      "upTime": 1591647267000,
+      "upDays": 2107,
+      "upMonths": 70,
+      "price": 3490.0,
+      "grossMargin": null,
+      "reviewCount": 44514,
+      "reviewRating": 4.9,
+      "categoryInfo": {
+        "category": {
+          "id": "99999999_200001489_970727001",
+          "enTitle": "Music Subscription",
+          "title": "Подписка на музыку",
+          "cnTitle": "订阅音乐",
+          "pid": "99999999_200001489",
+          "level": 3,
+          "disabled": true,
+          "crossBorderSellable": false,
+          "children": null
+        },
+        "fullCategoryId": [
+          "99999999",
+          "99999999_200001489",
+          "99999999_200001489_970727001"
+        ],
+        "titlePath": "Кино, музыка, видеоигры, софт > Цифровые товары > Подписка на музыку",
+        "cnTitlePath": "电影、音乐、视频游戏、软件 > 数码商品 > 订阅音乐",
+        "enTitlePath": "Movies, Music, Video Games, Software > Digital Products > Music Subscription"
+      },
+      "volume": null,
+      "dimension": "",
+      "variants": 4,
+      "sessionCount": 490275,
+      "sessionCountSearch": 186055,
+      "drr": 4.61,
+      "convToCartSearch": 10.25,
+      "discount": 15.5,
+      "promoRevenueShare": 62.4,
+      "convViewToOrder": 4.8,
+      "convToCartPdp": 12.43,
+      "returnCancellationRate": null,
+      "orderConversionRate": 67.2,
+      "sellerType": 0,
+      "sales": 40963,
+      "revenue": 142960870,
+      "stock": 9999,
+      "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-a/wc500/9252960310.jpg",
+      "variationIds": [
+        175924376
+      ],
+      "characteristics": [
+        {
+          "sourceName": "Цвет",
+          "name": "颜色",
+          "value": "黑色",
+          "nameEn": "Color",
+          "valueEn": "Black",
+          "valueRu": "Черный"
+        }
+      ]
+    },
+    "2100100166": {
+      "sku": 2100100166,
+      "title": "Штангетки SABOSPORTS Powerlift 20 для тяжелой атлетики и пауэрлифтинга",
+      "productUrl": "https://www.ozon.ru/product/2100100166",
+      "brandId": 87326141,
+      "brandName": "SABOSPORTS",
+      "brandUrl": "https://www.ozon.ru/brand/87326141",
+      "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-8/wc300/7599803300.jpg",
+      "sellerId": 444286,
+      "sellerName": "SABOSPORTS Russia",
+      "sellers": 0,
+      "fulfillment": [
+        "FBO"
+      ],
+      "weight": 1044,
+      "questionsAndAnswers": 19,
+      "upTime": 1746392400000,
+      "upDays": 326,
+      "upMonths": 10,
+      "price": 8827,
+      "profit": null,
+      "grossMargin": 25.4,
+      "reviewCount": 65,
+      "reviewRating": 5,
+      "reviewIncr": null,
+      "ratingsRate": null,
+      "sales": 34,
+      "originSales": null,
+      "salesRate": -11,
+      "revenue": 297356,
+      "revenueRate": -4,
+      "categoryInfo": {
+        "category": {
+          "id": "15621032_15621049_115951147",
+          "enTitle": "Weightlifting Shoes",
+          "title": "Штангетки",
+          "cnTitle": "举重鞋",
+          "pid": "15621032_15621049",
+          "level": 3,
+          "disabled": false,
+          "crossBorderSellable": true,
+          "children": null
+        },
+        "fullCategoryId": [
+          "15621032",
+          "15621032_15621049",
+          "15621032_15621049_115951147"
+        ],
+        "titlePath": "Обувь > Спортивная и рабочая обувь > Штангетки",
+        "cnTitlePath": "鞋类 > 运动鞋和工作鞋 > 举重鞋",
+        "enTitlePath": "Footwear > Sports and Work Footwear > Weightlifting Shoes"
+      },
+      "volume": 9.319,
+      "dimension": "364×200×128",
+      "labels": [],
+      "variants": 6,
+      "variationIds": [
+        2100100166
+      ],
+      "variationsRelationId": 12018605,
+      "sellerType": 0,
+      "sessionCount": 2025,
+      "sessionCountSearch": 7379,
+      "drr": 0,
+      "convToCartSearch": 10.25,
+      "discount": 15.5,
+      "promoRevenueShare": 62.4,
+      "convViewToOrder": 4.8,
+      "convToCartPdp": 2.81,
+      "returnCancellationRate": 45.2,
+      "orderConversionRate": 54.4,
+      "naturalRank": null,
+      "adRank": null,
+      "categoryRank": null,
+      "views": 22950,
+      "missedRevenue": 31379,
+      "stock": 40,
+      "characteristics": []
+    },
+    "1830568440": {
+      "sku": 1830568440,
+      "title": "Кроссовки T.TACCARDI на высокой подошве дышащие",
+      "productUrl": "https://www.ozon.ru/product/2100100166",
+      "brandId": 87326141,
+      "brandName": "SABOSPORTS",
+      "brandUrl": "https://www.ozon.ru/brand/87326141",
+      "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-4/wc300/9836771152.jpg",
+      "sellerId": 444286,
+      "sellerName": "SABOSPORTS Russia",
+      "sellers": 0,
+      "fulfillment": [
+        "FBO"
+      ],
+      "weight": 1044,
+      "questionsAndAnswers": 19,
+      "upTime": 1746392400000,
+      "upDays": 326,
+      "upMonths": 10,
+      "price": 8827,
+      "profit": null,
+      "grossMargin": 25.4,
+      "reviewCount": 65,
+      "reviewRating": 5,
+      "reviewIncr": null,
+      "ratingsRate": null,
+      "sales": 34,
+      "originSales": null,
+      "salesRate": -11,
+      "revenue": 297356,
+      "revenueRate": -4,
+      "categoryInfo": {
+        "category": {
+          "id": "15621032_15621049_115951147",
+          "enTitle": "Weightlifting Shoes",
+          "title": "Штангетки",
+          "cnTitle": "举重鞋",
+          "pid": "15621032_15621049",
+          "level": 3,
+          "disabled": false,
+          "crossBorderSellable": true,
+          "children": null
+        },
+        "fullCategoryId": [
+          "15621032",
+          "15621032_15621049",
+          "15621032_15621049_115951147"
+        ],
+        "titlePath": "Обувь > Спортивная и рабочая обувь > Штангетки",
+        "cnTitlePath": "鞋类 > 运动鞋和工作鞋 > 举重鞋",
+        "enTitlePath": "Footwear > Sports and Work Footwear > Weightlifting Shoes"
+      },
+      "volume": 9.319,
+      "dimension": "364×200×128",
+      "labels": [],
+      "variants": 6,
+      "variationIds": [
+        1830568440
+      ],
+      "variationsRelationId": 12018605,
+      "sellerType": 0,
+      "sessionCount": 2025,
+      "sessionCountSearch": 7379,
+      "drr": 0,
+      "convToCartSearch": 10.25,
+      "discount": 15.5,
+      "promoRevenueShare": 62.4,
+      "convViewToOrder": 4.8,
+      "convToCartPdp": 2.81,
+      "returnCancellationRate": 45.2,
+      "orderConversionRate": 54.4,
+      "naturalRank": null,
+      "adRank": null,
+      "categoryRank": null,
+      "views": 22950,
+      "missedRevenue": 31379,
+      "stock": 40,
+      "characteristics": [],
+      "ozonId": 1830568440,
+      "advert": 0
+    },
+    "3452757705": {
+      "sku": 3452757705,
+      "title": "Беспроводные наушники с активным шумоподавлением ANC и микрофоном, Bluetooth, сенсорные, для телефона, TWS",
+      "productUrl": "https://www.ozon.ru/product/2100100166",
+      "brandId": 87326141,
+      "brandName": "SABOSPORTS",
+      "brandUrl": "https://www.ozon.ru/brand/87326141",
+      "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-y/wc300/8939510962.jpg",
+      "sellerId": 444286,
+      "sellerName": "SABOSPORTS Russia",
+      "sellers": 0,
+      "fulfillment": [
+        "FBO"
+      ],
+      "weight": 1044,
+      "questionsAndAnswers": 19,
+      "upTime": 1746392400000,
+      "upDays": 326,
+      "upMonths": 10,
+      "price": 8827,
+      "profit": null,
+      "grossMargin": 25.4,
+      "reviewCount": 65,
+      "reviewRating": 5,
+      "reviewIncr": null,
+      "ratingsRate": null,
+      "sales": 34,
+      "originSales": null,
+      "salesRate": -11,
+      "revenue": 297356,
+      "revenueRate": -4,
+      "categoryInfo": {
+        "category": {
+          "id": "15621032_15621049_115951147",
+          "enTitle": "Weightlifting Shoes",
+          "title": "Штангетки",
+          "cnTitle": "举重鞋",
+          "pid": "15621032_15621049",
+          "level": 3,
+          "disabled": false,
+          "crossBorderSellable": true,
+          "children": null
+        },
+        "fullCategoryId": [
+          "15621032",
+          "15621032_15621049",
+          "15621032_15621049_115951147"
+        ],
+        "titlePath": "Обувь > Спортивная и рабочая обувь > Штангетки",
+        "cnTitlePath": "鞋类 > 运动鞋和工作鞋 > 举重鞋",
+        "enTitlePath": "Footwear > Sports and Work Footwear > Weightlifting Shoes"
+      },
+      "volume": 9.319,
+      "dimension": "364×200×128",
+      "labels": [],
+      "variants": 6,
+      "variationIds": [
+        3452757705
+      ],
+      "variationsRelationId": 12018605,
+      "sellerType": 0,
+      "sessionCount": 2025,
+      "sessionCountSearch": 7379,
+      "drr": 0,
+      "convToCartSearch": 10.25,
+      "discount": 15.5,
+      "promoRevenueShare": 62.4,
+      "convViewToOrder": 4.8,
+      "convToCartPdp": 2.81,
+      "returnCancellationRate": 45.2,
+      "orderConversionRate": 54.4,
+      "naturalRank": null,
+      "adRank": null,
+      "categoryRank": null,
+      "views": 22950,
+      "missedRevenue": 31379,
+      "stock": 40,
+      "characteristics": [],
+      "ozonId": 3452757705,
+      "advert": 0
+    },
+    "3480252496": {
+      "sku": 3480252496,
+      "title": "Кроссовки K2 collection Кроссовки мужские",
+      "productUrl": "https://www.ozon.ru/product/2100100166",
+      "brandId": 87326141,
+      "brandName": "SABOSPORTS",
+      "brandUrl": "https://www.ozon.ru/brand/87326141",
+      "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-q/wc300/9175046066.jpg",
+      "sellerId": 444286,
+      "sellerName": "SABOSPORTS Russia",
+      "sellers": 0,
+      "fulfillment": [
+        "FBO"
+      ],
+      "weight": 1044,
+      "questionsAndAnswers": 19,
+      "upTime": 1746392400000,
+      "upDays": 326,
+      "upMonths": 10,
+      "price": 8827,
+      "profit": null,
+      "grossMargin": 25.4,
+      "reviewCount": 65,
+      "reviewRating": 5,
+      "reviewIncr": null,
+      "ratingsRate": null,
+      "sales": 34,
+      "originSales": null,
+      "salesRate": -11,
+      "revenue": 297356,
+      "revenueRate": -4,
+      "categoryInfo": {
+        "category": {
+          "id": "15621032_15621049_115951147",
+          "enTitle": "Weightlifting Shoes",
+          "title": "Штангетки",
+          "cnTitle": "举重鞋",
+          "pid": "15621032_15621049",
+          "level": 3,
+          "disabled": false,
+          "crossBorderSellable": true,
+          "children": null
+        },
+        "fullCategoryId": [
+          "15621032",
+          "15621032_15621049",
+          "15621032_15621049_115951147"
+        ],
+        "titlePath": "Обувь > Спортивная и рабочая обувь > Штангетки",
+        "cnTitlePath": "鞋类 > 运动鞋和工作鞋 > 举重鞋",
+        "enTitlePath": "Footwear > Sports and Work Footwear > Weightlifting Shoes"
+      },
+      "volume": 9.319,
+      "dimension": "364×200×128",
+      "labels": [],
+      "variants": 6,
+      "variationIds": [
+        3480252496
+      ],
+      "variationsRelationId": 12018605,
+      "sellerType": 0,
+      "sessionCount": 2025,
+      "sessionCountSearch": 7379,
+      "drr": 0,
+      "convToCartSearch": 10.25,
+      "discount": 15.5,
+      "promoRevenueShare": 62.4,
+      "convViewToOrder": 4.8,
+      "convToCartPdp": 2.81,
+      "returnCancellationRate": 45.2,
+      "orderConversionRate": 54.4,
+      "naturalRank": null,
+      "adRank": null,
+      "categoryRank": null,
+      "views": 22950,
+      "missedRevenue": 31379,
+      "stock": 40,
+      "characteristics": [],
+      "ozonId": 3480252496,
+      "advert": 0
+    },
+    "1061073694": {
+      "sku": 1061073694,
+      "title": "Mock keyword source",
+      "productUrl": "https://www.ozon.ru/product/2100100166",
+      "brandId": 87326141,
+      "brandName": "SABOSPORTS",
+      "brandUrl": "https://www.ozon.ru/brand/87326141",
+      "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-8/wc300/7599803300.jpg",
+      "sellerId": 444286,
+      "sellerName": "SABOSPORTS Russia",
+      "sellers": 0,
+      "fulfillment": [
+        "FBO"
+      ],
+      "weight": 1044,
+      "questionsAndAnswers": 19,
+      "upTime": 1746392400000,
+      "upDays": 326,
+      "upMonths": 10,
+      "price": 8827,
+      "profit": null,
+      "grossMargin": 25.4,
+      "reviewCount": 65,
+      "reviewRating": 5,
+      "reviewIncr": null,
+      "ratingsRate": null,
+      "sales": 34,
+      "originSales": null,
+      "salesRate": -11,
+      "revenue": 297356,
+      "revenueRate": -4,
+      "categoryInfo": {
+        "category": {
+          "id": "15621032_15621049_115951147",
+          "enTitle": "Weightlifting Shoes",
+          "title": "Штангетки",
+          "cnTitle": "举重鞋",
+          "pid": "15621032_15621049",
+          "level": 3,
+          "disabled": false,
+          "crossBorderSellable": true,
+          "children": null
+        },
+        "fullCategoryId": [
+          "15621032",
+          "15621032_15621049",
+          "15621032_15621049_115951147"
+        ],
+        "titlePath": "Обувь > Спортивная и рабочая обувь > Штангетки",
+        "cnTitlePath": "鞋类 > 运动鞋和工作鞋 > 举重鞋",
+        "enTitlePath": "Footwear > Sports and Work Footwear > Weightlifting Shoes"
+      },
+      "volume": 9.319,
+      "dimension": "364×200×128",
+      "labels": [],
+      "variants": 6,
+      "variationIds": [
+        1061073694
+      ],
+      "variationsRelationId": 12018605,
+      "sellerType": 0,
+      "sessionCount": 2025,
+      "sessionCountSearch": 7379,
+      "drr": 0,
+      "convToCartSearch": 10.25,
+      "discount": 15.5,
+      "promoRevenueShare": 62.4,
+      "convViewToOrder": 4.8,
+      "convToCartPdp": 2.81,
+      "returnCancellationRate": 45.2,
+      "orderConversionRate": 54.4,
+      "naturalRank": null,
+      "adRank": null,
+      "categoryRank": null,
+      "views": 22950,
+      "missedRevenue": 31379,
+      "stock": 40,
+      "characteristics": []
+    }
+  },
+  "shops": {
+    "118364": {
+      "id": 118364,
+      "name": "Mock Paper Shop",
+      "rating": 4.8
+    },
+    "-4": {
+      "id": -4,
+      "name": "Ozon Россия",
+      "rating": 4.8
+    },
+    "444286": {
+      "id": 444286,
+      "name": "SABOSPORTS Russia",
+      "rating": 4.8
+    }
+  },
+  "categories": {
+    "17027492_17029017_91400": {
+      "id": "17027492_17029017_91400",
+      "enTitle": "Printer Paper",
+      "title": "Бумага для принтера",
+      "cnTitle": "打印纸",
+      "pid": "17027492_17029017",
+      "level": 3,
+      "disabled": false,
+      "crossBorderSellable": true,
+      "children": null
+    },
+    "99999999_200001489_970727001": {
+      "id": "99999999_200001489_970727001",
+      "enTitle": "Music Subscription",
+      "title": "Подписка на музыку",
+      "cnTitle": "订阅音乐",
+      "pid": "99999999_200001489",
+      "level": 3,
+      "disabled": true,
+      "crossBorderSellable": false,
+      "children": null
+    },
+    "15621032_15621049_115951147": {
+      "id": "15621032_15621049_115951147",
+      "enTitle": "Weightlifting Shoes",
+      "title": "Штангетки",
+      "cnTitle": "举重鞋",
+      "pid": "15621032_15621049",
+      "level": 3,
+      "disabled": false,
+      "crossBorderSellable": true,
+      "children": null
+    }
+  },
+  "market": {
+    "market-keyword-search": [
+      {
+        "id": "69e7c423d1fd12d9b571ac1b",
+        "query": "кроссовки женские",
+        "queryCn": "女士运动鞋",
+        "platform": 0,
+        "categoryInfos": [
+          {
+            "id": "15621032_15621048_91248",
+            "titleRu": "Кроссовки",
+            "titlePath": "Обувь > Повседневная обувь > Кроссовки",
+            "titleCn": "运动鞋",
+            "cnTitlePath": "鞋类 > 休闲鞋 > 运动鞋",
+            "titleEn": "Athletic Shoes",
+            "enTitlePath": "Footwear > Casual Footwear > Athletic Shoes",
+            "crossBorderSellable": true
+          }
+        ],
+        "categories": [
+          "15621032_15621048_91248"
+        ],
+        "searchVolume": 1389359,
+        "count30GrowthRate": 24.9,
+        "avgPrice": 3112.0,
+        "competingProducts": 4240,
+        "itemsViews": 111.3,
+        "sellers": 316,
+        "ca": 16.5,
+        "uniqQueriesWCa": 228853,
+        "viewSharing": 35.1,
+        "conversionSharing": 30.5,
+        "withinThesaurus": null,
+        "marketSpace": 328,
+        "products": [
+          {
+            "title": "Кроссовки T.TACCARDI на высокой подошве дышащие",
+            "sku": 1830568440,
+            "ozonId": 1830568440,
+            "advert": 0,
+            "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-4/wc300/9836771152.jpg"
+          }
+        ],
+        "returnCancellationRate": 54.4,
+        "productCount": 1015144,
+        "count90GrowthRate": null,
+        "weight": 849.0,
+        "sales": 1062.0,
+        "revenue": 2027351.0,
+        "margin": null,
+        "volume": 6.9,
+        "reviews": 7777,
+        "ratings": 4.6,
+        "queryTime": "2026-04-21",
+        "createTime": "2026-04-22 02:38:23",
+        "_skuIds": [
+          1830568440
+        ]
+      }
+    ],
+    "keyword-mining": [
+      {
+        "id": "69e7beecd1fd12d9b55251cd",
+        "query": "наушники беспроводные",
+        "queryCn": "无线耳机",
+        "platform": 0,
+        "categoryInfos": null,
+        "categories": [
+          "15621042_17028929_504866264"
+        ],
+        "searchVolume": 1151374,
+        "count30GrowthRate": 54.1,
+        "avgPrice": 7869.0,
+        "competingProducts": 1932,
+        "itemsViews": 42.3,
+        "sellers": 704,
+        "ca": 22.1,
+        "uniqQueriesWCa": 250730,
+        "viewSharing": 11.3,
+        "conversionSharing": 23.1,
+        "withinThesaurus": null,
+        "marketSpace": 596,
+        "products": [
+          {
+            "title": "Беспроводные наушники с активным шумоподавлением ANC и микрофоном, Bluetooth, сенсорные, для телефона, TWS",
+            "sku": 3452757705,
+            "ozonId": 3452757705,
+            "advert": 0,
+            "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-y/wc300/8939510962.jpg"
+          }
+        ],
+        "returnCancellationRate": 16.3,
+        "productCount": 335994,
+        "titleDensity": 1.0,
+        "wordCount": 2,
+        "relevancy": 100,
+        "absoluteRelevancy": 152,
+        "adRivalCount": null,
+        "_skuIds": [
+          3452757705
+        ]
+      }
+    ],
+    "keyword-back-search": [
+      {
+        "id": "69e7c419d1fd12d9b5717883",
+        "query": "кроссовки мужские",
+        "queryCn": "男士运动鞋",
+        "platform": 0,
+        "categoryInfos": null,
+        "categories": [
+          "15621032_15621048_91248"
+        ],
+        "searchVolume": 1309433,
+        "count30GrowthRate": 20.4,
+        "avgPrice": 4690.0,
+        "competingProducts": 4143,
+        "itemsViews": 118.3,
+        "sellers": 307,
+        "ca": 12.0,
+        "uniqQueriesWCa": 156603,
+        "viewSharing": 16.8,
+        "conversionSharing": 19.0,
+        "withinThesaurus": null,
+        "marketSpace": 316,
+        "products": [
+          {
+            "title": "Кроссовки K2 collection Кроссовки мужские",
+            "sku": 3480252496,
+            "ozonId": 3480252496,
+            "advert": 0,
+            "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-q/wc300/9175046066.jpg"
+          }
+        ],
+        "returnCancellationRate": 47.7,
+        "productCount": 1134829,
+        "titleDensity": 0.3,
+        "wordCount": 2,
+        "absoluteRelevancy": null,
+        "dimension": {
+          "naturalRank": null,
+          "adRank": null,
+          "relateAdCount": null,
+          "position": null,
+          "relativeRank": null,
+          "avgRivalRank": null,
+          "relateCount": null,
+          "avgAdRank": null,
+          "adRivalCount": null,
+          "advancedRankCount": null,
+          "type": 0,
+          "exposure": null,
+          "conversion": null,
+          "x": null,
+          "productPositions": null,
+          "cpm": null
+        },
+        "_skuIds": [
+          1061073694
+        ]
+      }
+    ]
+  },
+  "history": {
+    "149222760": [
+      {
+        "date": "2026-10-01",
+        "sales": 2509,
+        "revenue": 4139588.14,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-02",
+        "sales": 2509,
+        "revenue": 4139588.14,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-03",
+        "sales": 2509,
+        "revenue": 4139588.14,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-04",
+        "sales": 2509,
+        "revenue": 4139588.14,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-05",
+        "sales": 2509,
+        "revenue": 4139588.14,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-06",
+        "sales": 2509,
+        "revenue": 4139588.14,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-07",
+        "sales": 2508,
+        "revenue": 4139588.14,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-08",
+        "sales": 2508,
+        "revenue": 4139588.14,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-09",
+        "sales": 2508,
+        "revenue": 4139588.14,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-10",
+        "sales": 2508,
+        "revenue": 4139588.14,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-11",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-12",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-13",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-14",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-15",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-16",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-17",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-18",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-19",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-20",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-21",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-22",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-23",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-24",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-25",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-26",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-27",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-28",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-29",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-30",
+        "sales": 2508,
+        "revenue": 4139588.13,
+        "price": 1794,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      }
+    ],
+    "149222761": [
+      {
+        "date": "2026-10-01",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-02",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-03",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-04",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-05",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-06",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-07",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-08",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-09",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-10",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-11",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-12",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-13",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-14",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-15",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-16",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-17",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-18",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-19",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-20",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-21",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-22",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-23",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-24",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-25",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-26",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-27",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-28",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-29",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      },
+      {
+        "date": "2026-10-30",
+        "sales": 4,
+        "revenue": 7200.0,
+        "price": 1800,
+        "reviewCount": 649792,
+        "reviewRating": 4.8,
+        "stock": 500
+      }
+    ],
+    "175924376": [
+      {
+        "date": "2026-10-01",
+        "sales": 1366,
+        "revenue": 4765362.34,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-02",
+        "sales": 1366,
+        "revenue": 4765362.34,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-03",
+        "sales": 1366,
+        "revenue": 4765362.34,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-04",
+        "sales": 1366,
+        "revenue": 4765362.34,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-05",
+        "sales": 1366,
+        "revenue": 4765362.34,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-06",
+        "sales": 1366,
+        "revenue": 4765362.34,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-07",
+        "sales": 1366,
+        "revenue": 4765362.34,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-08",
+        "sales": 1366,
+        "revenue": 4765362.34,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-09",
+        "sales": 1366,
+        "revenue": 4765362.34,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-10",
+        "sales": 1366,
+        "revenue": 4765362.34,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-11",
+        "sales": 1366,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-12",
+        "sales": 1366,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-13",
+        "sales": 1366,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-14",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-15",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-16",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-17",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-18",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-19",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-20",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-21",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-22",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-23",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-24",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-25",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-26",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-27",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-28",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-29",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      },
+      {
+        "date": "2026-10-30",
+        "sales": 1365,
+        "revenue": 4765362.33,
+        "price": 3490.0,
+        "reviewCount": 44514,
+        "reviewRating": 4.9,
+        "stock": 9999
+      }
+    ],
+    "2100100166": [
+      {
+        "date": "2026-10-01",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-02",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-03",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-04",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-05",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-06",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-07",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-08",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-09",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-10",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-11",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-12",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-13",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-14",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-15",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-16",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-17",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-18",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-19",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-20",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-21",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-22",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-23",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-24",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-25",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-26",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-27",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-28",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-29",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-30",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      }
+    ],
+    "1830568440": [
+      {
+        "date": "2026-10-01",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-02",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-03",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-04",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-05",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-06",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-07",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-08",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-09",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-10",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-11",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-12",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-13",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-14",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-15",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-16",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-17",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-18",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-19",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-20",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-21",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-22",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-23",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-24",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-25",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-26",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-27",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-28",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-29",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-30",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      }
+    ],
+    "3452757705": [
+      {
+        "date": "2026-10-01",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-02",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-03",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-04",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-05",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-06",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-07",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-08",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-09",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-10",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-11",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-12",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-13",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-14",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-15",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-16",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-17",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-18",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-19",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-20",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-21",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-22",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-23",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-24",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-25",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-26",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-27",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-28",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-29",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-30",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      }
+    ],
+    "3480252496": [
+      {
+        "date": "2026-10-01",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-02",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-03",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-04",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-05",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-06",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-07",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-08",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-09",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-10",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-11",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-12",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-13",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-14",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-15",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-16",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-17",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-18",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-19",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-20",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-21",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-22",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-23",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-24",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-25",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-26",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-27",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-28",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-29",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-30",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      }
+    ],
+    "1061073694": [
+      {
+        "date": "2026-10-01",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-02",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-03",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-04",
+        "sales": 2,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-05",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-06",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-07",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-08",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-09",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-10",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-11",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-12",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-13",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-14",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-15",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-16",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-17",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-18",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-19",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-20",
+        "sales": 1,
+        "revenue": 9911.87,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-21",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-22",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-23",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-24",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-25",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-26",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-27",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-28",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-29",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      },
+      {
+        "date": "2026-10-30",
+        "sales": 1,
+        "revenue": 9911.86,
+        "price": 8827,
+        "reviewCount": 65,
+        "reviewRating": 5,
+        "stock": 40
+      }
+    ]
+  },
+  "monthly": {
+    "149222760": [
+      {
+        "date": "2026-09",
+        "sale": 12,
+        "revenue": 1234.56
+      },
+      {
+        "date": "2026-08",
+        "sale": null,
+        "revenue": null
+      }
+    ],
+    "149222761": [
+      {
+        "date": "2026-09",
+        "sale": 12,
+        "revenue": 1234.56
+      },
+      {
+        "date": "2026-08",
+        "sale": null,
+        "revenue": null
+      }
+    ],
+    "175924376": [
+      {
+        "date": "2026-09",
+        "sale": 12,
+        "revenue": 1234.56
+      },
+      {
+        "date": "2026-08",
+        "sale": null,
+        "revenue": null
+      }
+    ],
+    "2100100166": [
+      {
+        "date": "2026-09",
+        "sale": 12,
+        "revenue": 1234.56
+      },
+      {
+        "date": "2026-08",
+        "sale": null,
+        "revenue": null
+      }
+    ],
+    "1830568440": [
+      {
+        "date": "2026-09",
+        "sale": 12,
+        "revenue": 1234.56
+      },
+      {
+        "date": "2026-08",
+        "sale": null,
+        "revenue": null
+      }
+    ],
+    "3452757705": [
+      {
+        "date": "2026-09",
+        "sale": 12,
+        "revenue": 1234.56
+      },
+      {
+        "date": "2026-08",
+        "sale": null,
+        "revenue": null
+      }
+    ],
+    "3480252496": [
+      {
+        "date": "2026-09",
+        "sale": 12,
+        "revenue": 1234.56
+      },
+      {
+        "date": "2026-08",
+        "sale": null,
+        "revenue": null
+      }
+    ],
+    "1061073694": [
+      {
+        "date": "2026-09",
+        "sale": 12,
+        "revenue": 1234.56
+      },
+      {
+        "date": "2026-08",
+        "sale": null,
+        "revenue": null
+      }
+    ]
+  },
+  "review_results": {
+    "149222760": {
+      "CN": {
+        "report": {
+          "sku": 149222760,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 149222760,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "EN": {
+        "report": {
+          "sku": 149222760,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 149222760,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "RU": {
+        "report": {
+          "sku": 149222760,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 149222760,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "statistic": {
+        "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-9/wc300/7599846609.jpg",
+        "title": "SvetoCopy 5 шт A4 500 л Бумага для принтера",
+        "sku": "149222760",
+        "reviewStatistic": {
+          "sku": "149222760",
+          "reviewCount": 22,
+          "reviewRating": 4.5,
+          "avgRating": null,
+          "fiveStarCount": 18,
+          "fiveStarPercent": 81.82,
+          "fourStarCount": 2,
+          "fourStarPercent": 9.09,
+          "threeStarCount": 0,
+          "threeStarPercent": 0.0,
+          "twoStarCount": 0,
+          "twoStarPercent": 0.0,
+          "oneStarCount": 2,
+          "oneStarPercent": 9.09,
+          "updateTime": 1790566812
+        }
+      },
+      "original": {
+        "skus": [
+          "149222760"
+        ],
+        "reviews": [
+          {
+            "date": "2026-09-27",
+            "ruDate": "2026-09-27",
+            "author": "Покупатель",
+            "star": 5,
+            "text": "Хороший товар",
+            "photos": [],
+            "videos": [],
+            "skus": "149222760"
+          }
+        ]
+      }
+    },
+    "149222761": {
+      "CN": {
+        "report": {
+          "sku": 149222761,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 149222761,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "EN": {
+        "report": {
+          "sku": 149222761,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 149222761,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "RU": {
+        "report": {
+          "sku": 149222761,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 149222761,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "statistic": {
+        "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-9/wc300/7599846609.jpg",
+        "title": "SvetoCopy A4 蓝色包装",
+        "sku": "149222761",
+        "reviewStatistic": {
+          "sku": "149222761",
+          "reviewCount": 22,
+          "reviewRating": 4.5,
+          "avgRating": null,
+          "fiveStarCount": 18,
+          "fiveStarPercent": 81.82,
+          "fourStarCount": 2,
+          "fourStarPercent": 9.09,
+          "threeStarCount": 0,
+          "threeStarPercent": 0.0,
+          "twoStarCount": 0,
+          "twoStarPercent": 0.0,
+          "oneStarCount": 2,
+          "oneStarPercent": 9.09,
+          "updateTime": 1790566812
+        }
+      },
+      "original": {
+        "skus": [
+          "149222761"
+        ],
+        "reviews": [
+          {
+            "date": "2026-09-27",
+            "ruDate": "2026-09-27",
+            "author": "Покупатель",
+            "star": 5,
+            "text": "Хороший товар",
+            "photos": [],
+            "videos": [],
+            "skus": "149222761"
+          }
+        ]
+      }
+    },
+    "175924376": {
+      "CN": {
+        "report": {
+          "sku": 175924376,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 175924376,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "EN": {
+        "report": {
+          "sku": 175924376,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 175924376,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "RU": {
+        "report": {
+          "sku": 175924376,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 175924376,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "statistic": {
+        "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-a/wc500/9252960310.jpg",
+        "title": "Яндекс Плюс на 12 месяцев",
+        "sku": "175924376",
+        "reviewStatistic": {
+          "sku": "175924376",
+          "reviewCount": 22,
+          "reviewRating": 4.5,
+          "avgRating": null,
+          "fiveStarCount": 18,
+          "fiveStarPercent": 81.82,
+          "fourStarCount": 2,
+          "fourStarPercent": 9.09,
+          "threeStarCount": 0,
+          "threeStarPercent": 0.0,
+          "twoStarCount": 0,
+          "twoStarPercent": 0.0,
+          "oneStarCount": 2,
+          "oneStarPercent": 9.09,
+          "updateTime": 1790566812
+        }
+      },
+      "original": {
+        "skus": [
+          "175924376"
+        ],
+        "reviews": [
+          {
+            "date": "2026-09-27",
+            "ruDate": "2026-09-27",
+            "author": "Покупатель",
+            "star": 5,
+            "text": "Хороший товар",
+            "photos": [],
+            "videos": [],
+            "skus": "175924376"
+          }
+        ]
+      }
+    },
+    "2100100166": {
+      "CN": {
+        "report": {
+          "sku": 2100100166,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 2100100166,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "EN": {
+        "report": {
+          "sku": 2100100166,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 2100100166,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "RU": {
+        "report": {
+          "sku": 2100100166,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 2100100166,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "statistic": {
+        "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-8/wc300/7599803300.jpg",
+        "title": "Штангетки SABOSPORTS Powerlift 20 для тяжелой атлетики и пауэрлифтинга",
+        "sku": "2100100166",
+        "reviewStatistic": {
+          "sku": "2100100166",
+          "reviewCount": 22,
+          "reviewRating": 4.5,
+          "avgRating": null,
+          "fiveStarCount": 18,
+          "fiveStarPercent": 81.82,
+          "fourStarCount": 2,
+          "fourStarPercent": 9.09,
+          "threeStarCount": 0,
+          "threeStarPercent": 0.0,
+          "twoStarCount": 0,
+          "twoStarPercent": 0.0,
+          "oneStarCount": 2,
+          "oneStarPercent": 9.09,
+          "updateTime": 1790566812
+        }
+      },
+      "original": {
+        "skus": [
+          "2100100166"
+        ],
+        "reviews": [
+          {
+            "date": "2026-09-27",
+            "ruDate": "2026-09-27",
+            "author": "Покупатель",
+            "star": 5,
+            "text": "Хороший товар",
+            "photos": [],
+            "videos": [],
+            "skus": "2100100166"
+          }
+        ]
+      }
+    },
+    "1830568440": {
+      "CN": {
+        "report": {
+          "sku": 1830568440,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 1830568440,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "EN": {
+        "report": {
+          "sku": 1830568440,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 1830568440,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "RU": {
+        "report": {
+          "sku": 1830568440,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 1830568440,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "statistic": {
+        "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-4/wc300/9836771152.jpg",
+        "title": "Кроссовки T.TACCARDI на высокой подошве дышащие",
+        "sku": "1830568440",
+        "reviewStatistic": {
+          "sku": "1830568440",
+          "reviewCount": 22,
+          "reviewRating": 4.5,
+          "avgRating": null,
+          "fiveStarCount": 18,
+          "fiveStarPercent": 81.82,
+          "fourStarCount": 2,
+          "fourStarPercent": 9.09,
+          "threeStarCount": 0,
+          "threeStarPercent": 0.0,
+          "twoStarCount": 0,
+          "twoStarPercent": 0.0,
+          "oneStarCount": 2,
+          "oneStarPercent": 9.09,
+          "updateTime": 1790566812
+        }
+      },
+      "original": {
+        "skus": [
+          "1830568440"
+        ],
+        "reviews": [
+          {
+            "date": "2026-09-27",
+            "ruDate": "2026-09-27",
+            "author": "Покупатель",
+            "star": 5,
+            "text": "Хороший товар",
+            "photos": [],
+            "videos": [],
+            "skus": "1830568440"
+          }
+        ]
+      }
+    },
+    "3452757705": {
+      "CN": {
+        "report": {
+          "sku": 3452757705,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 3452757705,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "EN": {
+        "report": {
+          "sku": 3452757705,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 3452757705,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "RU": {
+        "report": {
+          "sku": 3452757705,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 3452757705,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "statistic": {
+        "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-y/wc300/8939510962.jpg",
+        "title": "Беспроводные наушники с активным шумоподавлением ANC и микрофоном, Bluetooth, сенсорные, для телефона, TWS",
+        "sku": "3452757705",
+        "reviewStatistic": {
+          "sku": "3452757705",
+          "reviewCount": 22,
+          "reviewRating": 4.5,
+          "avgRating": null,
+          "fiveStarCount": 18,
+          "fiveStarPercent": 81.82,
+          "fourStarCount": 2,
+          "fourStarPercent": 9.09,
+          "threeStarCount": 0,
+          "threeStarPercent": 0.0,
+          "twoStarCount": 0,
+          "twoStarPercent": 0.0,
+          "oneStarCount": 2,
+          "oneStarPercent": 9.09,
+          "updateTime": 1790566812
+        }
+      },
+      "original": {
+        "skus": [
+          "3452757705"
+        ],
+        "reviews": [
+          {
+            "date": "2026-09-27",
+            "ruDate": "2026-09-27",
+            "author": "Покупатель",
+            "star": 5,
+            "text": "Хороший товар",
+            "photos": [],
+            "videos": [],
+            "skus": "3452757705"
+          }
+        ]
+      }
+    },
+    "3480252496": {
+      "CN": {
+        "report": {
+          "sku": 3480252496,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 3480252496,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "EN": {
+        "report": {
+          "sku": 3480252496,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 3480252496,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "RU": {
+        "report": {
+          "sku": 3480252496,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 3480252496,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "statistic": {
+        "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-q/wc300/9175046066.jpg",
+        "title": "Кроссовки K2 collection Кроссовки мужские",
+        "sku": "3480252496",
+        "reviewStatistic": {
+          "sku": "3480252496",
+          "reviewCount": 22,
+          "reviewRating": 4.5,
+          "avgRating": null,
+          "fiveStarCount": 18,
+          "fiveStarPercent": 81.82,
+          "fourStarCount": 2,
+          "fourStarPercent": 9.09,
+          "threeStarCount": 0,
+          "threeStarPercent": 0.0,
+          "twoStarCount": 0,
+          "twoStarPercent": 0.0,
+          "oneStarCount": 2,
+          "oneStarPercent": 9.09,
+          "updateTime": 1790566812
+        }
+      },
+      "original": {
+        "skus": [
+          "3480252496"
+        ],
+        "reviews": [
+          {
+            "date": "2026-09-27",
+            "ruDate": "2026-09-27",
+            "author": "Покупатель",
+            "star": 5,
+            "text": "Хороший товар",
+            "photos": [],
+            "videos": [],
+            "skus": "3480252496"
+          }
+        ]
+      }
+    },
+    "1061073694": {
+      "CN": {
+        "report": {
+          "sku": 1061073694,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 1061073694,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "EN": {
+        "report": {
+          "sku": 1061073694,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 1061073694,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "RU": {
+        "report": {
+          "sku": 1061073694,
+          "userId": 123,
+          "createTime": "2026-09-28 10:00:00",
+          "advantages": [
+            {
+              "dimensionRu": "Качество",
+              "dimensionCn": "质量",
+              "count": 12,
+              "proportion": 0.3
+            }
+          ],
+          "disadvantages": [],
+          "usageScenarios": [],
+          "userCharacteristics": [],
+          "unmetNeeds": [],
+          "timePoints": [],
+          "usageLocations": [],
+          "userBehavior": [],
+          "purchaseMotivations": [],
+          "optSugges": {},
+          "qaAnalysis": {}
+        },
+        "word_frequency": {
+          "sku": 1061073694,
+          "userId": 123,
+          "origin": [
+            "качество"
+          ],
+          "sinicized": [
+            "质量"
+          ]
+        }
+      },
+      "statistic": {
+        "imageUrl": "https://ir.ozone.ru/s3/multimedia-1-8/wc300/7599803300.jpg",
+        "title": "Mock keyword source",
+        "sku": "1061073694",
+        "reviewStatistic": {
+          "sku": "1061073694",
+          "reviewCount": 22,
+          "reviewRating": 4.5,
+          "avgRating": null,
+          "fiveStarCount": 18,
+          "fiveStarPercent": 81.82,
+          "fourStarCount": 2,
+          "fourStarPercent": 9.09,
+          "threeStarCount": 0,
+          "threeStarPercent": 0.0,
+          "twoStarCount": 0,
+          "twoStarPercent": 0.0,
+          "oneStarCount": 2,
+          "oneStarPercent": 9.09,
+          "updateTime": 1790566812
+        }
+      },
+      "original": {
+        "skus": [
+          "1061073694"
+        ],
+        "reviews": [
+          {
+            "date": "2026-09-27",
+            "ruDate": "2026-09-27",
+            "author": "Покупатель",
+            "star": 5,
+            "text": "Хороший товар",
+            "photos": [],
+            "videos": [],
+            "skus": "1061073694"
+          }
+        ]
+      }
+    }
+  },
+  "tasks": {},
+  "collections": {},
+  "settlements": {},
+  "faults": []
+}

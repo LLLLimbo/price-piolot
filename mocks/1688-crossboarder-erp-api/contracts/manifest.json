@@ -1,0 +1,16 @@
+{
+  "source": "https://open.1688.com/solution/data/getSolutionDetail.jsonp?solutionKey=1697015308755&callback=callback",
+  "solutionVersion": "8.8",
+  "snapshotDate": "2026-10-26",
+  "apiCount": 194,
+  "messageCount": 40,
+  "unavailableApis": [
+    "com.alibaba.p4p:alibaba.cps.queryRealtimeVisitor-1",
+    "com.alibaba.trade:alibaba.trade.queryOrderByInsure-1"
+  ],
+  "sha256": {
+    "solution.json": "ca098bbf1af5c2547c247931da97bc7100f4e2ce4fcab94adc700b8282b1ecbc",
+    "apis.json": "ff98c60b9f3cd14d680855df7f9ee86079b975081393603c2c0107f40e56d075",
+    "messages.json": "830ad78673a1a3f17ee70f2f08b8cbe23030f227c64d7e5686757b1540abb2a8"
+  }
+}

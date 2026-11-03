@@ -1,0 +1,13 @@
+[package]
+name = "mock-seerfar"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+
+[dependencies]
+axum = "0.8"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "time", "signal"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["arbitrary_precision"] }
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+rust_decimal = "1"

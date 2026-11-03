@@ -4,7 +4,7 @@
 
 ## 启动
 
-需要Docker Engine和Docker Compose。默认使用SQLite，从相邻的`../mock-servers/seerfar-api`和`../mock-servers/1688-crossboarder-erp-api`构建现有Mock，并运行仓库内的确定性Frankfurter协议桩；三个外部服务均无需映射宿主机端口。
+需要Docker Engine和Docker Compose。默认使用SQLite，从仓库内的`mocks/seerfar-api`和`mocks/1688-crossboarder-erp-api`构建现有Mock，并运行确定性Frankfurter协议桩；三个外部服务均无需映射宿主机端口，不依赖仓库外的本机目录。
 
 ```sh
 docker compose up -d --build
@@ -21,6 +21,24 @@ docker compose -f compose.yaml -f compose.postgres.yaml up -d --build
 ```
 
 两种数据库使用独立持久卷，切换数据库不会自动搬迁记录。已有单店数据库启动时以事务迁移到默认店铺；历史计算保留原口径，只读查看。归档店铺保留资料与记录，并阻止写入及重新测算。
+
+## 初始化数据
+
+默认`INITIAL_DATA_MODE=snapshot`。全新空数据库首次启动自动载入`internal/initialdata/seed.snapshot.json.gz`中的业务快照，SQLite和PostgreSQL均适用；已有任何记录的数据库不重复导入、不覆盖修改或恢复已删除内容。`INITIAL_DATA_MODE=demo`使用原始演示数据，主要用于隔离测试。
+
+当前快照包含2家店铺、4个商品、28条店铺报价、31条公共资料、5份竞品快照、2个促销方案、3个销量情景及商品、报价、设置的历史版本，不包含历史测算记录。双肩包预算包含16%佣金，并保留20%目标净利率建议价47.53元的计算条件；商品内订单校验样本仍然保留。快照数量、导出时间和校验摘要见`internal/initialdata/manifest.json`。
+
+原始JSON、记录时间、预算标记和报价有效期均保留。历史测算、集成凭据、加密密钥和临时预览不进入快照，新环境生成自己的密钥并建立Mock连接；真实服务凭据需在网页重新配置。快照文件是初始化资料，运行后的数据写入各自持久卷。
+
+更新SQLite业务快照可运行：
+
+```sh
+docker run --rm -v price-pilot_app-data:/source:ro \
+  -v "$PWD/tools/export-initial-data.py:/export.py:ro" \
+  -v "$PWD/internal/initialdata:/output" python:3.12-slim \
+  python /export.py /source/pricepilot.db /output
+docker compose build app
+```
 
 ## 后台录入与数据范围
 

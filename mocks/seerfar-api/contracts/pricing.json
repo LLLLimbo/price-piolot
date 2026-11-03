@@ -1,0 +1,404 @@
+{
+  "headers": [
+    {
+      "key": "name",
+      "label": {
+        "zh-CN": "接口名称",
+        "en-US": "API Name",
+        "ru-RU": "Название API"
+      }
+    },
+    {
+      "key": "credits",
+      "label": {
+        "zh-CN": "接口费用",
+        "en-US": "API Fee",
+        "ru-RU": "Стоимость API"
+      }
+    },
+    {
+      "key": "callCount",
+      "label": {
+        "zh-CN": "接口调用频率",
+        "en-US": "API Call Frequency",
+        "ru-RU": "Частота вызовов API"
+      }
+    }
+  ],
+  "items": [
+    {
+      "name": {
+        "zh-CN": "查询 API Key 积分",
+        "en-US": "Query API Key Quota",
+        "ru-RU": "Проверка квоты API Key"
+      },
+      "credits": {
+        "zh-CN": "0积分/次",
+        "en-US": "0 credits/request",
+        "ru-RU": "0 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "1次/3秒",
+        "en-US": "1 time/3 seconds",
+        "ru-RU": "1 раз/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查店铺",
+        "en-US": "Ozon Shop Lookup",
+        "ru-RU": "Поиск магазина Ozon"
+      },
+      "credits": {
+        "zh-CN": "10 积分/次",
+        "en-US": "10 credits/request",
+        "ru-RU": "10 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查店铺品牌",
+        "en-US": "Ozon Shop Brand Lookup",
+        "ru-RU": "Поиск брендов магазина Ozon"
+      },
+      "credits": {
+        "zh-CN": "10 积分/次",
+        "en-US": "10 credits/request",
+        "ru-RU": "10 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查店铺类目",
+        "en-US": "Ozon Shop Category Lookup",
+        "ru-RU": "Поиск категорий магазина Ozon"
+      },
+      "credits": {
+        "zh-CN": "10 积分/次",
+        "en-US": "10 credits/request",
+        "ru-RU": "10 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查竞品",
+        "en-US": "Ozon Competitor Product Lookup",
+        "ru-RU": "Поиск конкурентного товара Ozon"
+      },
+      "credits": {
+        "zh-CN": "3 积分/次",
+        "en-US": "3 credits/request",
+        "ru-RU": "3 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查相似商品",
+        "en-US": "Ozon Similar Products",
+        "ru-RU": "Похожие товары Ozon"
+      },
+      "credits": {
+        "zh-CN": "15 积分/次",
+        "en-US": "15 credits/request",
+        "ru-RU": "15 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查变体特征",
+        "en-US": "Ozon Variation Characteristics",
+        "ru-RU": "Характеристики вариантов Ozon"
+      },
+      "credits": {
+        "zh-CN": "1 积分/次",
+        "en-US": "1 credit/request",
+        "ru-RU": "1 кредит/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查 Top 变体",
+        "en-US": "Ozon Top Variations",
+        "ru-RU": "Топ вариантов Ozon"
+      },
+      "credits": {
+        "zh-CN": "3 积分/次",
+        "en-US": "3 credits/request",
+        "ru-RU": "3 кредита/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查商品变体",
+        "en-US": "Ozon Product Variations",
+        "ru-RU": "Варианты товара Ozon"
+      },
+      "credits": {
+        "zh-CN": "3 积分/次",
+        "en-US": "3 credits/request",
+        "ru-RU": "3 кредита/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 月度销量趋势",
+        "en-US": "Ozon Monthly Sales Trend",
+        "ru-RU": "Динамика продаж по месяцам Ozon"
+      },
+      "credits": {
+        "zh-CN": "1 积分/次",
+        "en-US": "1 credit/request",
+        "ru-RU": "1 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查类目",
+        "en-US": "Ozon Category Lookup",
+        "ru-RU": "Поиск категории Ozon"
+      },
+      "credits": {
+        "zh-CN": "10 积分/次",
+        "en-US": "10 credits/request",
+        "ru-RU": "10 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查热销榜单",
+        "en-US": "Ozon Best-seller Ranking Search",
+        "ru-RU": "Поиск рейтинга бестселлеров Ozon"
+      },
+      "credits": {
+        "zh-CN": "10 积分/次",
+        "en-US": "10 credits/request",
+        "ru-RU": "10 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查市场热词",
+        "en-US": "Ozon Market Hot Keywords",
+        "ru-RU": "Популярные рыночные ключевые слова Ozon"
+      },
+      "credits": {
+        "zh-CN": "10 积分/次",
+        "en-US": "10 credits/request",
+        "ru-RU": "10 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 关键词挖掘",
+        "en-US": "Ozon Keyword Mining",
+        "ru-RU": "Подбор ключевых слов Ozon"
+      },
+      "credits": {
+        "zh-CN": "15 积分/次",
+        "en-US": "15 credits/request",
+        "ru-RU": "15 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 关键词反查",
+        "en-US": "Ozon Reverse Keyword Lookup",
+        "ru-RU": "Обратный поиск ключевых слов Ozon"
+      },
+      "credits": {
+        "zh-CN": "15 积分/次",
+        "en-US": "15 credits/request",
+        "ru-RU": "15 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 采集商品",
+        "en-US": "Ozon Product Collection",
+        "ru-RU": "Сбор товаров Ozon"
+      },
+      "credits": {
+        "zh-CN": "3 积分/SKU",
+        "en-US": "3 credits/SKU",
+        "ru-RU": "3 кредита/SKU"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查询采集商品",
+        "en-US": "Ozon Collected Product Query",
+        "ru-RU": "Запрос собранных товаров Ozon"
+      },
+      "credits": {
+        "zh-CN": "3 积分/次",
+        "en-US": "3 credits/request",
+        "ru-RU": "3 кредита/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 创建评论分析任务",
+        "en-US": "Ozon Create Review Analysis Tasks",
+        "ru-RU": "Ozon Создать задачи анализа отзывов"
+      },
+      "credits": {
+        "zh-CN": "200 积分/SKU",
+        "en-US": "200 credits/SKU",
+        "ru-RU": "200 кредитов/SKU"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查评论分析报表",
+        "en-US": "Ozon Review Analysis Report",
+        "ru-RU": "Ozon Отчёт по анализу отзывов"
+      },
+      "credits": {
+        "zh-CN": "0 积分/次",
+        "en-US": "0 credits/request",
+        "ru-RU": "0 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查评论词频",
+        "en-US": "Ozon Review Word Frequency",
+        "ru-RU": "Ozon Частота слов в отзывах"
+      },
+      "credits": {
+        "zh-CN": "0 积分/次",
+        "en-US": "0 credits/request",
+        "ru-RU": "0 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查评论统计",
+        "en-US": "Ozon Review Statistics",
+        "ru-RU": "Ozon Статистика отзывов"
+      },
+      "credits": {
+        "zh-CN": "0 积分/次",
+        "en-US": "0 credits/request",
+        "ru-RU": "0 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    },
+    {
+      "name": {
+        "zh-CN": "Ozon 查原始评论",
+        "en-US": "Ozon Original Reviews",
+        "ru-RU": "Ozon Исходные отзывы"
+      },
+      "credits": {
+        "zh-CN": "0 积分/次",
+        "en-US": "0 credits/request",
+        "ru-RU": "0 кредитов/запрос"
+      },
+      "callCount": {
+        "zh-CN": "3次/3秒",
+        "en-US": "3 times/3 seconds",
+        "ru-RU": "3 раза/3 секунды"
+      }
+    }
+  ]
+}

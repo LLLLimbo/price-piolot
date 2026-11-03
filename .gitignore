@@ -1,6 +1,7 @@
 web/node_modules/
 web/src/.umi*/
 web/dist/
+mocks/**/target/
 data/
 .cache/
 tests/artifacts/

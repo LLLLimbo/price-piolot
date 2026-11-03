@@ -1,0 +1,470 @@
+{
+  "alibaba.trade.createCrossOrder": [
+    {
+      "path": "flow",
+      "enum": [
+        "general",
+        "fenxiao",
+        "saleproxy",
+        "paired",
+        "repurchase",
+        "boutiquefenxiao",
+        "boutiquepifa"
+      ]
+    },
+    {
+      "path": "smallProcurement",
+      "enum": [
+        "y",
+        "n"
+      ]
+    },
+    {
+      "path": "dropshipping",
+      "enum": [
+        "y",
+        "n"
+      ]
+    }
+  ],
+  "alibaba.trade.fastCreateOrder": [
+    {
+      "path": "flow",
+      "enum": [
+        "general",
+        "fenxiao",
+        "saleproxy",
+        "paired",
+        "repurchase",
+        "boutiquefenxiao",
+        "boutiquepifa"
+      ]
+    }
+  ],
+  "alibaba.createOrder.preview": [
+    {
+      "path": "flow",
+      "enum": [
+        "general",
+        "fenxiao",
+        "saleproxy",
+        "paired",
+        "repurchase",
+        "boutiquefenxiao",
+        "boutiquepifa"
+      ]
+    }
+  ],
+  "alibaba.trade.cancel": [
+    {
+      "path": "cancelReason",
+      "enum": [
+        "buyerCancel",
+        "sellerGoodsLack",
+        "other"
+      ]
+    }
+  ],
+  "alibaba.trade.createRefund": [
+    {
+      "path": "disputeRequest",
+      "enum": [
+        "refund",
+        "returnRefund"
+      ]
+    },
+    {
+      "path": "vouchers",
+      "minItems": 1,
+      "maxItems": 5
+    }
+  ],
+  "alibaba.trade.refund.OpQueryBatchRefundByOrderIdAndStatus": [
+    {
+      "path": "queryType",
+      "enum": [
+        "1",
+        "3"
+      ]
+    }
+  ],
+  "alibaba.trade.refund.buyer.queryOrderRefundList": [
+    {
+      "path": "dipsuteType",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "alibaba.trade.getBuyerOrderList": [
+    {
+      "path": "orderStatus",
+      "enum": [
+        "success",
+        "cancel",
+        "waitbuyerpay",
+        "waitsellersend",
+        "waitbuyerreceive"
+      ]
+    },
+    {
+      "path": "refundStatus",
+      "enum": [
+        "waitselleragree",
+        "refundsuccess",
+        "refundclose",
+        "waitbuyermodify",
+        "waitbuyersend",
+        "waitsellerreceive"
+      ]
+    }
+  ],
+  "alibaba.trade.getSellerOrderList": [
+    {
+      "path": "orderStatus",
+      "enum": [
+        "success",
+        "cancel",
+        "waitbuyerpay",
+        "waitsellersend",
+        "waitbuyerreceive"
+      ]
+    },
+    {
+      "path": "refundStatus",
+      "enum": [
+        "waitselleragree",
+        "refundsuccess",
+        "refundclose",
+        "waitbuyermodify",
+        "waitbuyersend",
+        "waitsellerreceive"
+      ]
+    }
+  ],
+  "alibaba.category.attribute.get": [
+    {
+      "path": "scene",
+      "enum": [
+        "",
+        "processing"
+      ]
+    }
+  ],
+  "alibaba.pifatuan.product.list": [
+    {
+      "path": "sortByType",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    },
+    {
+      "path": "topOfferIds",
+      "maxItems": 50
+    }
+  ],
+  "alibaba.product.push.syncPushProductResult": [
+    {
+      "path": "platformDefinition.definitionId",
+      "enum": [
+        "AMAZON",
+        "AE",
+        "WISH",
+        "EBAY",
+        "LAZADA",
+        "TAOBAO"
+      ]
+    }
+  ],
+  "alibaba.fenxiao.buyer.outproduct.relation.add": [
+    {
+      "path": "aiMaterialDetailFields.*",
+      "enum": [
+        "cpv",
+        "title",
+        "picture"
+      ]
+    }
+  ],
+  "syt.buyer.draftPurchaseOrder": [
+    {
+      "path": "request.confirmTerm.contractConfirmType",
+      "enum": [
+        "BUYER_MANUAL_CONFIRM",
+        "AUTO_CONFIRM"
+      ]
+    }
+  ],
+  "trade.invoice.apply": [
+    {
+      "path": "input.invoiceApplyModelList.*.invoiceType",
+      "enum": [
+        "VATAX_SPEC",
+        "VATAX_COMM"
+      ]
+    },
+    {
+      "path": "input.invoiceApplyModelList.*.purchaserInvoiceTitleModel.titleType",
+      "enum": [
+        "PERSONAL",
+        "COMPANY",
+        "SOCIAL_ORGANIZATION",
+        "PARENT_VIRTUAL"
+      ]
+    }
+  ],
+  "alibaba.cps.getCpsRecommendSameOfferList": [
+    {
+      "path": "offerType",
+      "enum": [
+        "1688",
+        "tao"
+      ]
+    },
+    {
+      "path": "ext",
+      "maxLength": 2000
+    }
+  ],
+  "alibaba.cps.tradeBillList": [
+    {
+      "path": "queryOrderType",
+      "enum": [
+        "orderAll",
+        "orderSettle",
+        "orderPay",
+        "orderMain",
+        "orderSub"
+      ]
+    },
+    {
+      "path": "queryTimeType",
+      "enum": [
+        "gmtCreateTime",
+        "confirmTime",
+        "settleTime",
+        "rightsStartTime",
+        "rightsEndTime"
+      ]
+    },
+    {
+      "path": "orderState",
+      "enum": [
+        10,
+        20,
+        50,
+        80
+      ]
+    },
+    {
+      "path": "settleState",
+      "enum": [
+        1,
+        2
+      ]
+    },
+    {
+      "path": "rightsState",
+      "enum": [
+        10,
+        30,
+        40
+      ]
+    }
+  ],
+  "alibaba.cps.webUnionTradeBillList": [
+    {
+      "path": "queryOrderType",
+      "enum": [
+        "orderAll",
+        "orderSettle",
+        "orderPay"
+      ]
+    },
+    {
+      "path": "queryTimeType",
+      "enum": [
+        "gmtCreateTime",
+        "confirmTime",
+        "settleTime",
+        "rightsStartTime",
+        "rightsEndTime"
+      ]
+    },
+    {
+      "path": "orderState",
+      "enum": [
+        10,
+        20,
+        50,
+        80
+      ]
+    },
+    {
+      "path": "settleState",
+      "enum": [
+        1,
+        2
+      ]
+    },
+    {
+      "path": "rightsState",
+      "enum": [
+        10,
+        30,
+        40
+      ]
+    }
+  ],
+  "paycredit.batchFundCharge.apply": [
+    {
+      "path": "param.outPayNo",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    {
+      "path": "param.outBizNo",
+      "minLength": 1,
+      "maxLength": 64
+    }
+  ],
+  "paycredit.fundCharge.refund": [
+    {
+      "path": "param.outBizNo",
+      "minLength": 1,
+      "maxLength": 64
+    }
+  ],
+  "account.user.register": [
+    {
+      "path": "countryAccount.site",
+      "maxLength": 16
+    },
+    {
+      "path": "countryAccount.outLoginId",
+      "maxLength": 60
+    },
+    {
+      "path": "countryAccount.outMemberId",
+      "maxLength": 60
+    },
+    {
+      "path": "countryAccount.email",
+      "maxLength": 60
+    },
+    {
+      "path": "countryAccount.mobile",
+      "maxLength": 30
+    }
+  ],
+  "category.translation.getById": [
+    {
+      "path": "outMemberId",
+      "maxLength": 64
+    }
+  ],
+  "category.translation.getByKeyword": [
+    {
+      "path": "outMemberId",
+      "maxLength": 64
+    }
+  ],
+  "alibaba.cross.syncProductListPushed": [
+    {
+      "path": "productIdList",
+      "maxItems": 20
+    }
+  ],
+  "alibaba.cps.getCpsRecommendOfferList": [
+    {
+      "path": "ext",
+      "maxLength": 2000
+    }
+  ],
+  "alibaba.app.pieceorder.get": [
+    {
+      "path": "pageSize",
+      "minimum": 1,
+      "maximum": 50
+    }
+  ],
+  "app.expire.get": [
+    {
+      "path": "pageSize",
+      "minimum": 1,
+      "maximum": 50
+    }
+  ],
+  "app.order.get": [
+    {
+      "path": "pageSize",
+      "minimum": 1,
+      "maximum": 50
+    }
+  ],
+  "product.related.recommend": [
+    {
+      "path": "relatedQueryParams.pageSize",
+      "minimum": 1,
+      "maximum": 10
+    }
+  ],
+  "product.search.imageQuery": [
+    {
+      "path": "offerQueryParam.pageSize",
+      "minimum": 1,
+      "maximum": 50
+    }
+  ],
+  "product.search.imageQueryBasic": [
+    {
+      "path": "searchParam.pageSize",
+      "minimum": 1,
+      "maximum": 50
+    }
+  ],
+  "product.topList.query": [
+    {
+      "path": "rankQueryParams.limit",
+      "minimum": 1,
+      "maximum": 20
+    }
+  ],
+  "jxhy.product.getPageList": [
+    {
+      "path": "pageSize",
+      "minimum": 1,
+      "maximum": 50
+    }
+  ],
+  "product.keywords.search": [
+    {
+      "path": "param.pageSize",
+      "minimum": 1,
+      "maximum": 50
+    }
+  ],
+  "trade.invoiceApply.getPageListBuyerView": [
+    {
+      "path": "input.pageSize",
+      "minimum": 1,
+      "maximum": 100
+    }
+  ],
+  "trade.invoiceTitle.getPageList": [
+    {
+      "path": "input.pageSize",
+      "minimum": 1,
+      "maximum": 100
+    }
+  ],
+  "alibaba.cps.generateIntroduceUrlByParam": [
+    {
+      "path": "offerIds",
+      "maxItems": 100
+    }
+  ]
+}
