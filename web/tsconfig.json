@@ -1,0 +1,16 @@
+{
+  "extends": "./src/.umi/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  },
+  "include": [
+    "src",
+    ".umirc.ts",
+    "tests",
+    "vitest.config.mts"
+  ]
+}

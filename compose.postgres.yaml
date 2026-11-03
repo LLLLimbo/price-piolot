@@ -1,0 +1,23 @@
+services:
+  app:
+    environment:
+      DATABASE_DRIVER: postgres
+      DATABASE_DSN: postgres://pricepilot:pricepilot@postgres:5432/pricepilot?sslmode=disable
+    depends_on:
+      postgres:
+        condition: service_healthy
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: pricepilot
+      POSTGRES_PASSWORD: pricepilot
+      POSTGRES_DB: pricepilot
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U pricepilot -d pricepilot]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  postgres-data:

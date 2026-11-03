@@ -1,0 +1,11 @@
+FROM node:22-bookworm
+COPY --from=rust:1.90-bookworm /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+ENV NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+WORKDIR /runner
+RUN npm install --no-audit --no-fund playwright@1.48.0
+RUN export http_proxy="${HTTP_PROXY:-}" https_proxy="${HTTPS_PROXY:-}"; \
+    sed -i 's|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list.d/debian.sources && \
+    npx playwright install --with-deps chromium && \
+    apt-get install -y --no-install-recommends fonts-noto-cjk && \
+    rm -rf /var/lib/apt/lists/*
+ENV NODE_PATH=/runner/node_modules

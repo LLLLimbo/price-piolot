@@ -1,0 +1,38 @@
+name: price-pilot
+services:
+  app:
+    image: price-pilot:local
+    build:
+      context: .
+      args:
+        HTTP_PROXY: ${HTTP_PROXY:-}
+        HTTPS_PROXY: ${HTTPS_PROXY:-}
+    ports:
+      - "${PILOT_BIND:-127.0.0.1}:${PILOT_PORT:-8090}:8080"
+    environment:
+      DATABASE_DRIVER: sqlite
+      DATABASE_DSN: /app/data/pricepilot.db
+      SEERFAR_BASE_URL: ${SEERFAR_BASE_URL:-http://mock-seerfar:8080}
+      SEERFAR_API_KEY: ${SEERFAR_API_KEY:-seerfar-test-key}
+      SEERFAR_MODE: ${SEERFAR_MODE:-mock}
+    volumes:
+      - app-data:/app/data
+    depends_on:
+      mock-seerfar:
+        condition: service_healthy
+  mock-seerfar:
+    image: price-pilot-seerfar:local
+    build:
+      context: ../mock-servers/seerfar-api
+      args:
+        HTTP_PROXY: ${HTTP_PROXY:-}
+        HTTPS_PROXY: ${HTTPS_PROXY:-}
+    environment:
+      MOCK_BASE_URL: http://mock-seerfar:8080
+    healthcheck:
+      test: [CMD, curl, -fsS, http://localhost:8080/health]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  app-data:

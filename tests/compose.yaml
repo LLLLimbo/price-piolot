@@ -1,0 +1,87 @@
+name: price-pilot-tests
+services:
+  mock-seerfar:
+    image: price-pilot-seerfar:local
+    environment:
+      MOCK_BASE_URL: http://mock-seerfar:8080
+    networks: [simulation]
+    healthcheck:
+      test: [CMD, curl, -fsS, http://localhost:8080/health]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: pricepilot
+      POSTGRES_PASSWORD: pricepilot
+      POSTGRES_DB: pricepilot
+    networks: [simulation]
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U pricepilot -d pricepilot]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+  app:
+    image: price-pilot:local
+    environment:
+      SEERFAR_BASE_URL: http://mock-seerfar:8080
+      SEERFAR_API_KEY: seerfar-test-key
+      SEERFAR_MODE: mock
+    networks: [simulation]
+    depends_on:
+      mock-seerfar:
+        condition: service_healthy
+  app-postgres:
+    image: price-pilot:local
+    environment:
+      DATABASE_DRIVER: postgres
+      DATABASE_DSN: postgres://pricepilot:pricepilot@postgres:5432/pricepilot?sslmode=disable
+      SEERFAR_BASE_URL: http://mock-seerfar:8080
+      SEERFAR_API_KEY: seerfar-test-key
+      SEERFAR_MODE: mock
+    networks: [simulation]
+    depends_on:
+      mock-seerfar:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+  go-tests:
+    image: price-pilot-go-tests:local
+    build:
+      context: ..
+      target: go-base
+      args:
+        HTTP_PROXY: ${HTTP_PROXY:-}
+        HTTPS_PROXY: ${HTTPS_PROXY:-}
+    command: [go, test, ./internal/..., ./cmd/..., -race, -count=1]
+    environment:
+      TEST_POSTGRES_DSN: postgres://pricepilot:pricepilot@postgres:5432/pricepilot?sslmode=disable
+    networks: [simulation]
+    depends_on:
+      postgres:
+        condition: service_healthy
+  api-tests:
+    image: python:3.12-slim
+    command: [python, /tests/integration.py]
+    volumes: [".:/tests:ro"]
+    networks: [simulation]
+    depends_on:
+      app:
+        condition: service_healthy
+      app-postgres:
+        condition: service_healthy
+  browser-tests:
+    image: price-pilot-browser:local
+    init: true
+    command: [node, /tests/browser.cjs]
+    volumes:
+      - .:/tests:ro
+      - ./artifacts:/artifacts
+    networks: [simulation]
+    depends_on:
+      app:
+        condition: service_healthy
+networks:
+  simulation:
+    internal: true

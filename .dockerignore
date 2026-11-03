@@ -1,0 +1,8 @@
+.git
+web/node_modules
+web/src/.umi*
+web/dist
+data
+.cache
+tests/artifacts
+.env
